@@ -1,0 +1,398 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.466);
+}
+
+section {
+    padding: 10vh 0;
+}
+
+
+
+
+/********** TEXTO **********/
+.mainText {
+    margin: auto;
+    padding: 5%;
+    font-family: 'Montserrat', sans-serif;
+    width: 60%;
+    text-align: center;
+
+}
+
+.titulo {
+    height: 10vh;
+    font-family: 'Courgette', cursive;
+    font-size: 230%;
+    color: rgb(39, 39, 39);
+    text-align: center;
+}
+
+
+/********** NAVBAR **********/
+.navBar {
+    position: fixed;
+    width: 100%;
+    height: 12vh;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+
+.navBar__list {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.navBar__list a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+    margin: 1vh 1.5vh;
+}
+
+#navBar_mobile--menuIcon {
+    width: 50px;
+    display: none;
+}
+
+#navBar_mobile {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    display: none;
+}
+
+#navBar_desktop {
+    display: block;
+}
+
+/********** SUBMENU *********/
+.submenu {
+    display: none;
+}
+
+.navBar__menu:hover>.submenu {
+    display: block;
+    list-style: none;
+    position: absolute;
+    background-color: #ffccc0;
+}
+#submenuMobile li{
+    list-style: none;
+    background-color: #ffccc0;
+    margin: 0 -80px;
+}
+
+.submenu li {
+    padding: 5px 0;
+}
+
+.submenu li:hover {
+    background-color: #ffddcd;
+
+}
+
+
+
+
+/********** LOGO **********/
+.logo {
+    width: 100px;
+    margin: 1vw;
+    border-radius: 50%;
+    border-bottom: 5px solid #bae8d4;
+    z-index: 2;
+}
+
+.logo_mobile {
+    display: none;
+    position: fixed;
+    width: 100px;
+    left: 50%;
+    margin-left: -50px;
+    top: 20px;
+    border-radius: 50%;
+    border-bottom: 5px solid #bae8d4;
+    z-index: 2;
+}
+
+
+/*********** PRODUCTOS **********/
+.prods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+
+.prods__card {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    width: 15%;
+    min-width: 300px;
+
+}
+
+.prods__card img {
+    width: 100%;
+}
+
+.prods__card a {
+    text-decoration: none;
+}
+
+/********** ALBUM **********/
+.album,
+.prods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.album__card {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    width: 30%;
+    min-width: 400px;
+}
+
+.album__card h3 {
+    color: #4b244d;
+}
+
+.album__card img {
+    width: 100%;
+    z-index: -1;
+}
+
+.album__card a {
+    text-decoration: none;
+}
+
+/********** TOOLTIP **********/
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltiptext {
+    width: 70%;
+    margin: auto;
+    margin-top: -90%;
+    padding: 5px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2vw;
+    visibility: hidden;
+    background-color: #e9e9e9;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    right: 15%;
+    position: absolute;
+    z-index: 1;
+
+
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+
+}
+
+/********** TABLA **********/
+table {
+    width: 50%;
+    margin: 5% auto;
+}
+
+table,
+th,
+td {
+    border: solid rgb(221, 221, 221);
+}
+
+td ul {
+    margin-left: 20px;
+}
+
+/********** COTIZADOR **********/
+.cotizador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+}
+
+.cotizador select {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.cotizador label {
+    text-align: left;
+}
+
+.cotizador__btn--ok {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgb(21, 161, 84);
+}
+
+.cotizador__btn--ok:hover {
+    background-color: rgb(0, 107, 168);
+}
+
+.precio {
+    height: 40px;
+    font-size: large;
+}
+
+/********** ICONOS **********/
+.socialIcon__container {
+    text-align: center;
+}
+
+.socialIcon__container a {
+    font-size: 80px;
+    margin: 50px;
+}
+
+/********** COMENTARIOS **********/
+
+.commentContainer {
+    margin: auto;
+    padding: 50px;
+    width: 20%;
+    min-width: 300px;
+    height: 30%;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgb(119, 119, 119);
+    text-align: center;
+}
+
+/********** FOOTER **********/
+footer {
+    height: 10vh;
+    background-color: rgb(20, 20, 20);
+}
+
+
+/********** BANNER **********/
+.banner {
+    min-height: 90vh;
+    background-image: url("../assets/img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+}
+
+
+.banner__inicio {
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.banner__gallery {
+    background-image: url(../assets/img/gallery_bg.jpg);
+}
+
+.banner__about {
+    background-image: url(../assets/img/about_bg.jpg);
+}
+
+.banner__cotiza {
+    background-image: url(../assets/img/cotiza_bg.webp);
+}
+
+
+/********** PROFILE IMG **********/
+.profile__img {
+    background-image: url("../assets/img/profile.jpeg");
+    display: block;
+    width: 30%;
+    height: 50%;
+    margin: 0 auto;
+}
+
+/********** COLORES **********/
+
+.navBar__bg {
+
+    background-color: #ffccc0;
+}
+
+.section__bg {
+    background-color: #bae8d4;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fa-whatsapp {
+    color: #25d366;
+}
+
+
+/*************** MEDIA QUERY *******************/
+
+@media screen and (max-width: 735px) {
+
+    #navBar_desktop {
+        display: none;
+    }
+
+    #navBar_mobile {
+        display: flex;
+    }
+
+    #navBar_mobile--menuIcon {
+        display: block;
+    }
+    .navBar__list{
+        margin-right: 20px;
+    }
+    
+    .logo_mobile{
+        display: block;
+    }
+
+
+    
+    
+
+
+}
