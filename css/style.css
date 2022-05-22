@@ -3,45 +3,42 @@
     margin: 0;
 }
 
-html {
+/* html {
     scroll-behavior: smooth;
-}
+} */
 
 body {
     background-color: rgba(255, 255, 255, 0.466);
 }
 
-section {
-    padding: 10vh 0;
-}
+/* section {
+    padding: 100px 0;
+} */
 
 
 
 
 /********** TEXTO **********/
+.titulo {
+    height: 100px;
+    font-family: 'Courgette', cursive;
+    font-size: 230%;
+    color: rgb(39, 39, 39);
+    text-align: center;
+}
 .mainText {
     margin: auto;
     padding: 5%;
     font-family: 'Montserrat', sans-serif;
     width: 60%;
     text-align: center;
-
 }
-
-.titulo {
-    height: 10vh;
-    font-family: 'Courgette', cursive;
-    font-size: 230%;
-    color: rgb(39, 39, 39);
-    text-align: center;
-}
-
 
 /********** NAVBAR **********/
 .navBar {
     position: fixed;
     width: 100%;
-    height: 12vh;
+    height: 100px;
     z-index: 2;
     display: flex;
     justify-content: space-around;
@@ -62,7 +59,7 @@ section {
     font-size: medium;
     color: rgb(32, 32, 32);
     text-decoration: none;
-    margin: 1vh 1.5vh;
+    margin: 10rem 2rem;
 }
 
 #navBar_mobile--menuIcon {
@@ -107,9 +104,6 @@ section {
 
 }
 
-
-
-
 /********** LOGO **********/
 .logo {
     width: 100px;
@@ -130,7 +124,33 @@ section {
     border-bottom: 5px solid #bae8d4;
     z-index: 2;
 }
+/********** BANNER **********/
+.banner {
+    min-height: 90vh;
+    background-image: url("../assets/img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+}
 
+
+.banner__inicio {
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.banner__gallery {
+    background-image: url(../assets/img/gallery_bg.jpg);
+}
+
+.banner__about {
+    background-image: url(../assets/img/about_bg.jpg);
+}
+
+.banner__cotiza {
+    background-image: url(../assets/img/cotiza_bg.webp);
+}
 
 /*********** PRODUCTOS **********/
 .prods {
@@ -297,39 +317,9 @@ td ul {
 
 /********** FOOTER **********/
 footer {
-    height: 10vh;
+    height: 100px;
     background-color: rgb(20, 20, 20);
 }
-
-
-/********** BANNER **********/
-.banner {
-    min-height: 90vh;
-    background-image: url("../assets/img/bg.jpg");
-    background-position: center;
-    background-size: cover;
-    align-items: center;
-}
-
-
-.banner__inicio {
-    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
-    background-position: center;
-    background-size: cover;
-}
-
-.banner__gallery {
-    background-image: url(../assets/img/gallery_bg.jpg);
-}
-
-.banner__about {
-    background-image: url(../assets/img/about_bg.jpg);
-}
-
-.banner__cotiza {
-    background-image: url(../assets/img/cotiza_bg.webp);
-}
-
 
 /********** PROFILE IMG **********/
 .profile__img {
@@ -342,27 +332,27 @@ footer {
 
 /********** COLORES **********/
 
-.navBar__bg {
+.pink {
 
     background-color: #ffccc0;
 }
 
-.section__bg {
+.skyblue {
     background-color: #bae8d4;
 }
 
-.fa-facebook {
+.facebookColor {
     color: #3b5998;
 }
 
-.fa-instagram {
+.instagramColor {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.fa-whatsapp {
+.whatsappColor {
     color: #25d366;
 }
 
