@@ -1,31 +1,33 @@
 * {
-    padding: 0;
+    padding: ;
     margin: 0;
 }
 
-/* html {
+html {
     scroll-behavior: smooth;
-} */
+}
 
 body {
     background-color: rgba(255, 255, 255, 0.466);
 }
 
-/* section {
-    padding: 100px 0;
-} */
+section {
+    margin-top: 100px;
+    padding-top: 100px;
+    justify-content: center;
+}
 
 
 
 
 /********** TEXTO **********/
 .titulo {
-    height: 100px;
     font-family: 'Courgette', cursive;
     font-size: 230%;
     color: rgb(39, 39, 39);
     text-align: center;
 }
+
 .mainText {
     margin: auto;
     padding: 5%;
@@ -89,7 +91,8 @@ body {
     position: absolute;
     background-color: #ffccc0;
 }
-#submenuMobile li{
+
+#submenuMobile li {
     list-style: none;
     background-color: #ffccc0;
     margin: 0 -80px;
@@ -124,6 +127,7 @@ body {
     border-bottom: 5px solid #bae8d4;
     z-index: 2;
 }
+
 /********** BANNER **********/
 .banner {
     min-height: 90vh;
@@ -154,20 +158,41 @@ body {
 
 /*********** PRODUCTOS **********/
 .prods {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 90%;
     margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "prod1 prod2 prod3 prod4 prod5";
+    width: 90%;
+    column-gap: 4%;
+}
+
+.prod1 {
+    grid-area: prod1;
+}
+
+.prod2 {
+    grid-area: prod2;
+}
+
+.prod3 {
+    grid-area: prod3;
+}
+
+.prod4 {
+    grid-area: prod4;
+}
+
+.prod5 {
+    grid-area: prod5;
 }
 
 .prods__card {
     display: flex;
     flex-direction: column;
-    margin: 1%;
-    width: 15%;
-    min-width: 300px;
-
+    text-align: center;
+    /* padding: 2rem; */
 }
 
 .prods__card img {
@@ -176,11 +201,16 @@ body {
 
 .prods__card a {
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+.prods__card a h3{
+    margin: 2vh auto;
+    padding: 0 1rem;
+    color: #2a3141;
 }
 
 /********** ALBUM **********/
-.album,
-.prods {
+.album {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -195,10 +225,6 @@ body {
     margin: 1%;
     width: 30%;
     min-width: 400px;
-}
-
-.album__card h3 {
-    color: #4b244d;
 }
 
 .album__card img {
@@ -278,11 +304,11 @@ td ul {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
-    background-color: rgb(21, 161, 84);
+    background-color: #C9EEF2;
 }
 
 .cotizador__btn--ok:hover {
-    background-color: rgb(0, 107, 168);
+    background-color: #41CAD9;
 }
 
 .precio {
@@ -331,14 +357,23 @@ footer {
 }
 
 /********** COLORES **********/
+/* Paleta
+
+Rosa-3-hex { color: #F2A7BB; }
+Rosa-2-hex { color: #F285A2; }
+Rosa-1-hex { color: #A62E44; }
+Celeste-2-hex { color: #41CAD9; }
+Celeste-1-hex { color: #C9EEF2; }
+
+*/
 
 .pink {
 
-    background-color: #ffccc0;
+    background-color: #F2A7BB;
 }
 
 .skyblue {
-    background-color: #bae8d4;
+    background-color: #C9EEF2;
 }
 
 .facebookColor {
@@ -359,7 +394,52 @@ footer {
 
 /*************** MEDIA QUERY *******************/
 
+/********** TABLET **************/
+@media screen and (max-width: 1024px) {
+    .prods {
+        margin: auto;
+        width: 80%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 10%;
+        grid-template-areas:
+            "prod1 prod1"
+            "prod2 prod3"
+            "prod4 prod5";
+    }
+
+    .imgProd {
+        content: url("../assets/img/productos/infantiles_tablet.jpg");
+    }
+
+    .imgCandy {
+        content: url("../assets/img/cupcakes/cupcake_tablet.jpg");
+    }
+}
+
+
+/************* MOBILE ***************/
+/* TODO: Media query para gallery. */
+
 @media screen and (max-width: 735px) {
+    .prods {
+        width: 80%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas:
+            "prod1"
+            "prod2"
+            "prod3"
+            "prod4"
+            "prod5";
+    }
+    .imgProd {
+        content: url("../assets/img/productos/infantiles1.jpg");
+    }
+
+    .imgCandy {
+        content: url("../assets/img/cupcakes/cupcake1.jpg");
+    }
 
     #navBar_desktop {
         display: none;
@@ -372,17 +452,12 @@ footer {
     #navBar_mobile--menuIcon {
         display: block;
     }
-    .navBar__list{
+
+    .navBar__list {
         margin-right: 20px;
     }
-    
-    .logo_mobile{
+
+    .logo_mobile {
         display: block;
     }
-
-
-    
-    
-
-
 }
