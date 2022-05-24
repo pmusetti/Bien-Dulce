@@ -1,5 +1,5 @@
 * {
-    padding: ;
+    padding: 0;
     margin: 0;
 }
 
@@ -12,7 +12,7 @@ body {
 }
 
 section {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     padding-top: 100px;
     justify-content: center;
 }
@@ -29,7 +29,7 @@ section {
 }
 
 .mainText {
-    margin: auto;
+    margin: auto; 
     padding: 5%;
     font-family: 'Montserrat', sans-serif;
     width: 60%;
@@ -112,7 +112,7 @@ section {
     width: 100px;
     margin: 1vw;
     border-radius: 50%;
-    border-bottom: 5px solid #bae8d4;
+    border-bottom: 5px solid #F2A7BB;
     z-index: 2;
 }
 
@@ -124,7 +124,7 @@ section {
     margin-left: -50px;
     top: 20px;
     border-radius: 50%;
-    border-bottom: 5px solid #bae8d4;
+    border-bottom: 5px solid #F2A7BB;
     z-index: 2;
 }
 
@@ -157,6 +157,7 @@ section {
 }
 
 /*********** PRODUCTOS **********/
+/* index.html */
 .prods {
     margin: auto;
     display: grid;
@@ -203,28 +204,72 @@ section {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
 }
-.prods__card a h3{
+
+.prods__card a h3 {
     margin: 2vh auto;
-    padding: 0 1rem;
+    font-size: 1.2em;
     color: #2a3141;
 }
 
 /********** ALBUM **********/
+/* gallery.html */
+
 .album {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 90%;
+    width: 80%;
     margin: auto;
-    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "pic1 pic2 pic3"
+        "pic4 pic5 pic6"
+        "pic7 pic8 pic9"
+        "pic10 pic11 pic12";
 }
+.pic1{
+    grid-area: pic1;
+}
+.pic2{
+    grid-area: pic2;
+}
+.pic3{
+    grid-area: pic3;
+}
+.pic4{
+    grid-area: pic4;
+}
+.pic5{
+    grid-area: pic5;
+}
+.pic6{
+    grid-area: pic6;
+}
+.pic7{
+    grid-area: pic7;
+}
+.pic8{
+    grid-area: pic8;
+}
+.pic9{
+    grid-area: pic9;
+}
+.pic10{
+    grid-area: pic10;
+}
+.pic11{
+    grid-area: pic11;
+}
+.pic12{
+    grid-area: pic12;
+}
+
 
 .album__card {
     display: flex;
     flex-direction: column;
-    margin: 1%;
-    width: 30%;
-    min-width: 400px;
+    padding: 5%;
+    /* width: 30%; */
+    /* min-width: 400px; */
 }
 
 .album__card img {
@@ -245,13 +290,13 @@ section {
 .tooltiptext {
     width: 70%;
     margin: auto;
-    margin-top: -90%;
+    margin-top: -80%;
     padding: 5px;
     border-radius: 6px;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2vw;
     visibility: hidden;
-    background-color: #e9e9e9;
+    background-color: #C9EEF2;
     color: rgb(0, 0, 0);
     text-align: center;
     right: 15%;
@@ -267,8 +312,9 @@ section {
 }
 
 /********** TABLA **********/
+/* quote.html */
 table {
-    width: 50%;
+    width: 80%;
     margin: 5% auto;
 }
 
@@ -276,18 +322,27 @@ table,
 th,
 td {
     border: solid rgb(221, 221, 221);
+    
+}
+td{
+    padding: 2%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 td ul {
-    margin-left: 20px;
+    /* margin-left: 20px; */
+    list-style: none;
 }
 
 /********** COTIZADOR **********/
+/* quote.html */
 .cotizador {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30%;
+    width: 50%;
 }
 
 .cotizador select {
@@ -323,7 +378,7 @@ td ul {
 
 .socialIcon__container a {
     font-size: 80px;
-    margin: 50px;
+    margin: 5vw;
 }
 
 /********** COMENTARIOS **********/
@@ -348,17 +403,47 @@ footer {
 }
 
 /********** PROFILE IMG **********/
+/* about.html */
+.profile_container{
+    width: 80%;
+    margin: 10vw auto;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+    "titulo titulo titulo"
+    "picture short short"
+    "picture large large"
+    ;
+}
+.name{
+    grid-area: titulo;
+    padding-bottom: 5vw;
+    font-size: 72px;
+}
 .profile__img {
     background-image: url("../assets/img/profile.jpeg");
-    display: block;
-    width: 30%;
-    height: 50%;
-    margin: 0 auto;
+    width: 100%;
+    grid-area: picture;    
+}
+.short_description{
+    grid-area: short;
+    width: 95%;
+    font-size: 1.8vw;
+    font-weight: bold;
+    padding: 0;
+    color: #61035c;
+}
+.large_description{
+    grid-area: large;
+    width: 95%;
+    font-size: 1.5vw;
+    padding: 0;
 }
 
 /********** COLORES **********/
 /* Paleta
-
 Rosa-3-hex { color: #F2A7BB; }
 Rosa-2-hex { color: #F285A2; }
 Rosa-1-hex { color: #A62E44; }
@@ -391,55 +476,14 @@ Celeste-1-hex { color: #C9EEF2; }
     color: #25d366;
 }
 
+/*******************************************************/
+/********************* MEDIA QUERIES *******************/
+/*******************************************************/
 
-/*************** MEDIA QUERY *******************/
-
-/********** TABLET **************/
+/*--------------------- MODO TABLET -------------------*/
+/*-----------------------------------------------------*/
 @media screen and (max-width: 1024px) {
-    .prods {
-        margin: auto;
-        width: 80%;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        column-gap: 10%;
-        grid-template-areas:
-            "prod1 prod1"
-            "prod2 prod3"
-            "prod4 prod5";
-    }
-
-    .imgProd {
-        content: url("../assets/img/productos/infantiles_tablet.jpg");
-    }
-
-    .imgCandy {
-        content: url("../assets/img/cupcakes/cupcake_tablet.jpg");
-    }
-}
-
-
-/************* MOBILE ***************/
-/* TODO: Media query para gallery. */
-
-@media screen and (max-width: 735px) {
-    .prods {
-        width: 80%;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, 1fr);
-        grid-template-areas:
-            "prod1"
-            "prod2"
-            "prod3"
-            "prod4"
-            "prod5";
-    }
-    .imgProd {
-        content: url("../assets/img/productos/infantiles1.jpg");
-    }
-
-    .imgCandy {
-        content: url("../assets/img/cupcakes/cupcake1.jpg");
-    }
+    /*+++++++++++++ Barra de navegacion +++++++++++++++*/
 
     #navBar_desktop {
         display: none;
@@ -460,4 +504,163 @@ Celeste-1-hex { color: #C9EEF2; }
     .logo_mobile {
         display: block;
     }
+
+    /*++++++++ Lista de productos pagina index ++++++++*/
+    .prods {
+        margin: auto;
+        width: 80%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 10%;
+        grid-template-areas:
+            "prod1 prod1"
+            "prod2 prod3"
+            "prod4 prod5";
+    }
+
+    .prods__card a h3 {
+        font-size: 1.5em;
+    }
+
+    /*++++++++++ Primera imagen de productos +++++++++++*/
+    /* Se utiliza una imagen con relacion 2:1 porque la 
+    primer imagen ocupa dos celdas horizontales*/
+    .imgProd {
+        content: url("../assets/img/productos/infantiles_tablet.jpg");
+    }
+
+    /*++++++++++ Primera imagen de golosinas ++++++++++*/
+    /* Se utiliza una imagen con relacion 2:1 porque la 
+    primer imagen ocupa dos celdas horizontales*/
+    .imgCandy {
+        content: url("../assets/img/cupcakes/cupcake_tablet.jpg");
+    }
+
+    /*++++++++++++++ Galeria gallery.html +++++++++++++*/
+    .album {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+            "pic1 pic2"
+            "pic3 pic4"
+            "pic5 pic6"
+            "pic7 pic8"
+            "pic9 pic10"
+            "pic11 pic12";
+    }
+
+    .tooltiptext {
+        font-size: 1.8vw;
+    }
+    /*++++++++++++++ about.html +++++++++++++++*/
+    .profile_container{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr auto 1fr;
+        grid-template-areas: 
+        "titulo titulo titulo titulo"
+        "picture picture large large"
+        "short short short short";
+    }
+    .name{
+        font-size: 50px;
+    }
+    .short_description{
+        width: 100%;
+        padding: 0;
+        font-size: 2vw;
+    }
+    .large_description{
+        padding: 0;
+        font-size: 1.8vw;
+    }
+    /*++++++++++++++ quote.html +++++++++++++++*/
+}
+
+
+
+
+
+/*--------------------- MODO MOBILE -------------------*/
+/*-----------------------------------------------------*/
+
+@media screen and (max-width: 735px) {
+
+    /*Utiliza la misma barra de navegacion que la tablet*/
+
+    /*++++++ Lista de productos index.html +++++++*/
+    .prods {
+        width: 80%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas:
+            "prod1"
+            "prod2"
+            "prod3"
+            "prod4"
+            "prod5";
+    }
+
+    .prods__card a h3 {
+        font-size: 1.8em;
+    }
+
+    /*++++++++++ Primera imagen de productos +++++++++++*/
+    .imgProd {
+        content: url("../assets/img/productos/infantiles1.jpg");
+    }
+
+    /*++++++++++ Primera imagen de golosinas ++++++++++*/
+    .imgCandy {
+        content: url("../assets/img/cupcakes/cupcake1.jpg");
+    }
+
+    /****************** Galeria gallery.html *****************/
+    .album {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-areas:
+            "pic1"
+            "pic2"
+            "pic3"
+            "pic4"
+            "pic5"
+            "pic6"
+            "pic7"
+            "pic8"
+            "pic9"
+            "pic10"
+            "pic11"
+            "pic12";
+    }
+
+    .tooltiptext {
+        font-size: 3.8vw;
+    }
+
+    /*++++++++++++++ about.html +++++++++++++++*/
+    .profile_container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "titulo"
+        "picture"
+        "short"
+        "large";
+    }
+ 
+    .short_description{
+        font-size: 18px;
+        padding: 2vw 0;
+    }
+    .large_description{
+        font-size: 15px;
+        padding: 4vw 0;
+    }
+    .name{
+        
+        font-size: 6vw;
+    }
+    /*++++++++++++++ quote.html +++++++++++++++*/
+
+
 }
