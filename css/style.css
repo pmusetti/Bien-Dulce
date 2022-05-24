@@ -310,7 +310,40 @@ section {
     visibility: visible;
 
 }
+/*********** quote.html *******/
 
+.quoteGrid{
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    "pic1 text1 text1"
+    "text2 text2 pic2"
+    "pic3 text3 text3";
+}
+.quoteImg{
+    width: 100%;
+}
+#quoteImg1{
+    grid-area: pic1;
+}
+#quoteImg2{
+    grid-area: pic2;
+}
+#quoteImg3{
+    grid-area: pic3;
+}
+#quoteText1{
+    grid-area: text1;
+}
+#quoteText2{
+    grid-area: text2;
+}
+#quoteText3{
+    grid-area: text3;
+}
 /********** TABLA **********/
 /* quote.html */
 table {
