@@ -316,15 +316,24 @@ section {
     width: 70%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: repeat(2, 1fr);
     grid-template-areas: 
-    "pic1 text1 text1"
-    "text2 text2 pic2"
-    "pic3 text3 text3";
+    "pic1 pic2 pic3"
+    "text1 text2 text3";
+    align-items: center;
+    justify-items: center;
+    column-gap: 5rem;
 }
 .quoteImg{
     width: 100%;
+    max-width: 300px;
+    margin-top: 4vw;
+}
+.quoteText{
+    margin: 1vw;
+    font-size: 1.6vw;
+    text-align: center;
 }
 #quoteImg1{
     grid-area: pic1;
@@ -607,6 +616,20 @@ Celeste-1-hex { color: #C9EEF2; }
         font-size: 1.8vw;
     }
     /*++++++++++++++ quote.html +++++++++++++++*/
+    .quoteGrid{
+        grid-template-columns: 200px auto 200px ;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 
+        "pic1 text1 text1"
+        "text2 text2 pic2"
+        "pic3 text3 text3";
+        justify-content: space-around;
+        column-gap: 0;
+    }
+    .quoteText{
+        font-size: 1rem;
+    }
+    
 }
 
 
@@ -694,6 +717,21 @@ Celeste-1-hex { color: #C9EEF2; }
         font-size: 6vw;
     }
     /*++++++++++++++ quote.html +++++++++++++++*/
-
+    .quoteGrid{
+        grid-template-columns: 1fr ;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas: 
+        "pic1"
+        "text1"
+        "pic2"
+        "text2"
+        "pic3"
+        "text3";
+    }
+.quoteText{
+    font-size: 1.5rem;
+    max-width: 300px;
+    text-align: justify;
+}
 
 }
