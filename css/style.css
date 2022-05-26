@@ -280,8 +280,6 @@ section {
     display: flex;
     flex-direction: column;
     padding: 5%;
-    /* width: 30%; */
-    /* min-width: 400px; */
 }
 
 .album__card img {
