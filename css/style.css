@@ -479,7 +479,6 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-rows: 1fr;
-    grid-template-rows: auto auto auto auto;
     grid-template-areas:
         "titulo titulo titulo"
         "picture short short"
@@ -790,6 +789,25 @@ Celeste-1-hex { color: #C9EEF2; }
         font-size: 1.5rem;
         max-width: 300px;
         text-align: justify;
+    }
+
+}
+
+@keyframes cambiarImagen {
+    0% {
+        background-size: 100%;
+        }
+
+
+    50% {
+        /* background-position-y: bottom; */
+        background-size: 120%;
+        background-position: center;
+    }
+
+    100% {
+        
+        background-size: 100%;
     }
 
 }
