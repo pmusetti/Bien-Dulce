@@ -29,7 +29,7 @@ section {
 }
 
 .mainText {
-    margin: auto; 
+    margin: auto;
     padding: 5%;
     font-family: 'Montserrat', sans-serif;
     width: 60%;
@@ -131,17 +131,14 @@ section {
 /********** BANNER **********/
 .banner {
     min-height: 90vh;
-    background-image: url("../assets/img/bg.jpg");
-    background-position: center;
     background-size: cover;
-    align-items: center;
+    background-position: center;
 }
 
 
 .banner__inicio {
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
-    background-position: center;
-    background-size: cover;
+    animation: cambiarImagen 60s ease-in-out infinite;
 }
 
 .banner__gallery {
@@ -193,11 +190,20 @@ section {
     display: flex;
     flex-direction: column;
     text-align: center;
-    /* padding: 2rem; */
 }
 
 .prods__card img {
     width: 100%;
+}
+
+.zoom:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+.highlight:hover{
+    color: white;
+    text-shadow: 0 5px 10px #fff2f2;
+    
 }
 
 .prods__card a {
@@ -226,40 +232,52 @@ section {
         "pic7 pic8 pic9"
         "pic10 pic11 pic12";
 }
-.pic1{
+
+.pic1 {
     grid-area: pic1;
 }
-.pic2{
+
+.pic2 {
     grid-area: pic2;
 }
-.pic3{
+
+.pic3 {
     grid-area: pic3;
 }
-.pic4{
+
+.pic4 {
     grid-area: pic4;
 }
-.pic5{
+
+.pic5 {
     grid-area: pic5;
 }
-.pic6{
+
+.pic6 {
     grid-area: pic6;
 }
-.pic7{
+
+.pic7 {
     grid-area: pic7;
 }
-.pic8{
+
+.pic8 {
     grid-area: pic8;
 }
-.pic9{
+
+.pic9 {
     grid-area: pic9;
 }
-.pic10{
+
+.pic10 {
     grid-area: pic10;
 }
-.pic11{
+
+.pic11 {
     grid-area: pic11;
 }
-.pic12{
+
+.pic12 {
     grid-area: pic12;
 }
 
@@ -268,8 +286,6 @@ section {
     display: flex;
     flex-direction: column;
     padding: 5%;
-    /* width: 30%; */
-    /* min-width: 400px; */
 }
 
 .album__card img {
@@ -322,9 +338,10 @@ table,
 th,
 td {
     border: solid rgb(221, 221, 221);
-    
+
 }
-td{
+
+td {
     padding: 2%;
     justify-content: center;
     justify-items: center;
@@ -385,13 +402,12 @@ td ul {
 
 .commentContainer {
     margin: auto;
-    padding: 50px;
-    width: 20%;
-    min-width: 300px;
+    padding: 5vw;
+    width: 60%;
     height: 30%;
     font-family: 'Rajdhani', sans-serif;
     font-size: 30px;
-    font-weight: 400;
+    /* font-weight: 400; */
     color: rgb(119, 119, 119);
     text-align: center;
 }
@@ -404,30 +420,33 @@ footer {
 
 /********** PROFILE IMG **********/
 /* about.html */
-.profile_container{
+.profile_container {
     width: 80%;
     margin: 10vw auto;
     display: grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     grid-template-rows: auto auto auto auto;
-    grid-template-areas: 
-    "titulo titulo titulo"
-    "picture short short"
-    "picture large large"
+    grid-template-areas:
+        "titulo titulo titulo"
+        "picture short short"
+        "picture large large"
     ;
 }
-.name{
+
+.name {
     grid-area: titulo;
     padding-bottom: 5vw;
     font-size: 72px;
 }
+
 .profile__img {
     background-image: url("../assets/img/profile.jpeg");
     width: 100%;
-    grid-area: picture;    
+    grid-area: picture;
 }
-.short_description{
+
+.short_description {
     grid-area: short;
     width: 95%;
     font-size: 1.8vw;
@@ -435,7 +454,8 @@ footer {
     padding: 0;
     color: #61035c;
 }
-.large_description{
+
+.large_description {
     grid-area: large;
     width: 95%;
     font-size: 1.5vw;
@@ -536,6 +556,15 @@ Celeste-1-hex { color: #C9EEF2; }
         content: url("../assets/img/cupcakes/cupcake_tablet.jpg");
     }
 
+    .commentContainer {
+        font-size: 25px;
+    }
+
+    .socialIcon__container a {
+        font-size: 60px;
+    }
+
+
     /*++++++++++++++ Galeria gallery.html +++++++++++++*/
     .album {
         grid-template-columns: repeat(2, 1fr);
@@ -552,27 +581,32 @@ Celeste-1-hex { color: #C9EEF2; }
     .tooltiptext {
         font-size: 1.8vw;
     }
+
     /*++++++++++++++ about.html +++++++++++++++*/
-    .profile_container{
+    .profile_container {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 1fr auto 1fr;
-        grid-template-areas: 
-        "titulo titulo titulo titulo"
-        "picture picture large large"
-        "short short short short";
+        grid-template-areas:
+            "titulo titulo titulo titulo"
+            "picture picture large large"
+            "short short short short";
     }
-    .name{
+
+    .name {
         font-size: 50px;
     }
-    .short_description{
+
+    .short_description {
         width: 100%;
         padding: 0;
         font-size: 2vw;
     }
-    .large_description{
+
+    .large_description {
         padding: 0;
         font-size: 1.8vw;
     }
+
     /*++++++++++++++ quote.html +++++++++++++++*/
 }
 
@@ -637,30 +671,60 @@ Celeste-1-hex { color: #C9EEF2; }
         font-size: 3.8vw;
     }
 
+    .commentContainer {
+        font-size: 20px;
+    }
+
+    .socialIcon__container a {
+        font-size: 50px;
+    }
+
     /*++++++++++++++ about.html +++++++++++++++*/
-    .profile_container{
+    .profile_container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "titulo"
-        "picture"
-        "short"
-        "large";
+        grid-template-areas:
+            "titulo"
+            "picture"
+            "short"
+            "large";
     }
- 
-    .short_description{
+
+    .short_description {
         font-size: 18px;
         padding: 2vw 0;
     }
-    .large_description{
+
+    .large_description {
         font-size: 15px;
         padding: 4vw 0;
     }
-    .name{
-        
+
+    .name {
+
         font-size: 6vw;
     }
+
     /*++++++++++++++ quote.html +++++++++++++++*/
 
+
+}
+
+@keyframes cambiarImagen {
+    0% {
+        background-size: 100%;
+        }
+
+
+    50% {
+        /* background-position-y: bottom; */
+        background-size: 120%;
+        background-position: center;
+    }
+
+    100% {
+        
+        background-size: 100%;
+    }
 
 }
