@@ -196,14 +196,16 @@ section {
     width: 100%;
 }
 
-.zoom:hover{
+.zoom:hover {
+
     transform: scale(1.1);
     transition: 0.2s ease-in-out;
 }
-.highlight:hover{
+
+.highlight:hover {
     color: white;
     text-shadow: 0 5px 10px #fff2f2;
-    
+
 }
 
 .prods__card a {
@@ -713,7 +715,7 @@ Celeste-1-hex { color: #C9EEF2; }
 @keyframes cambiarImagen {
     0% {
         background-size: 100%;
-        }
+    }
 
 
     50% {
@@ -723,7 +725,7 @@ Celeste-1-hex { color: #C9EEF2; }
     }
 
     100% {
-        
+
         background-size: 100%;
     }
 
