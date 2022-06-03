@@ -76,84 +76,112 @@
 
     <main>
         <div class="banner banner__quote"></div>
-        <div class="quoteGrid">
-            <img id="quoteImg1" class="quoteImg" src="../assets/img/quoteImgs.jpg" alt="">
-            <p id="quoteText1" class="quoteText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
-                fugit animi assumenda ratione unde earum illo? Labore neque fugiat sed! Similique dicta libero
-                provident, cupiditate delectus modi. Expedita alias, aut quo pariatur eaque delectus doloremque
-                cupiditate eos nam iste ut beatae, adipisci quae, accusamus corporis. Quisquam dolor error fugit
-                recusandae.</p>
-
-            <img id="quoteImg2" class="quoteImg" src="../assets/img/quoteImgs.jpg" alt="">
-            <p id="quoteText2" class="quoteText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
-                fugit animi assumenda ratione unde earum illo? Labore neque fugiat sed! Similique dicta libero
-                provident, cupiditate delectus modi. Expedita alias, aut quo pariatur eaque delectus doloremque
-                cupiditate eos nam iste ut beatae, adipisci quae, accusamus corporis. Quisquam dolor error fugit
-                recusandae.</p>
-
-            <img id="quoteImg3" class="quoteImg" src="../assets/img/quoteImgs.jpg" alt="">
-            <p id="quoteText3" class="quoteText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
-                fugit animi assumenda ratione unde earum illo? Labore neque fugiat sed! Similique dicta libero
-                provident, cupiditate delectus modi. Expedita alias, aut quo pariatur eaque delectus doloremque
-                cupiditate eos nam iste ut beatae, adipisci quae, accusamus corporis. Quisquam dolor error fugit
-                recusandae.</p>
+        <div class="container mt-lg-5">
+            <div class="card-group">
+                <div class="card m-3">
+                    <img src="../assets/img/quoteImgs.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card m-3">
+                    <img src="../assets/img/quoteImgs.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional
+                            content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card m-3">
+                    <img src="../assets/img/quoteImgs.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This card has even longer content than the first to show that equal
+                            height action.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Seccion tabla de productos -->
         <section>
             <h2 class="titulo">Opciones</h2>
             <!-- Tabla de productos -->
-            <table>
-                <!-- Encabezado -->
-                <th>Cobertura</th>
-                <th>Descripcion</th>
-                <th>Ingredientes</th>
-                <th>Peso</th>
+            <div class="table container">
+                <div class="table-responsive">
+                    <table class="table">
 
-                <!-- Fila 1 -->
-                <tr>
-                    <td>Clasica </td>
-                    <td>Torta vainilla recubierta de merengue</td>
-                    <td>
-                        <ul>
-                            <li>Bizcochuelo Vainilla o chocolate</li>
-                            <li>Relleno de dulce de leche o crema</li>
-                            <li>Recubrimiento de merengue</li>
-                        </ul>
-                    </td>
-                    <td>1.5 kg</td>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Tortas</th>
+                                <td>
+                                    <ul>
+                                        <li>Vainilla</li>
+                                        <li>Chocolate</li>
+                                        <li>Marmolado</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Dulce de leche</li>
+                                        <li>Ganache</li>
+                                        <li>Crema de frutas</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>6 porciones</li>
+                                        <li>12 porciones</li>
+                                        <li>24 porciones</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Postres</th>
+                                <td colspan="2">
+                                    <ul>
+                                        <li>Chease cake</li>
+                                        <li>Rogel</li>
+                                        <li>Lemon pie</li>
+                                        <li>Red velvet</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>6 porciones</li>
+                                        <li>12 porciones</li>
+                                        <li>24 porciones</li>
+                                    </ul>
+                                </td>
 
-                </tr>
-                <!-- Fila 2 -->
-                <tr>
-                    <td>Fondan </td>
-                    <td>Torta vainilla o chocolate recubierta de <br>
-                        masa fondan y motivo a eleccion</td>
-                    <td>
-                        <ul>
-                            <li>Bizcochuelo Vainilla o chocolate</li>
-                            <li>Relleno de dulce de leche o crema</li>
-                            <li>Recubrimiento de fondan</li>
-                        </ul>
-                    </td>
-                    <td>1.5 kg</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cupcakes</th>
+                                <td colspan="2">
+                                    <ul>
+                                        <li>Vainilla</li>
+                                        <li>Frambuesa & Limon</li>
+                                        <li>Oreo cookies</li>
+                                        <li>Red Velvet</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>Pedido minimo 24 unidades</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                </tr>
 
-                <!-- Fila 3 -->
-                <tr>
-                    <td>Ganache</td>
-                    <td>Torta vainilla o chocolate recubierta de ganache</td>
-                    <td>
-                        <ul>
-                            <li>Bizcochuelo Vainilla o chocolate</li>
-                            <li>Relleno de dulce de leche crema o frutas</li>
-                            <li>Recubrimiento de ganache</li>
-                        </ul>
-                    </td>
-                    <td>1.5 kg</td>
-
-                </tr>
-            </table>
         </section>
 
         <!-- Seccion de cotizador -->
@@ -164,32 +192,49 @@
             <h2 class="mainText">Por pedidos especiales, comunicate directamente por whatsapp y le damos forma a tus
                 ideas!
             </h2>
-            <div class="cotizador mainText">
-                <label for="Cobertura">Cobertura:</label>
-                <select name="tortas">
-                    <option value="Merengue">Merengue</option>
-                    <option value="Fondan">Fondan</option>
-                    <option value="Crema">Crema</option>
-                </select>
-                <br><br>
-                <label for="Relleno">Relleno:</label>
-                <select name="Relleno">
-                    <option value="Dulce de leche">Dulce de leche</option>
-                    <option value="Musse">Musse</option>
-                    <option value="Furtas">Frutas</option>
-                </select>
-                <br><br>
-                <label for="Porciones">Porciones:</label>
-                <select name="Porciones">
-                    <option value="6Porciones">6 Porciones</option>
-                    <option value="8Porciones">8 Porciones</option>
-                    <option value="12Porciones">12 Porciones</option>
-                </select>
-                <br><br>
-                <input type="submit" value="Cotizar" class="cotizador__btn--ok">
-                <br><br>
-                <label for="Precio">Precio</label>
-                <input type="text" name="Precio" class="precio" value="$ 0">
+
+
+            <div class="container">
+                <label for="exampleDataList" class="form-label">Bizcochuelo</label>
+                <input class="form-control" list="datalistOptions" id="exampleDataList"
+                    placeholder="Elegi tu bizcochuelo">
+                <datalist id="datalistOptions">
+                    <option value="Vainilla">
+                    <option value="Chocolate">
+                    <option value="Marmolado">
+                </datalist>
+
+                <label for="exampleDataList" class="form-label">Relleno</label>
+                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Elegi tu relleno">
+                <datalist id="datalistOptions">
+                    <option value="Dulce de leche">
+                    <option value="Mousse chocolate">
+                    <option value="Mouse dulce de leche">
+                    <option value="Durazno">
+                    <option value="Frutilla">
+                </datalist>
+
+                <label for="exampleDataList" class="form-label">Porciones</label>
+                <input class="form-control" list="datalistOptions" id="exampleDataList"
+                    placeholder="Elegi las porciones">
+                <datalist id="datalistOptions">
+                    <option value="6 porciones">
+                    <option value="12 porciones">
+                    <option value="24 porciones">
+                </datalist>
+
+                <div class="mb-3 mt-5">
+                    <button type="submit" class="btn btn-primary">Cotiza</button>
+                </div>
+
+
+                <div class="mb-3 mt-5">
+                    <label for="formGroupExampleInput2" class="form-label">Precio</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="$">
+                </div>
+
+
+
             </div>
         </section>
 

@@ -166,6 +166,7 @@ section {
 .prods__card img {
     width: 100%;
 }
+
 .prods__card a {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -189,10 +190,11 @@ section {
 
 }
 
-.link{
+.link {
     text-decoration: none;
     color: #2a3141;
 }
+
 
 /*********** quote.html *******/
 
@@ -359,9 +361,7 @@ footer {
 }
 
 .profile__img {
-    background-image: url("../assets/img/profile.jpeg");
-    width: 100%;
-    grid-area: picture;
+    max-width: 100%;
 }
 
 .short_description {
@@ -451,7 +451,7 @@ Celeste-1-hex { color: #C9EEF2; }
     .socialIcon__container a {
         font-size: 60px;
     }
-  
+
 
     /*++++++++++++++ about.html +++++++++++++++*/
     .profile_container {
@@ -568,7 +568,7 @@ Celeste-1-hex { color: #C9EEF2; }
 @keyframes cambiarImagen {
     0% {
         background-size: 100%;
-        }
+    }
 
 
     50% {
@@ -577,7 +577,7 @@ Celeste-1-hex { color: #C9EEF2; }
     }
 
     100% {
-        
+
         background-size: 100%;
     }
 
