@@ -17,8 +17,6 @@ section {
 }
 
 
-
-
 /********** TEXTO **********/
 .titulo {
     font-family: 'Courgette', cursive;
@@ -328,7 +326,6 @@ td ul {
     height: 30%;
     font-family: 'Rajdhani', sans-serif;
     font-size: 30px;
-    /* font-weight: 400; */
     color: rgb(119, 119, 119);
     text-align: center;
 }
@@ -447,11 +444,6 @@ Celeste-1-hex { color: #C9EEF2; }
     }
 
 
- 
-    .imgCandy {
-        content: url("../assets/img/cupcakes/cupcake_tablet.jpg");
-    }
-
     .commentContainer {
         font-size: 25px;
     }
@@ -459,24 +451,7 @@ Celeste-1-hex { color: #C9EEF2; }
     .socialIcon__container a {
         font-size: 60px;
     }
-
-
-    /*++++++++++++++ Galeria gallery.html +++++++++++++*/
-    .album {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        grid-template-areas:
-            "pic1 pic2"
-            "pic3 pic4"
-            "pic5 pic6"
-            "pic7 pic8"
-            "pic9 pic10"
-            "pic11 pic12";
-    }
-
-    .tooltiptext {
-        font-size: 1.8vw;
-    }
+  
 
     /*++++++++++++++ about.html +++++++++++++++*/
     .profile_container {
@@ -532,35 +507,8 @@ Celeste-1-hex { color: #C9EEF2; }
 
     /*Utiliza la misma barra de navegacion que la tablet*/
 
-    
-
-    /*++++++++++ Primera imagen de golosinas ++++++++++*/
-    .imgCandy {
-        content: url("../assets/img/cupcakes/cupcake1.jpg");
-    }
 
     /****************** Galeria gallery.html *****************/
-    .album {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(12, 1fr);
-        grid-template-areas:
-            "pic1"
-            "pic2"
-            "pic3"
-            "pic4"
-            "pic5"
-            "pic6"
-            "pic7"
-            "pic8"
-            "pic9"
-            "pic10"
-            "pic11"
-            "pic12";
-    }
-
-    .tooltiptext {
-        font-size: 3.8vw;
-    }
 
     .commentContainer {
         font-size: 20px;
