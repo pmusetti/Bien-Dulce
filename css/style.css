@@ -12,7 +12,6 @@ body {
 }
 
 section {
-    /* margin-top: 100px; */
     padding-top: 100px;
     justify-content: center;
 }
@@ -44,7 +43,7 @@ section {
     z-index: 2;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
 
 }
 
@@ -130,15 +129,19 @@ section {
 
 /********** BANNER **********/
 .banner {
-    min-height: 90vh;
+    min-height: 80vh;
     background-size: cover;
     background-position: center;
+    object-fit: cover;
 }
 
 
 .banner__inicio {
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
     animation: cambiarImagen 60s ease-in-out infinite;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
 }
 
 .banner__gallery {
@@ -155,36 +158,6 @@ section {
 
 /*********** PRODUCTOS **********/
 /* index.html */
-.prods {
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
-    grid-template-areas:
-        "prod1 prod2 prod3 prod4 prod5";
-    width: 90%;
-    column-gap: 4%;
-}
-
-.prod1 {
-    grid-area: prod1;
-}
-
-.prod2 {
-    grid-area: prod2;
-}
-
-.prod3 {
-    grid-area: prod3;
-}
-
-.prod4 {
-    grid-area: prod4;
-}
-
-.prod5 {
-    grid-area: prod5;
-}
 
 .prods__card {
     display: flex;
@@ -194,6 +167,16 @@ section {
 
 .prods__card img {
     width: 100%;
+}
+.prods__card a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.prods__card a h3 {
+    margin: 2vh auto;
+    font-size: 1.2em;
+    color: #2a3141;
 }
 
 .zoom:hover {
@@ -208,125 +191,9 @@ section {
 
 }
 
-.prods__card a {
+.link{
     text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.prods__card a h3 {
-    margin: 2vh auto;
-    font-size: 1.2em;
     color: #2a3141;
-}
-
-/********** ALBUM **********/
-/* gallery.html */
-
-.album {
-    width: 80%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-areas:
-        "pic1 pic2 pic3"
-        "pic4 pic5 pic6"
-        "pic7 pic8 pic9"
-        "pic10 pic11 pic12";
-}
-
-.pic1 {
-    grid-area: pic1;
-}
-
-.pic2 {
-    grid-area: pic2;
-}
-
-.pic3 {
-    grid-area: pic3;
-}
-
-.pic4 {
-    grid-area: pic4;
-}
-
-.pic5 {
-    grid-area: pic5;
-}
-
-.pic6 {
-    grid-area: pic6;
-}
-
-.pic7 {
-    grid-area: pic7;
-}
-
-.pic8 {
-    grid-area: pic8;
-}
-
-.pic9 {
-    grid-area: pic9;
-}
-
-.pic10 {
-    grid-area: pic10;
-}
-
-.pic11 {
-    grid-area: pic11;
-}
-
-.pic12 {
-    grid-area: pic12;
-}
-
-
-.album__card {
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
-}
-
-.album__card img {
-    width: 100%;
-    z-index: -1;
-}
-
-.album__card a {
-    text-decoration: none;
-}
-
-/********** TOOLTIP **********/
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltiptext {
-    width: 70%;
-    margin: auto;
-    margin-top: -80%;
-    padding: 5px;
-    border-radius: 6px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2vw;
-    visibility: hidden;
-    background-color: #C9EEF2;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    right: 15%;
-    position: absolute;
-    z-index: 1;
-
-
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-
 }
 
 /*********** quote.html *******/
@@ -579,33 +446,8 @@ Celeste-1-hex { color: #C9EEF2; }
         display: block;
     }
 
-    /*++++++++ Lista de productos pagina index ++++++++*/
-    .prods {
-        margin: auto;
-        width: 80%;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        column-gap: 10%;
-        grid-template-areas:
-            "prod1 prod1"
-            "prod2 prod3"
-            "prod4 prod5";
-    }
 
-    .prods__card a h3 {
-        font-size: 1.5em;
-    }
-
-    /*++++++++++ Primera imagen de productos +++++++++++*/
-    /* Se utiliza una imagen con relacion 2:1 porque la 
-    primer imagen ocupa dos celdas horizontales*/
-    .imgProd {
-        content: url("../assets/img/productos/infantiles_tablet.jpg");
-    }
-
-    /*++++++++++ Primera imagen de golosinas ++++++++++*/
-    /* Se utiliza una imagen con relacion 2:1 porque la 
-    primer imagen ocupa dos celdas horizontales*/
+ 
     .imgCandy {
         content: url("../assets/img/cupcakes/cupcake_tablet.jpg");
     }
@@ -690,27 +532,7 @@ Celeste-1-hex { color: #C9EEF2; }
 
     /*Utiliza la misma barra de navegacion que la tablet*/
 
-    /*++++++ Lista de productos index.html +++++++*/
-    .prods {
-        width: 80%;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, 1fr);
-        grid-template-areas:
-            "prod1"
-            "prod2"
-            "prod3"
-            "prod4"
-            "prod5";
-    }
-
-    .prods__card a h3 {
-        font-size: 1.8em;
-    }
-
-    /*++++++++++ Primera imagen de productos +++++++++++*/
-    .imgProd {
-        content: url("../assets/img/productos/infantiles1.jpg");
-    }
+    
 
     /*++++++++++ Primera imagen de golosinas ++++++++++*/
     .imgCandy {
@@ -802,7 +624,6 @@ Celeste-1-hex { color: #C9EEF2; }
 
 
     50% {
-        /* background-position-y: bottom; */
         background-size: 120%;
         background-position: center;
     }
@@ -821,9 +642,7 @@ Celeste-1-hex { color: #C9EEF2; }
 
 
     50% {
-        /* background-position-y: bottom; */
         background-size: 120%;
-        background-position: center;
     }
 
     100% {
