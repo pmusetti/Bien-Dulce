@@ -1,0 +1,104 @@
+@import"./base/variables";
+
+@import"./components/cards";
+@import"./components/footer";
+@import "./components/headerImg";
+@import "./components/navBar";
+
+@import "./components/profileImg";
+@import "./pages/about";
+@import "./pages/gallery.scss";
+@import "./pages/quote.scss";
+@import"./base/mediaQueries";
+@import"./base/keyframes";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $blanco;
+}
+
+section {
+    padding-top: 100px;
+    justify-content: center;
+}
+
+.section--bg{
+    background-color: $lightblue_0;
+}
+
+
+/********** TEXTO **********/
+.titulo {
+    font-family: 'Courgette', cursive;
+    font-size: 230%;
+    color: $negro;
+    text-align: center;
+}
+
+.mainText {
+    margin: auto;
+    padding: 5%;
+    font-family: 'Montserrat', sans-serif;
+    width: 60%;
+    text-align: center;
+}
+
+.zoom:hover {
+
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+.highlight:hover {
+    color: $blanco;
+    text-shadow: 0 5px 10px $bg;
+
+}
+
+.link {
+    text-decoration: none;
+    color: $lightblue_1;
+}
+
+/********** ICONOS **********/
+.socialIcon__container {
+    text-align: center;
+}
+
+.socialIcon__container a {
+    font-size: 80px;
+    margin: 5vw;
+}
+
+/********** COMENTARIOS **********/
+
+.commentContainer {
+    margin: auto;
+    padding: 5vw;
+    width: 60%;
+    height: 30%;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px;
+    color: rgb(119, 119, 119);
+    text-align: center;
+}
+
+
+.instagramColor {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+

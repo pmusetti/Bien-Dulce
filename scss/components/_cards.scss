@@ -1,0 +1,20 @@
+.prods__card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.prods__card img {
+    width: 100%;
+}
+
+.prods__card a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.prods__card a h3 {
+    margin: 2vh auto;
+    font-size: 1.2em;
+    color: #2a3141;
+}

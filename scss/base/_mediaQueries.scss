@@ -1,0 +1,71 @@
+/*--------------------- MODO TABLET -------------------*/
+/*-----------------------------------------------------*/
+@media screen and (max-width: 1024px) {
+  #navBar_desktop {
+    display: none;
+  }
+
+  #navBar_mobile {
+    display: flex;
+  }
+
+  #navBar_mobile--menuIcon {
+    display: block;
+  }
+
+  .navBar__list {
+    margin-right: 20px;
+  }
+
+  .logo_mobile {
+    display: block;
+  }
+
+  .commentContainer {
+    font-size: 25px;
+  }
+
+  .socialIcon__container {
+    a {
+      font-size: 60px;
+    }
+  }
+
+  /*++++++++++++++ about.html +++++++++++++++*/
+
+  .name {
+    font-size: 50px;
+  }
+}
+
+/*--------------------- MODO MOBILE -------------------*/
+/*-----------------------------------------------------*/
+
+@media screen and (max-width: 735px) {
+  /*Utiliza la misma barra de navegacion que la tablet*/
+  .banner__inicio {
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/macarons.jpg);
+  animation: cambiarImagen 60s ease-in-out infinite;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  }
+
+  /****************** Galeria gallery.html *****************/
+
+  .commentContainer {
+    font-size: 20px;
+  }
+
+  .socialIcon__container {
+    a{
+        font-size: 50px;
+    } 
+  }
+
+  /*++++++++++++++ about.html +++++++++++++++*/
+
+  .name {
+    font-size: 6vw;
+  }
+}
