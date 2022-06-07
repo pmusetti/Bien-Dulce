@@ -1,10 +1,8 @@
-@import"./base/variables";
-
+@import"./base/colors";
 @import"./components/cards";
 @import"./components/footer";
-@import "./components/headerImg";
+@import "./components/banner";
 @import "./components/navBar";
-
 @import "./components/profileImg";
 @import "./pages/about";
 @import "./pages/gallery.scss";
@@ -78,6 +76,7 @@ section {
     margin: 5vw;
 }
 
+
 /********** COMENTARIOS **********/
 
 .commentContainer {
@@ -92,12 +91,7 @@ section {
 }
 
 
-.instagramColor {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+
 
 
 

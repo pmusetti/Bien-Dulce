@@ -46,13 +46,15 @@
 /********** SUBMENU *********/
 .submenu {
   display: none;
+  padding: 0;
 }
 
 .navBar__menu:hover > .submenu {
   display: block;
   list-style: none;
   position: absolute;
-  background-color: $pink_0;
+  background-color: $pink_1;
+
 }
 
 #submenuMobile {

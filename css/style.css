@@ -1,3 +1,15 @@
+.whatsappColor {
+  color: #25d366; }
+
+.facebookColor {
+  color: #3b5998; }
+
+.instagramColor {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
 .prods__card {
   display: flex;
   flex-direction: column;
@@ -80,13 +92,14 @@ footer {
 
 /********** SUBMENU *********/
 .submenu {
-  display: none; }
+  display: none;
+  padding: 0; }
 
 .navBar__menu:hover > .submenu {
   display: block;
   list-style: none;
   position: absolute;
-  background-color: #F2A7BB; }
+  background-color: #F285A2; }
 
 #submenuMobile li {
   list-style: none;
@@ -243,9 +256,3 @@ section {
   font-size: 30px;
   color: #777777;
   text-align: center; }
-
-.instagramColor {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
