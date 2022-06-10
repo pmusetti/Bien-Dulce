@@ -14,18 +14,15 @@
   display: flex;
   flex-direction: column;
   text-align: center; }
-
-.prods__card img {
-  width: 100%; }
-
-.prods__card a {
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif; }
-
-.prods__card a h3 {
-  margin: 2vh auto;
-  font-size: 1.2em;
-  color: #2a3141; }
+  .prods__card img {
+    width: 100%; }
+  .prods__card a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif; }
+    .prods__card a h3 {
+      margin: 2vh auto;
+      font-size: 1.2em;
+      color: #2a3141; }
 
 footer {
   height: 100px;
@@ -33,16 +30,13 @@ footer {
 
 .banner {
   min-height: 80vh;
-  background-size: cover;
-  background-position: center;
-  object-fit: cover; }
-
-.banner__inicio {
-  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
-  animation: cambiarImagen 60s ease-in-out infinite;
   object-fit: cover;
   background-size: cover;
   background-position: center; }
+
+.banner__inicio {
+  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
+  animation: zoomBanner 60s ease-in-out infinite; }
 
 .banner__gallery {
   background-image: url(../assets/img/gallery_bg.jpg); }
@@ -69,13 +63,12 @@ footer {
   list-style-type: none;
   align-items: center;
   justify-content: center; }
-
-.navBar__list a {
-  font-family: "Montserrat", sans-serif;
-  font-size: medium;
-  color: #272727;
-  text-decoration: none;
-  margin: 10rem 2rem; }
+  .navBar__list a {
+    font-family: "Montserrat", sans-serif;
+    font-size: medium;
+    color: #272727;
+    text-decoration: none;
+    margin: 10rem 2rem; }
 
 #navBar_mobile--menuIcon {
   width: 50px;
@@ -94,6 +87,10 @@ footer {
 .submenu {
   display: none;
   padding: 0; }
+  .submenu li {
+    padding: 5px 0; }
+    .submenu li:hover {
+      background-color: #F2A7BB; }
 
 .navBar__menu:hover > .submenu {
   display: block;
@@ -105,12 +102,6 @@ footer {
   list-style: none;
   background-color: #F2A7BB;
   margin: 0 -80px; }
-
-.submenu li {
-  padding: 5px 0; }
-
-.submenu li:hover {
-  background-color: #F2A7BB; }
 
 /********** LOGO **********/
 .logo {
@@ -178,16 +169,7 @@ footer {
   .name {
     font-size: 6vw; } }
 
-@keyframes cambiarImagen {
-  0% {
-    background-size: 100%; }
-  50% {
-    background-size: 120%;
-    background-position: center; }
-  100% {
-    background-size: 100%; } }
-
-@keyframes cambiarImagen {
+@keyframes zoomBanner {
   0% {
     background-size: 100%; }
   50% {
@@ -241,10 +223,9 @@ section {
 /********** ICONOS **********/
 .socialIcon__container {
   text-align: center; }
-
-.socialIcon__container a {
-  font-size: 80px;
-  margin: 5vw; }
+  .socialIcon__container a {
+    font-size: 80px;
+    margin: 5vw; }
 
 /********** COMENTARIOS **********/
 .commentContainer {

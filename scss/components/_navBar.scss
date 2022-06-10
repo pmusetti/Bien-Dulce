@@ -15,9 +15,6 @@
   list-style-type: none;
   align-items: center;
   justify-content: center;
-}
-
-.navBar__list {
   a {
     font-family: "Montserrat", sans-serif;
     font-size: medium;
@@ -47,6 +44,12 @@
 .submenu {
   display: none;
   padding: 0;
+  li {
+    padding: 5px 0;
+    &:hover {
+      background-color: $pink_0;
+    }
+  }
 }
 
 .navBar__menu:hover > .submenu {
@@ -65,19 +68,6 @@
   }
 }
 
-.submenu {
-  li {
-    padding: 5px 0;
-  }
-}
-
-.submenu {
-  li {
-    &:hover {
-      background-color: $pink_0;
-    }
-  }
-}
 
 /********** LOGO **********/
 .logo {

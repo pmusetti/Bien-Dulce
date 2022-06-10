@@ -1,17 +1,15 @@
 .banner {
     min-height: 80vh;
+    object-fit: cover;
     background-size: cover;
     background-position: center;
-    object-fit: cover;
 }
 
 
 .banner__inicio {
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg.jpg);
-    animation: cambiarImagen 60s ease-in-out infinite;
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
+    animation: zoomBanner 60s ease-in-out infinite;
+    
 }
 
 .banner__gallery {
