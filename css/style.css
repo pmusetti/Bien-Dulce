@@ -1,16 +1,20 @@
-.whatsappColor {
-  color: #25d366; }
-
-.facebookColor {
-  color: #3b5998; }
-
 .instagramColor {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+.color--facebook {
+  color: #3b5998; }
+
+.color--whatsapp {
+  color: #25d366; }
+
+.color--send {
+  color: #0792a1; }
+
 .prods__card {
+  margin-top: 2vw;
   display: flex;
   flex-direction: column;
   text-align: center; }
@@ -66,7 +70,7 @@ footer {
   align-items: center;
   justify-content: center; }
   .navBar__list a {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: medium;
     color: #272727;
     text-decoration: none;
@@ -106,23 +110,21 @@ footer {
   margin: 0 -80px; }
 
 /********** LOGO **********/
-.logo {
+.logo, .logo_desktop, .logo_mobile {
   width: 100px;
-  margin: 1vw;
   border-radius: 50%;
   border-bottom: 5px solid #F2A7BB;
   z-index: 2; }
 
+.logo_desktop {
+  margin: 1vw; }
+
 .logo_mobile {
   display: none;
   position: fixed;
-  width: 100px;
   left: 50%;
   margin-left: -50px;
-  top: 20px;
-  border-radius: 50%;
-  border-bottom: 5px solid #F2A7BB;
-  z-index: 2; }
+  top: 20px; }
 
 .name {
   padding-bottom: 5vw;
@@ -175,7 +177,7 @@ footer {
   0% {
     background-size: 100%; }
   50% {
-    background-size: 120%; }
+    background-size: 150%; }
   100% {
     background-size: 100%; } }
 
@@ -197,11 +199,16 @@ section {
   background-color: #C9EEF2; }
 
 /********** TEXTO **********/
-.titulo {
+.titulo, .titulo_primario, .titulo_secundario {
   font-family: 'Courgette', cursive;
-  font-size: 230%;
   color: #272727;
   text-align: center; }
+
+.titulo_primario {
+  font-size: 430%; }
+
+.titulo_secundario {
+  font-size: 230%; }
 
 .mainText {
   margin: auto;
@@ -221,6 +228,9 @@ section {
 .link {
   text-decoration: none;
   color: #41CAD9; }
+
+.btn--highlight:hover {
+  background-color: #41CAD9; }
 
 /********** ICONOS **********/
 .socialIcon__container {

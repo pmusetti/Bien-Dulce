@@ -1,0 +1,17 @@
+$redes: (
+    facebook: #3b5998,
+    whatsapp: #25d366,
+    send: #0792a1
+);
+$fonts:(
+    montserrat: #{"'Montserrat',"} #{"sans-serif"},
+    courgette: #{"'Courgette',"} #{"cursive"},
+    rajdhani: #{"'Rajdhani',"} #{"sans-serif"}
+
+);
+
+@each $red, $color in $redes {
+    .color--#{$red}{
+        color: $color;
+    }
+}

@@ -3,19 +3,12 @@ $pink_1: #F285A2;
 $pink_2: #A62E44;
 $lightblue_0:#C9EEF2;
 $lightblue_1: #41CAD9;
-$face: #3b5998;
-$whats: #25d366;
 $bg: rgba(255, 255, 255, 0.466);
 $negro: #272727;
 $blanco: white;
 $gris: #777777;
 
-.whatsappColor{
-    color: $whats;
-}
-.facebookColor{
-    color: $face;
-}
+
 .instagramColor {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     background-clip: text;
