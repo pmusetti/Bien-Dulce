@@ -19,7 +19,8 @@
   flex-direction: column;
   text-align: center; }
   .prods__card img {
-    width: 100%; }
+    width: 100%;
+    object-fit: fill; }
   .prods__card a {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif; }
@@ -33,10 +34,10 @@ footer {
   background-color: #141414; }
 
 .banner {
-  min-height: 80vh; }
+  min-height: 60vh; }
 
 .banner__inicio {
-  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg4.jpg); }
+  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg3.jpg); }
 
 .bannerZoom {
   animation: zoomBanner 30s ease-in-out infinite;
@@ -159,7 +160,7 @@ footer {
 @media screen and (max-width: 735px) {
   /*Utiliza la misma barra de navegacion que la tablet*/
   .banner__inicio {
-    background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/macarons.jpg);
+    background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/productos/macaronsM.webp);
     animation: cambiarImagen 60s ease-in-out infinite;
     object-fit: cover;
     background-size: cover;
@@ -249,3 +250,15 @@ section {
   font-size: 30px;
   color: #777777;
   text-align: center; }
+
+.carousel--text {
+  color: #272727;
+  background-color: #f285a285;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  left: 0; }
+
+.carousel--size {
+  width: 70%;
+  margin: 0 auto; }

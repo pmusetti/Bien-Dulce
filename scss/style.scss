@@ -95,3 +95,16 @@ section {
   color: rgb(119, 119, 119);
   text-align: center;
 }
+
+.carousel--text{
+  color: $negro;
+  background-color: #f285a285;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  left: 0;
+}
+.carousel--size{
+  width: 70%;
+  margin: 0 auto;
+}
