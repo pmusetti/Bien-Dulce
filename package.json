@@ -1,7 +1,7 @@
 {
   "name": "biendulce",
   "version": "1.0.0",
-  "description": "Sitio web de una pasteleria llamada Bien Dulce. Desarrollado para mi cuñada, dueña del emprendimiento quien hoy solo se da a conocer por instagram. TODO:",
+  "description": "Sitio web de pasteleria Bien Dulce.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
