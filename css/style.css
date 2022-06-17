@@ -31,13 +31,14 @@
 
 footer {
   height: 100px;
+  color: wheat;
   background-color: #141414; }
 
 .banner {
   min-height: 60vh; }
 
 .banner__inicio {
-  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg3.jpg); }
+  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg3.webp); }
 
 .bannerZoom {
   animation: zoomBanner 30s ease-in-out infinite;
@@ -46,10 +47,10 @@ footer {
   background-position: center; }
 
 .banner__gallery {
-  background-image: url(../assets/img/gallery_bg.jpg); }
+  background-image: url(../assets/img/bg1.webp); }
 
 .banner__about {
-  background-image: url(../assets/img/about_bg.jpg); }
+  background-image: url(../assets/img/about_bg.webp); }
 
 .banner__quote {
   background-image: url(../assets/img/cotiza_bg.webp); }
