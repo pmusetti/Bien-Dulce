@@ -1,5 +1,11 @@
 Sitio web de una pasteleria llamada Bien Dulce.
 Desarrollado para mi cuñada, dueña del emprendimiento quien hoy solo se da a conocer por instagram.
+TODO:
+
+-Cambiar bg del banner en modo mobile
+-Agregar fotos a la galeria
+-Verificar tamaño de titulos y parrafos en modo mobile
+-Redimensionar carrousel para modo mobile
 
 ********************************************
 Correcciones

@@ -44,16 +44,30 @@
 @media screen and (max-width: 735px) {
   /*Utiliza la misma barra de navegacion que la tablet*/
   .banner__inicio {
+    @include banner;
     background: linear-gradient(
         0deg,
         rgb(255, 255, 255) 0%,
         rgba(0, 0, 0, 0) 30%
       ),
-      url(../assets/img/productos/macaronsM.webp);
-    animation: cambiarImagen 60s ease-in-out infinite;
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
+      url(../assets/img/inicio_bg_mobile.webp);
+    
+  }
+
+  .banner__quote{
+    @include banner;
+    background-image: url(../assets/img/cotiza_bg_mobile.webp);
+    
+  }
+  .banner__gallery{
+    @include banner;
+    background-image: url(../assets/img/gallery_bg_mobile.webp);
+   
+  }
+  .banner__about{
+    @include banner;
+    background-image: url(../assets/img/about_bg_mobile.webp);
+  
   }
 
   /****************** Galeria gallery.html *****************/

@@ -4,6 +4,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+.banner {
+  animation: cambiarImagen 60s ease-in-out infinite;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center; }
+
 .color--facebook {
   color: #3b5998; }
 
@@ -38,7 +44,7 @@ footer {
   min-height: 60vh; }
 
 .banner__inicio {
-  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/bg3.webp); }
+  background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/inicio_bg.webp); }
 
 .bannerZoom {
   animation: zoomBanner 30s ease-in-out infinite;
@@ -47,7 +53,7 @@ footer {
   background-position: center; }
 
 .banner__gallery {
-  background-image: url(../assets/img/bg1.webp); }
+  background-image: url(../assets/img/gallery_bg.webp); }
 
 .banner__about {
   background-image: url(../assets/img/about_bg.webp); }
@@ -161,11 +167,29 @@ footer {
 @media screen and (max-width: 735px) {
   /*Utiliza la misma barra de navegacion que la tablet*/
   .banner__inicio {
-    background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/productos/macaronsM.webp);
     animation: cambiarImagen 60s ease-in-out infinite;
     object-fit: cover;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    background: linear-gradient(0deg, white 0%, rgba(0, 0, 0, 0) 30%), url(../assets/img/inicio_bg_mobile.webp); }
+  .banner__quote {
+    animation: cambiarImagen 60s ease-in-out infinite;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../assets/img/cotiza_bg_mobile.webp); }
+  .banner__gallery {
+    animation: cambiarImagen 60s ease-in-out infinite;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../assets/img/gallery_bg_mobile.webp); }
+  .banner__about {
+    animation: cambiarImagen 60s ease-in-out infinite;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../assets/img/about_bg_mobile.webp); }
   /****************** Galeria gallery.html *****************/
   .commentContainer {
     font-size: 20px; }

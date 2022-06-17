@@ -2,4 +2,20 @@
     width: $width;
     height: $height;
  }
+
+ //Este mixin se hizo de esta manera porque se va autilizar para repetir codigo dentro 
+ //de una media query y alli no esta permitido utilizar @extend
+ @mixin banner{
+    animation: cambiarImagen 60s ease-in-out infinite;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+ }
+ %banner{
+    @include banner;
+ }
+
+ .banner{
+    @extend %banner;
+ }
  
