@@ -141,6 +141,54 @@ footer {
 .profile__img {
   max-width: 100%; }
 
+/********** TEXTO **********/
+.titulo, .titulo_primario, .titulo_secundario {
+  font-family: 'Courgette', cursive;
+  color: #272727;
+  text-align: center; }
+
+.titulo_primario {
+  font-size: 4vw; }
+
+.titulo_secundario {
+  font-size: 230%; }
+
+.mainText {
+  margin: auto;
+  padding: 5%;
+  font-family: 'Montserrat', sans-serif;
+  width: 60%;
+  text-align: center; }
+
+.carousel--text {
+  color: #272727;
+  background-color: #f285a285;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  left: 0; }
+
+.commentContainer {
+  margin: auto;
+  padding: 5vw;
+  width: 80%;
+  height: 30%;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 30px;
+  color: #777777;
+  text-align: center; }
+
+.carousel--size {
+  width: 70%;
+  margin: 0 auto; }
+
+.container--contacto {
+  margin-bottom: 5vh;
+  width: 40%;
+  padding: 1rem;
+  border: solid 2px #41CAD9;
+  background-color: #F2A7BB; }
+
 /*--------------------- MODO TABLET -------------------*/
 /*-----------------------------------------------------*/
 @media screen and (max-width: 1024px) {
@@ -154,11 +202,16 @@ footer {
     margin-right: 20px; }
   .logo_mobile {
     display: block; }
-  .commentContainer {
+  .titulo_primario {
+    font-size: 7vw; }
+  .mainText {
+    width: 80%; }
+  .commentContainer p {
     font-size: 25px; }
+  .container--contacto {
+    width: 60%; }
   .socialIcon__container a {
     font-size: 60px; }
-  /*++++++++++++++ about.html +++++++++++++++*/
   .name {
     font-size: 50px; } }
 
@@ -190,12 +243,16 @@ footer {
     background-size: cover;
     background-position: center;
     background-image: url(../assets/img/about_bg_mobile.webp); }
-  /****************** Galeria gallery.html *****************/
-  .commentContainer {
+  .titulo_primario {
+    font-size: 10vw; }
+  .mainText {
+    width: 95%; }
+  .commentContainer p {
     font-size: 20px; }
+  .container--contacto {
+    width: 95%; }
   .socialIcon__container a {
     font-size: 50px; }
-  /*++++++++++++++ about.html +++++++++++++++*/
   .name {
     font-size: 6vw; } }
 
@@ -224,25 +281,6 @@ section {
 .section--bg {
   background-color: #C9EEF2; }
 
-/********** TEXTO **********/
-.titulo, .titulo_primario, .titulo_secundario {
-  font-family: 'Courgette', cursive;
-  color: #272727;
-  text-align: center; }
-
-.titulo_primario {
-  font-size: 430%; }
-
-.titulo_secundario {
-  font-size: 230%; }
-
-.mainText {
-  margin: auto;
-  padding: 5%;
-  font-family: 'Montserrat', sans-serif;
-  width: 60%;
-  text-align: center; }
-
 .zoom:hover {
   transform: scale(1.1);
   transition: 0.2s ease-in-out; }
@@ -264,26 +302,3 @@ section {
   .socialIcon__container a {
     font-size: 80px;
     margin: 5vw; }
-
-/********** COMENTARIOS **********/
-.commentContainer {
-  margin: auto;
-  padding: 5vw;
-  width: 60%;
-  height: 30%;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 30px;
-  color: #777777;
-  text-align: center; }
-
-.carousel--text {
-  color: #272727;
-  background-color: #f285a285;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  left: 0; }
-
-.carousel--size {
-  width: 70%;
-  margin: 0 auto; }

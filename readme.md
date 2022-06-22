@@ -41,3 +41,12 @@ Se agregó un nuevo partial _mixin de dimensiones (width, height) y se utiliza e
 Se agregaron etiquetas meta con title, description y keywords en todos los html
 Se agregaron etiquetas H1 en todos los html
 Se agregaron descripcion de imagen en todos los atributos alt. Aun hay imagenes repetidas por tanto tambien los alt.
+
+
+*********************************************************************
+21/06/2022
+*********************************************************************
+Se modificó formato de formulario de contacto según recomendacion de la profe (tamaño, colores y efecto hover)
+Se modificaron tamaños de titulo y textos en los mediaqueries
+Se agrego un partial _textos.scss y se importó en style.scss para poder dar correcto formato responisve a los textos
+Las imagenes y los textos de galeria se mantienen iguales porque no serán evaluados en esta instancia segun la profe.

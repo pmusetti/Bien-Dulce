@@ -20,9 +20,17 @@
   .logo_mobile {
     display: block;
   }
-
-  .commentContainer {
+  .titulo_primario{
+    font-size: 7vw;
+  }
+  .mainText{
+    width: 80%;
+  }
+  .commentContainer p{
     font-size: 25px;
+  }
+  .container--contacto{
+    width: 60%;
   }
 
   .socialIcon__container {
@@ -30,8 +38,6 @@
       font-size: 60px;
     }
   }
-
-  /*++++++++++++++ about.html +++++++++++++++*/
 
   .name {
     font-size: 50px;
@@ -69,11 +75,17 @@
     background-image: url(../assets/img/about_bg_mobile.webp);
   
   }
-
-  /****************** Galeria gallery.html *****************/
-
-  .commentContainer {
+  .titulo_primario{
+    font-size: 10vw;
+  }
+  .mainText{
+    width: 95%;
+  }
+  .commentContainer p{
     font-size: 20px;
+  }
+  .container--contacto{
+    width: 95%;
   }
 
   .socialIcon__container {
@@ -81,8 +93,6 @@
       font-size: 50px;
     }
   }
-
-  /*++++++++++++++ about.html +++++++++++++++*/
 
   .name {
     font-size: 6vw;
