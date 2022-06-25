@@ -102,7 +102,7 @@ footer {
   display: none;
   padding: 0; }
   .submenu li {
-    padding: 5px 0; }
+    padding: 0; }
     .submenu li:hover {
       background-color: #F2A7BB; }
 
@@ -142,7 +142,7 @@ footer {
   max-width: 100%; }
 
 /********** TEXTO **********/
-.titulo, .titulo_primario, .titulo_secundario {
+.titulo, .titulo_primario, .titulo_secundario, .titulo_galeria {
   font-family: 'Courgette', cursive;
   color: #272727;
   text-align: center; }
@@ -151,7 +151,12 @@ footer {
   font-size: 4vw; }
 
 .titulo_secundario {
-  font-size: 230%; }
+  font-size: 230%;
+  margin-bottom: 50px; }
+
+.titulo_galeria {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 30px; }
 
 .mainText {
   margin: auto;
@@ -210,6 +215,8 @@ footer {
     font-size: 25px; }
   .container--contacto {
     width: 60%; }
+  .carrousel--container {
+    width: 90%; }
   .socialIcon__container a {
     font-size: 60px; }
   .name {
@@ -251,6 +258,8 @@ footer {
     font-size: 20px; }
   .container--contacto {
     width: 95%; }
+  .carrousel--container {
+    width: 100%; }
   .socialIcon__container a {
     font-size: 50px; }
   .name {
@@ -278,8 +287,12 @@ section {
   padding-top: 100px;
   justify-content: center; }
 
-.section--bg {
+.highlight--bg {
   background-color: #C9EEF2; }
+
+.activo {
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 2px #a84646 solid; }
 
 .zoom:hover {
   transform: scale(1.1);

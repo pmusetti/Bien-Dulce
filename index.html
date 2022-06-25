@@ -47,16 +47,16 @@
         <nav id="navBar_desktop" class="navBar">
             <!-- Listas anidadas de menu y submenu  -->
             <ul class="navBar__list">
-                <li><a class="highlight" href="./index.html">INICIO</a></li>
+                <li><a class="highlight activo" href="./index.html">INICIO</a></li>
                 <li class="navBar__menu">
                     <a class="highlight" href="#productos">PRODUCTOS</a>
                     <!-- Submenu de productos  -->
                     <ul class="submenu">
-                        <li><a class="zoom highlight" href="#productos">Personalizadas</a></li>
-                        <li><a class="zoom highlight" href="#productos">Tematicas</a></li>
-                        <li><a class="zoom highlight" href="#productos">Postres clasicos</a></li>
-                        <li><a class="zoom highlight" href="#productos">Tortas clasicas</a></li>
-                        <li><a class="zoom highlight" href="#productos">Ocaciones especiales</a></li>
+                        <li><a class="zoom highlight" href="./pages/gallery.html#personalizadas">Personalizadas</a></li>
+                        <li><a class="zoom highlight" href="./pages/gallery.html#tematicas">Tematicas</a></li>
+                        <li><a class="zoom highlight" href="./pages/gallery.html#postres">Postres clasicos</a></li>
+                        <li><a class="zoom highlight" href="./pages/gallery.html#clasicas">Tortas clasicas</a></li>
+                        <li><a class="zoom highlight" href="./pages/gallery.html#especiales">Ocaciones especiales</a></li>
                         <li><a class="zoom highlight" href="#golosinas">Golosinas</a></li>
                     </ul>
                 </li>
@@ -99,7 +99,7 @@
             <div class="container">
                 <div class="row justify-content-around">
                     <div class="col-lg-2 col-md-12 col-sm-12 prods__card zoom">
-                        <a href="https://www.instagram.com/p/CGUi5_wHA6l/?utm_source=ig_web_copy_link" target="_blank">
+                        <a href="./pages/gallery.html#personalizadas">
                             <img class="imgProd" src="./assets/img/productos/tortaPersonalizada.webp"
                                 alt="Torta personalizada con cuatro superheroes, spiderman,hulk, ironman, capitan america. Cobertura en fondan">
                             <h3>
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="col-lg-2 col-md-6 col-sm-12 prods__card zoom">
-                        <a href="https://www.instagram.com/p/Cb7f1mnuG_L/?utm_source=ig_web_copy_link" target="_blank">
+                        <a href="./pages/gallery.html#tematicas">
                             <img src="./assets/img/productos/tortaTematica.webp"
                                 alt="Torta tematica. Estuche de maquillaje. Torta negra capitoneado simil cuero con perlas y set de mauillaje">
                             <h3>
@@ -119,7 +119,7 @@
                     </div>
 
                     <div class="col-lg-2 col-md-6 col-sm-12 prods__card zoom">
-                        <a href="https://www.instagram.com/p/CXuoLLNsGuI/?utm_source=ig_web_copy_link" target="_blank">
+                        <a href="./pages/gallery.html#clasicas">
                             <img src="./assets/img/productos/tortasClasicas.webp"
                                 alt="Tortas clasicas. Merengue con relleno de crema y frutillas, decorada con frutillas naturales.">
                             <h3>
@@ -130,7 +130,7 @@
 
 
                     <div class="col-lg-2 col-md-6 col-sm-12 prods__card zoom">
-                        <a href="https://www.instagram.com/p/CcmJIyRsGBj/?utm_source=ig_web_copy_link" target="_blank">
+                        <a href="./pages/gallery.html#postres">
                             <img src="./assets/img/productos/postreClasico.webp"
                                 alt="Postre cheesecake con decoracion de frutos rojos naturales ">
                             <h3>
@@ -139,7 +139,7 @@
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 prods__card zoom">
-                        <a href="https://www.instagram.com/p/CcmJIyRsGBj/?utm_source=ig_web_copy_link" target="_blank">
+                        <a href="./pages/gallery.html#especiales">
                             <img src="./assets/img/productos/ocacionesEspeciales.webp"
                                 alt="Torta de casamiento con cobertura en fondan rosado, perlas y fosas blancas">
                             <h3>
@@ -152,15 +152,15 @@
         </section>
 
         <!-- Seccion de golosinas -->
-        <section id="golosinas" class="section--bg">
+        <section id="golosinas" class="highlight--bg">
             <h2 class="titulo_secundario">Golosinas para cualquier ocasión</h2>
             <p class="mainText">Personalidades con sabores marcados, nuestras creaciones en variedad de golosinas para
                 toda ocacion exaltan la frescura
                 de los sabores emblemáticos de la Casa.
                 ¡Sucumbe a sus notas veraniegas y audaces!</p>
 
-            <div class="container pb-lg-5">
-                <div id="carouselExampleCaptions" class="carousel slide carousel--size" data-bs-ride="carousel">
+            <div class="container pb-lg-5 ">
+                <div id="carouselExampleCaptions" class="carousel slide carousel--size carrousel--container" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
                             class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -178,62 +178,57 @@
                         <div class="carousel-item active">
                             <img src="./assets/img/productos/donas.webp" class="d-block w-100"
                                 alt="Donas glaseadas con decoracion en tonos de rosado y grajeas">
-                            <a href="https://www.instagram.com/p/CcmJIyRsGBj/?utm_source=ig_web_copy_link"
-                                target="_blank">
+                        
                                 <div class="carousel-caption d-none d-md-block carousel--text">
                                     <h5>Donas</h5>
-                                    <H6>Conoce nuestra gran variedad de Donas. ¿Cual vas a probar?</H6>
+                                    <h6>Conoce nuestra gran variedad de Donas. ¿Cual vas a probar?</h6>
                                     <p>Ver en INSTAGRAM</p>
                                 </div>
-                            </a>
+                            
                         </div>
                         <div class="carousel-item">
                             <img src="./assets/img/productos/cupcake.webp" class="d-block w-100"
                                 alt="cupcakes con crema bañados en chocolate">
-                            <a href="https://www.instagram.com/p/CcmJIyRsGBj/?utm_source=ig_web_copy_link"
-                                target="_blank">
+                            
                                 <div class="carousel-caption d-none d-md-block carousel--text">
                                     <h5>Cupcakes</h5>
-                                    <H6>Los Cupcakes son una de nuestras especialidades. Probalos!</H6>
+                                    <h6>Los Cupcakes son una de nuestras especialidades. Probalos!</h6>
                                     <p>Ver en INSTAGRAM</p>
                                 </div>
-                            </a>
+                            
                         </div>
                         <div class="carousel-item">
                             <img src="./assets/img/productos/alfajores.webp" class="d-block w-100"
                                 alt="Alfajores de maicena rellenos de dulcedeleche cubiertos de coco">
-                            <a href="https://www.instagram.com/p/CcmJIyRsGBj/?utm_source=ig_web_copy_link"
-                                target="_blank">
+                            
                                 <div class="carousel-caption d-none d-md-block carousel--text">
                                     <h5>Alfajores</h5>
-                                    <H6>La golosina nacional por excelencia. Conoce nuestras exclusivas variedades!</H6>
+                                    <h6>La golosina nacional por excelencia. Conoce nuestras exclusivas variedades!</h6>
                                     <p>Ver en INSTAGRAM</p>
                                 </div>
-                            </a>
+                            
                         </div>
                         <div class="carousel-item">
                             <img src="./assets/img/productos/macarons.webp" class="d-block w-100"
                                 alt="Macarons color rosa rellenos de crema">
-                            <a href="https://www.instagram.com/p/CcmJIyRsGBj/?utm_source=ig_web_copy_link"
-                                target="_blank">
+                            
                                 <div class="carousel-caption d-none d-md-block carousel--text">
                                     <h5>Macarons</h5>
-                                    <H6>Es un pequeño bocado de pastel. Los mas creativos y delicios!</H6>
+                                    <h6>Es un pequeño bocado de pastel. Los mas creativos y delicios!</h6>
                                     <p>Ver en INSTAGRAM</p>
                                 </div>
-                            </a>
+                            
                         </div>
                         <div class="carousel-item">
                             <img src="./assets/img/productos/cakepops.webp" class="d-block w-100"
                                 alt="cakepops de trufa con glaseado celeste y decorados con grageas">
-                            <a href="https://www.instagram.com/p/CcmJIyRsGBj/?utm_source=ig_web_copy_link"
-                                target="_blank">
+                            
                                 <div class="carousel-caption d-none d-md-block carousel--text">
                                     <h5>Cakepops</h5>
-                                    <H6>En cualquier momento, ideal para los mas chiquitos!</H6>
+                                    <h6>En cualquier momento, ideal para los mas chiquitos!</h6>
                                     <p>Ver en INSTAGRAM</p>
                                 </div>
-                            </a>
+                            
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
@@ -261,7 +256,7 @@
         </section>
 
         <!-- Seccion de contacto -->
-        <section id="contacto" class="section--bg">
+        <section id="contacto" class="highlight--bg">
             <h2 class="titulo_secundario">Contactate con nosotros</h2>
             <p class="mainText">Para todos sus pedidos, póngase en contacto directamente con nuestro Servicio de
                 Atención al Cliente por teléfono .
@@ -288,7 +283,8 @@
                         <input type="password" class="form-control" id="inputPassword1">
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input color--send btn--highlight" id="checkBox" checked>
+                        <input type="checkbox" class="form-check-input color--send btn--highlight" id="checkBox"
+                            checked>
                         <label class="form-check-label" for="checkBox">Quiero recibir ofertas</label>
                     </div>
                     <button type="submit" class="btn color--send btn--highlight">Borrar</button>
@@ -310,6 +306,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script>window.addEventListener("load", function (event) {document.getElementsByClassName("disclaimer")[0].remove();});</script>
 </body>
 
 </html>

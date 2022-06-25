@@ -50,3 +50,14 @@ Se modificó formato de formulario de contacto según recomendacion de la profe 
 Se modificaron tamaños de titulo y textos en los mediaqueries
 Se agrego un partial _textos.scss y se importó en style.scss para poder dar correcto formato responisve a los textos
 Las imagenes y los textos de galeria se mantienen iguales porque no serán evaluados en esta instancia segun la profe.
+
+
+********************************************************************
+24/06/2022
+********************************************************************
+Se agregaron fotos en la galeria y se separaron por tipo
+Se eliminaron links a instagram en cada foto de galeria
+Se modifico tamaño de carrousel para tablet y mobile
+Se agregó borde activo para barra de navegacion
+Se linkearon los submenus de productos a las diferentes fotos de galeria
+

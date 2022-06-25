@@ -12,6 +12,13 @@
   .titulo_secundario {
     @extend .titulo;
     font-size: 230%;
+    margin-bottom: 50px;
+  }
+
+  .titulo_galeria{
+    @extend .titulo;
+    font-family: map-get($fonts, montserrat );
+    margin-top: 30px;
   }
   
   .mainText {
