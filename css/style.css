@@ -117,6 +117,9 @@ footer {
   background-color: #F2A7BB;
   margin: 0 -80px; }
 
+.submenu li > a:checked {
+  display: none; }
+
 /********** LOGO **********/
 .logo, .logo_desktop, .logo_mobile {
   width: 100px;
