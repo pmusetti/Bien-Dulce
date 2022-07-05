@@ -67,9 +67,11 @@
     margin: 0 -80px;
   }
 }
-.submenu li>a:checked{
-  display: none;
-}
+
+  .submenu li > a:visited{
+    display: hidden;
+  }
+
 /********** LOGO **********/
 .logo{
   width: 100px;

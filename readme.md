@@ -61,3 +61,10 @@ Se modifico tamaño de carrousel para tablet y mobile
 Se agregó borde activo para barra de navegacion
 Se linkearon los submenus de productos a las diferentes fotos de galeria
 
+*******************************************************************
+05/07/2022
+*******************************************************************
+Se cambiaron las fotos de galeria y los textos de las cards
+Se eliminaron imagenes no utilizadas
+Se agrego :target para lograr visualizar el titulo del div respectivo
+en la galeria, pues quedaba oculto al tener navbar fijo.

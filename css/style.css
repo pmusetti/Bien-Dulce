@@ -117,8 +117,8 @@ footer {
   background-color: #F2A7BB;
   margin: 0 -80px; }
 
-.submenu li > a:checked {
-  display: none; }
+.submenu li > a:visited {
+  display: hidden; }
 
 /********** LOGO **********/
 .logo, .logo_desktop, .logo_mobile {
@@ -279,6 +279,11 @@ footer {
 * {
   padding: 0;
   margin: 0; }
+
+/*Debido a que se utiliza un navar fijo, al utilizar un anchor, se pierden los titulos
+Para que esto no suceda se utiliza un offset*/
+:target {
+  scroll-margin-top: 140px; }
 
 html {
   scroll-behavior: smooth; }
