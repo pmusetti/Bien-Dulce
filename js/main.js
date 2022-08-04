@@ -130,6 +130,7 @@ comprarTorta6.onclick = () => agregarAlCarrito(5)
 function agregarAlCarrito(item){
     carrito.push(products[item])
     alert("Agregaste al carrito: "+products[item].title)
+    verCarrito.innerText =`Tienes ${carrito.length} productos en el carrito`
 }
 
 const verCarrito = document.querySelector("#verCarrito");

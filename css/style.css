@@ -41,7 +41,9 @@
 
 #verCarrito {
   margin: 0 auto;
-  background-color: green; }
+  height: 50px;
+  background-color: green;
+  color: white; }
 
 footer {
   height: 100px;
