@@ -9,6 +9,7 @@
 @import "./base/texts";
 @import "./base/mediaQueries";
 @import "./base/keyframes";
+@import "./components/quoteForm";
 
 * {
   padding: 0;
@@ -55,9 +56,12 @@ section {
   color: $lightblue_1;
 }
 
+.btn--highlight{
+  background-color: $lightblue_1;
+}
 .btn--highlight:hover{
 
-    background-color: $lightblue_1;
+    background-color: $lightblue_0;
 }
 
 /********** ICONOS **********/

@@ -35,6 +35,14 @@
       font-size: 1.2em;
       color: #2a3141; }
 
+.cart {
+  width: 60%;
+  margin: 0 auto; }
+
+#verCarrito {
+  margin: 0 auto;
+  background-color: green; }
+
 footer {
   height: 100px;
   color: wheat;
@@ -276,6 +284,12 @@ footer {
   100% {
     background-size: 100%; } }
 
+.quoteForm {
+  border: solid rgba(107, 86, 86, 0.562);
+  background-color: #b8b8b8;
+  border-radius: 5px;
+  margin-bottom: 2rem; }
+
 * {
   padding: 0;
   margin: 0; }
@@ -314,8 +328,11 @@ section {
   text-decoration: none;
   color: #41CAD9; }
 
-.btn--highlight:hover {
+.btn--highlight {
   background-color: #41CAD9; }
+
+.btn--highlight:hover {
+  background-color: #C9EEF2; }
 
 /********** ICONOS **********/
 .socialIcon__container {
