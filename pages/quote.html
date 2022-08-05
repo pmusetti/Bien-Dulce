@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Alice&family=Courgette&family=Itim&family=Mali&family=Merienda:wght@700&family=Montserrat&family=Open+Sans:wght@300;400&family=Rajdhani&family=Sriracha&family=Suez+One&family=Yellowtail&display=swap"
-        rel="stylesheet"> 
+        rel="stylesheet">
     <link rel="shortcut icon" href="../assets/img/logo.webp">
 </head>
 
@@ -38,6 +38,11 @@
                         <li><a href="./about.html#aboutMe">SOBRE MI</a></li>
                         <li><a href="./quote.html#quote">TIENDA</a></li>
                         <li><a href="#contacto">CONTACTO</a></li>
+                        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                                    fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg></a></li>
                     </ul>
                 </li>
             </ul>
@@ -77,8 +82,14 @@
                                 target="_blank"><i class="fa-brands fa-whatsapp color--whatsapp"></i>Escribinos</a></li>
                         <li><a class="zoom highlight" href="https://www.instagram.com/cocinabiendulce/"
                                 target="_blank"><i class="fa-brands fa-instagram instagramColor"></i>Seguinos</a></li>
+                        
                     </ul>
                 </li>
+                <li ><a href="#" id="verCarrito"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                    fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg>0</a></li>
             </ul>
         </nav>
 
@@ -99,7 +110,6 @@
             <div class="cart row">
 
 
-                <button id="verCarrito">Ver carrito</button>
             </div>
         </section>
 
@@ -115,60 +125,64 @@
                 ideas!
             </h2>
 
-        <div class="row">
-            <div class="container col-lg-4 col-md-6 col-sm-10 quoteForm p-3">
-                <label  for="exampleDataList" class="form-label">Bizcochuelo</label>
-                <select id="bizcochuelo" class="form-control">
-                    <option name="Vainilla">Vainilla</option>
-                    <option name="Chocolate">Chocolate</option>
-                    <option name="Marmolado">Marmolado</option>
-                    <option name="Manteca">Manteca</option>
-                </select>
+            <div class="row">
+                <div class="container col-lg-4 col-md-6 col-sm-10 quoteForm p-3">
+                    <label for="exampleDataList" class="form-label">Bizcochuelo</label>
+                    <select id="bizcochuelo" class="form-control">
+                        <option name="Vainilla">Vainilla</option>
+                        <option name="Chocolate">Chocolate</option>
+                        <option name="Marmolado">Marmolado</option>
+                        <option name="Manteca">Manteca</option>
+                    </select>
 
 
-                <label for="exampleDataList" class="form-label">Relleno</label>
-                <select id="relleno" class="form-control">
-                    <option name="Dulce de leche">Dulce de leche</option>
-                    <option name="Mousse avellanas o almendras">Mousse avellanas</option>
-                    <option name="Mousse chocolate">Mousse chocolate</option>
-                    <option name="Frutas">Frutas</option>
-                </select>
+                    <label for="exampleDataList" class="form-label">Relleno</label>
+                    <select id="relleno" class="form-control">
+                        <option name="Dulce de leche">Dulce de leche</option>
+                        <option name="Mousse avellanas o almendras">Mousse avellanas</option>
+                        <option name="Mousse chocolate">Mousse chocolate</option>
+                        <option name="Frutas">Frutas</option>
+                    </select>
 
-                <label for="exampleDataList" class="form-label">Cobertura</label>
-                <select id="cobertura" class="form-control">
-                    <option name="Fondan">Fondan</option>
-                    <option name="Ganache">Ganache</option>
-                    <option name="Merengue">Merengue</option>
-                    <option name="Chantilly">Chantilly</option>
-                </select>
+                    <label for="exampleDataList" class="form-label">Cobertura</label>
+                    <select id="cobertura" class="form-control">
+                        <option name="Fondan">Fondan</option>
+                        <option name="Ganache">Ganache</option>
+                        <option name="Merengue">Merengue</option>
+                        <option name="Chantilly">Chantilly</option>
+                    </select>
 
-                <label for="exampleDataList" class="form-label">Decoracion</label>
-                <select id="decoracion" class="form-control">
-                    <option name="Figuras de azucar">Figuras de azucar</option>
-                    <option name="Papel comestible">Papel comestible</option>
-                    <option name="Masa">Masa</option>
-                    <option name="Figuras de chocolate">Figuras de chocolate</option>
-                    <option name="Frutas">Frutas</option>
-                </select>
+                    <label for="exampleDataList" class="form-label">Decoracion</label>
+                    <select id="decoracion" class="form-control">
+                        <option name="Figuras de azucar">Figuras de azucar</option>
+                        <option name="Papel comestible">Papel comestible</option>
+                        <option name="Masa">Masa</option>
+                        <option name="Figuras de chocolate">Figuras de chocolate</option>
+                        <option name="Frutas">Frutas</option>
+                    </select>
 
-                <label for="exampleDataList" class="form-label">Porciones</label>
-                <select id="porciones" class="form-control">
-                    <option name="6">6</option>
-                    <option name="12">12</option>
-                    <option name="18">18</option>
-                    <option name="24">24</option>
-                    <option name="48">48</option>
-                </select>
+                    <label for="exampleDataList" class="form-label">Porciones</label>
+                    <select id="porciones" class="form-control">
+                        <option name="6">6</option>
+                        <option name="12">12</option>
+                        <option name="18">18</option>
+                        <option name="24">24</option>
+                        <option name="48">48</option>
+                    </select>
 
-                <div class="mb-5 mt-5 p-3 row">
-                    <button id="cotizarTorta" type="submit" class="btn color--send btn--highlight col-2">Cotiza</button>
-                    <input id="precioCotizado" type="text" class="form-control col" id="formGroupExampleInput21" placeholder="$">
+                    <div class="mb-5 mt-5 p-3 row">
+                        <button id="cotizarTorta" type="submit"
+                            class="btn color--send btn--highlight col-2">Cotiza</button>
+                        <input id="precioCotizado" type="text" class="form-control col" id="formGroupExampleInput21"
+                            placeholder="$">
+                    </div>
+
+                    <p id="nota">Nota: La siguiente simulacion no debe ser tomada como presupuesto final, sino
+                        simplemente como precio orientativo. Por mas detalles contactanos por whatsapp o telefono y te
+                        asesoraremos.</p>
+
                 </div>
-
-                <p id="nota">Nota: La siguiente simulacion no debe ser tomada como presupuesto final, sino simplemente como precio orientativo. Por mas detalles contactanos por whatsapp o telefono y te asesoraremos.</p>
-
             </div>
-        </div>
         </section>
 
         <!-- Seccion de contacto -->

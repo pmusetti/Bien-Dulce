@@ -35,37 +35,37 @@ let products = [
     {
         title: "Torta de superheroe",
         description: "Trota relleno chocolate",
-        price: 199,
+        price: 1990,
         urlPicture: "../assets/img/Tortas/personalizadas/marvel.webp"
     },
     {
         title: "Torta frutilla",
         description: "Trota relleno chocolate",
-        price: 299,
+        price: 2990,
         urlPicture: "../assets/img/Tortas/clasicas/tortaFrutilla.webp"
     },
     {
         title: "Torta de chocolate",
         description: "Trota relleno chocolate",
-        price: 399,
+        price: 3990,
         urlPicture: "../assets/img/Tortas/clasicas/tortaChocolate.webp"
     },
     {
         title: "Torta de merengue",
         description: "Trota relleno chocolate",
-        price: 499,
+        price: 4990,
         urlPicture: "../assets/img/Tortas/clasicas/tortaMerengue.webp"
     },
     {
         title: "Torta de merengue",
         description: "Trota relleno chocolate",
-        price: 599,
+        price: 5990,
         urlPicture: "../assets/img/Tortas/clasicas/tortaMerengueFrutilla.webp"
     },
     {
         title: "Torta clasica",
         description: "Trota relleno chocolate",
-        price: 699,
+        price: 6990,
         urlPicture: "../assets/img/Tortas/clasicas/tortasClasicas.webp"
     }
 ]
@@ -130,7 +130,11 @@ comprarTorta6.onclick = () => agregarAlCarrito(5)
 function agregarAlCarrito(item) {
     carrito.push(products[item])
     alert("Agregaste al carrito: " + products[item].title)
-    verCarrito.innerText = `Tienes ${carrito.length} productos en el carrito`
+    verCarrito.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+    fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+    <path
+        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+</svg> ${carrito.length}`
 }
 
 const verCarrito = document.querySelector("#verCarrito");
@@ -141,7 +145,7 @@ function mostrarCarrito() {
         total += item.price;
     }
     total = Math.trunc(total * 0.8)
-    alert("El total de tu compra es: " + total)
+    alert("El total de tu compra es: $" + total)
 }
 
 
@@ -152,34 +156,34 @@ const precios = {
         marmolado: 550,
         manteca: 490
     },
-    relleno:{
+    relleno: {
         dulcedeleche: 250,
         moussechocolate: 300,
         mousseavellanas: 600,
         frutas: 390
 
     },
-    cobertura:{
+    cobertura: {
         fondan: 1500,
         ganache: 1200,
         merengue: 600,
         chantilly: 750
 
     },
-    decoracion:{
+    decoracion: {
         figurasdeazucar: 350,
         papelcomestible: 250,
         masa: 500,
-        figurasdechocolate:550,
+        figurasdechocolate: 550,
         frutas: 420
 
     },
-    porciones:{
-        "6":0.5,
-        "12":1,
-        "18":1.5,
-        "24":2,
-        "48":4
+    porciones: {
+        "6": 0.5,
+        "12": 1,
+        "18": 1.5,
+        "24": 2,
+        "48": 4
     }
 }
 
@@ -200,5 +204,5 @@ botonCotizar.onclick = () => {
     precio += precios.decoracion[`${inputDecoracion.value}`.toLowerCase().replaceAll(" ", "")];
     precio = precio * precios.porciones[inputPorciones.value];
     campoPrecio.value = precio;
-    
+
 }

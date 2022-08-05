@@ -19,20 +19,12 @@
 }
 
 .cart{
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
 }
 
-#verCarrito{
-  margin: 0 auto;
-  height: 50px;
-  width: 80%;
-  background-color: green;
-  color: white;
-  border: none;
-}
 #verCarrito:hover{
-  background-color: rgb(3, 167, 3);
+  color: green;
 }
 
 .card--title{
