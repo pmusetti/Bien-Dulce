@@ -141,13 +141,21 @@ const verCarrito = document.querySelector("#verCarrito");
 verCarrito.onclick = () => mostrarCarrito();
 function mostrarCarrito() {
     let total = 0;
+    let list = "";
     for (item of carrito) {
         total += item.price;
+        list += item.title + "\n"
     }
     total = Math.trunc(total * 0.8)
-    alert("El total de tu compra es: $" + total)
+    alert("En tu carrito tenes: \n\n"+ list + "\n Total a pagar $"+total)
 }
 
+
+
+/*************************
+ * Simulador de cotizacion
+ * ***********************
+ */
 
 const precios = {
     bizcochuelo: {
@@ -203,6 +211,6 @@ botonCotizar.onclick = () => {
     precio += precios.cobertura[`${inputCobertura.value}`.toLowerCase().replaceAll(" ", "")];
     precio += precios.decoracion[`${inputDecoracion.value}`.toLowerCase().replaceAll(" ", "")];
     precio = precio * precios.porciones[inputPorciones.value];
-    campoPrecio.value = precio;
+    campoPrecio.value = "$"+precio;
 
 }
