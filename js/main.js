@@ -69,12 +69,12 @@ let products = [
         urlPicture: "../assets/img/Tortas/clasicas/tortasClasicas.webp"
     }
 ]
-    
 
 
 
 
- class Product {
+
+class Product {
     constructor(title, description, price, picture) {
         this.title = title;
         this.description = description;
@@ -83,14 +83,14 @@ let products = [
         this.discounPrice = Math.trunc(price * 0.8);
     }
     createCard(num) {
-        let url= "./img/default.jpg"
-        if(this.picture!==""){
+        let url = "./img/default.jpg"
+        if (this.picture !== "") {
             url = this.picture;
         }
         let cardContainer = document.querySelector(".cart");
         let card = document.createElement("div");
-        card.className="card col-lg-4 col-md-6 col-sm-12 card p-2";
-        card.innerHTML=`<img src="${url}" alt="default">
+        card.className = "card col-lg-4 col-md-6 col-sm-12 card p-2";
+        card.innerHTML = `<img src="${url}" alt="default">
                             <div class="card-body">
                                 <h2 class="card--title">${this.title}</h2>
                                 <h4 class="card--description">${this.description}</h4>
@@ -107,13 +107,13 @@ let products = [
 
 
 let num = 0;
-for(item of products){
+for (item of products) {
     let torta = new Product(item.title, item.description, item.price, item.urlPicture);
     torta.createCard(num);
-    num +=1;
+    num += 1;
 }
 
-let carrito=[];
+let carrito = [];
 const comprarTorta1 = document.querySelector("#agregarAlCarrito0");
 const comprarTorta2 = document.querySelector("#agregarAlCarrito1");
 const comprarTorta3 = document.querySelector("#agregarAlCarrito2");
@@ -127,19 +127,78 @@ comprarTorta4.onclick = () => agregarAlCarrito(3)
 comprarTorta5.onclick = () => agregarAlCarrito(4)
 comprarTorta6.onclick = () => agregarAlCarrito(5)
 
-function agregarAlCarrito(item){
+function agregarAlCarrito(item) {
     carrito.push(products[item])
-    alert("Agregaste al carrito: "+products[item].title)
-    verCarrito.innerText =`Tienes ${carrito.length} productos en el carrito`
+    alert("Agregaste al carrito: " + products[item].title)
+    verCarrito.innerText = `Tienes ${carrito.length} productos en el carrito`
 }
 
 const verCarrito = document.querySelector("#verCarrito");
 verCarrito.onclick = () => mostrarCarrito();
-function mostrarCarrito(){
+function mostrarCarrito() {
     let total = 0;
-    for(item of carrito){
+    for (item of carrito) {
         total += item.price;
     }
     total = Math.trunc(total * 0.8)
-    alert("El total de tu compra es: "+total)
+    alert("El total de tu compra es: " + total)
+}
+
+
+const precios = {
+    bizcochuelo: {
+        vainilla: 500,
+        chocolate: 600,
+        marmolado: 550,
+        manteca: 490
+    },
+    relleno:{
+        dulcedeleche: 250,
+        moussechocolate: 300,
+        mousseavellanas: 600,
+        frutas: 390
+
+    },
+    cobertura:{
+        fondan: 1500,
+        ganache: 1200,
+        merengue: 600,
+        chantilly: 750
+
+    },
+    decoracion:{
+        figurasdeazucar: 350,
+        papelcomestible: 250,
+        masa: 500,
+        figurasdechocolate:550,
+        frutas: 420
+
+    },
+    porciones:{
+        "6":0.5,
+        "12":1,
+        "18":1.5,
+        "24":2,
+        "48":4
+    }
+}
+
+const botonCotizar = document.querySelector("#cotizarTorta");
+const campoPrecio = document.querySelector("#precioCotizado");
+const inputBizcochuelo = document.querySelector("#bizcochuelo");
+const inputRelleno = document.querySelector("#relleno");
+const inputCobertura = document.querySelector("#cobertura");
+const inputDecoracion = document.querySelector("#decoracion");
+const inputPorciones = document.querySelector("#porciones");
+
+
+botonCotizar.onclick = () => {
+    let precio = 0;
+    precio += precios.bizcochuelo[`${inputBizcochuelo.value}`.toLowerCase()];
+    precio += precios.relleno[`${inputRelleno.value}`.toLowerCase().replaceAll(" ", "")];
+    precio += precios.cobertura[`${inputCobertura.value}`.toLowerCase().replaceAll(" ", "")];
+    precio += precios.decoracion[`${inputDecoracion.value}`.toLowerCase().replaceAll(" ", "")];
+    precio = precio * precios.porciones[inputPorciones.value];
+    campoPrecio.value = precio;
+    
 }

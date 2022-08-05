@@ -117,8 +117,8 @@
 
         <div class="row">
             <div class="container col-lg-4 col-md-6 col-sm-10 quoteForm p-3">
-                <label for="exampleDataList" class="form-label">Bizcochuelo</label>
-                <select class="form-control">
+                <label  for="exampleDataList" class="form-label">Bizcochuelo</label>
+                <select id="bizcochuelo" class="form-control">
                     <option name="Vainilla">Vainilla</option>
                     <option name="Chocolate">Chocolate</option>
                     <option name="Marmolado">Marmolado</option>
@@ -127,23 +127,23 @@
 
 
                 <label for="exampleDataList" class="form-label">Relleno</label>
-                <select class="form-control">
+                <select id="relleno" class="form-control">
                     <option name="Dulce de leche">Dulce de leche</option>
-                    <option name="Musse avellanas o almendras">Musse avellanas o almendras</option>
-                    <option name="Musse chocolate">Musse chocolate</option>
+                    <option name="Mousse avellanas o almendras">Mousse avellanas</option>
+                    <option name="Mousse chocolate">Mousse chocolate</option>
                     <option name="Frutas">Frutas</option>
                 </select>
 
                 <label for="exampleDataList" class="form-label">Cobertura</label>
-                <select class="form-control">
+                <select id="cobertura" class="form-control">
                     <option name="Fondan">Fondan</option>
                     <option name="Ganache">Ganache</option>
                     <option name="Merengue">Merengue</option>
-                    <option name="Musse">Manteca</option>
+                    <option name="Chantilly">Chantilly</option>
                 </select>
 
                 <label for="exampleDataList" class="form-label">Decoracion</label>
-                <select class="form-control">
+                <select id="decoracion" class="form-control">
                     <option name="Figuras de azucar">Figuras de azucar</option>
                     <option name="Papel comestible">Papel comestible</option>
                     <option name="Masa">Masa</option>
@@ -152,7 +152,7 @@
                 </select>
 
                 <label for="exampleDataList" class="form-label">Porciones</label>
-                <select class="form-control">
+                <select id="porciones" class="form-control">
                     <option name="6">6</option>
                     <option name="12">12</option>
                     <option name="18">18</option>
@@ -161,8 +161,8 @@
                 </select>
 
                 <div class="mb-5 mt-5 p-3 row">
-                    <button type="submit" class="btn color--send btn--highlight col-2">Cotiza</button>
-                    <input type="text" class="form-control col" id="formGroupExampleInput21" placeholder="$">
+                    <button id="cotizarTorta" type="submit" class="btn color--send btn--highlight col-2">Cotiza</button>
+                    <input id="precioCotizado" type="text" class="form-control col" id="formGroupExampleInput21" placeholder="$">
                 </div>
 
                 <p id="nota">Nota: La siguiente simulacion no debe ser tomada como presupuesto final, sino simplemente como precio orientativo. Por mas detalles contactanos por whatsapp o telefono y te asesoraremos.</p>

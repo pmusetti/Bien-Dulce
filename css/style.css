@@ -269,7 +269,9 @@ footer {
   .socialIcon__container a {
     font-size: 60px; }
   .name {
-    font-size: 50px; } }
+    font-size: 50px; }
+  .cart {
+    width: 90%; } }
 
 /*--------------------- MODO MOBILE -------------------*/
 /*-----------------------------------------------------*/
@@ -312,7 +314,9 @@ footer {
   .socialIcon__container a {
     font-size: 50px; }
   .name {
-    font-size: 6vw; } }
+    font-size: 6vw; }
+  .cart {
+    width: 100%; } }
 
 @keyframes zoomBanner {
   0% {
