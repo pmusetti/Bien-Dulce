@@ -36,37 +36,37 @@ let products = [
         title: "Torta de superheroe",
         description: "Trota relleno chocolate",
         price: 199,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutas.webp"
+        urlPicture: "../assets/img/Tortas/personalizadas/marvel.webp"
     },
     {
         title: "Torta frutilla",
         description: "Trota relleno chocolate",
         price: 299,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutas.webp"
+        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutilla.webp"
     },
     {
         title: "Torta de chocolate",
         description: "Trota relleno chocolate",
         price: 399,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutas.webp"
+        urlPicture: "../assets/img/Tortas/clasicas/tortaChocolate.webp"
     },
     {
         title: "Torta de merengue",
         description: "Trota relleno chocolate",
         price: 499,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutas.webp"
+        urlPicture: "../assets/img/Tortas/clasicas/tortaMerengue.webp"
     },
     {
-        title: "Torta de vainilla",
+        title: "Torta de merengue",
         description: "Trota relleno chocolate",
         price: 599,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutas.webp"
+        urlPicture: "../assets/img/Tortas/clasicas/tortaMerengueFrutilla.webp"
     },
     {
-        title: "Torta decorada",
+        title: "Torta clasica",
         description: "Trota relleno chocolate",
         price: 699,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutas.webp"
+        urlPicture: "../assets/img/Tortas/clasicas/tortasClasicas.webp"
     }
 ]
     
@@ -92,12 +92,12 @@ let products = [
         card.className="card col-lg-4 col-md-6 col-sm-12 card p-2";
         card.innerHTML=`<img src="${url}" alt="default">
                             <div class="card-body">
-                                <h2 class="title">${this.title}</h2>
-                                <h4 class="description">${this.description}</h4>
-                                <h4 class="regularPrice" >$ ${this.price}</h4>
-                                <h4 class="discount">20%OFF</h4>
-                                <h3 class="price" >$ ${this.discounPrice}</h3>
-                                <button id="agregarAlCarrito${num}">Agregar al carrito</button>
+                                <h2 class="card--title">${this.title}</h2>
+                                <h4 class="card--description">${this.description}</h4>
+                                <h4 class="card--regularPrice" >$ ${this.price}</h4>
+                                <h4 class="card--discount">20%OFF</h4>
+                                <h3 class="card--price" >$ ${this.discounPrice}</h3>
+                                <button id="agregarAlCarrito${num}" class="cartBtn">Agregar al carrito</button>
                             </div>`
 
         cardContainer.append(card);

@@ -26,8 +26,43 @@
 #verCarrito{
   margin: 0 auto;
   height: 50px;
+  width: 80%;
   background-color: green;
   color: white;
+  border: none;
+}
+#verCarrito:hover{
+  background-color: rgb(3, 167, 3);
 }
 
-
+.card--title{
+  color: #444;
+}
+.card--description{
+  color: #444;
+}
+.card--price{
+  font-size: 200%;
+  font-weight: 600;
+  color: #c00;
+  width: 100%;
+}
+.card--discount{
+  background-color: green;
+  color: white;
+  width: 30%;
+}
+.card--regularPrice{
+  color: #999;
+}
+.cartBtn{
+  width: 50%;
+  background-color: #3483fa;
+  color: #a8cbff;
+  border: none;
+  border-radius: 5px;
+  height: 38px;;
+}
+.cartBtn:hover{
+  background-color: #0155d3;
+}
