@@ -31,6 +31,8 @@
  * 
  */
 
+
+//Lista inicial de productos a publicar
 let products = [
     {
         title: "Torta de superheroe",
@@ -73,7 +75,7 @@ let products = [
 
 
 
-
+//Clase de productos con metodo para crear card
 class Product {
     constructor(title, description, price, picture) {
         this.title = title;
@@ -89,23 +91,23 @@ class Product {
         }
         let cardContainer = document.querySelector(".cart");
         let card = document.createElement("div");
-        card.className = "card col-lg-4 col-md-6 col-sm-12 card p-2";
-        card.innerHTML = `<img src="${url}" alt="default">
+        card.className = "card col-lg-4 col-md-6 col-sm-12 p-2";
+        card.innerHTML = `<img src="${url}" alt="imagen de producto">
                             <div class="card-body">
                                 <h2 class="card--title">${this.title}</h2>
                                 <h4 class="card--description">${this.description}</h4>
                                 <h4 class="card--regularPrice" >$ ${this.price}</h4>
                                 <h4 class="card--discount">20%OFF</h4>
                                 <h3 class="card--price" >$ ${this.discounPrice}</h3>
-                                <button id="agregarAlCarrito${num}" class="cartBtn">Agregar al carrito</button>
+                                <button id="addToCartItem_${num}" class="cartBtn">Agregar al carrito</button>
                             </div>`
 
         cardContainer.append(card);
-        console.log(cardContainer)
     }
 }
 
 
+//Recorre el array de productos y crea un producto y una card por cada uno
 let num = 0;
 for (item of products) {
     let torta = new Product(item.title, item.description, item.price, item.urlPicture);
@@ -113,33 +115,41 @@ for (item of products) {
     num += 1;
 }
 
-let carrito = [];
-const comprarTorta1 = document.querySelector("#agregarAlCarrito0");
-const comprarTorta2 = document.querySelector("#agregarAlCarrito1");
-const comprarTorta3 = document.querySelector("#agregarAlCarrito2");
-const comprarTorta4 = document.querySelector("#agregarAlCarrito3");
-const comprarTorta5 = document.querySelector("#agregarAlCarrito4");
-const comprarTorta6 = document.querySelector("#agregarAlCarrito5");
-comprarTorta1.onclick = () => agregarAlCarrito(0)
-comprarTorta2.onclick = () => agregarAlCarrito(1)
-comprarTorta3.onclick = () => agregarAlCarrito(2)
-comprarTorta4.onclick = () => agregarAlCarrito(3)
-comprarTorta5.onclick = () => agregarAlCarrito(4)
-comprarTorta6.onclick = () => agregarAlCarrito(5)
 
-function agregarAlCarrito(item) {
-    carrito.push(products[item])
-    alert("Agregaste al carrito: " + products[item].title)
-    verCarrito.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+//Toma los botones "agregar al carrito" de las cards 
+const comprarTorta1 = document.querySelector("#addToCartItem_0");
+const comprarTorta2 = document.querySelector("#addToCartItem_1");
+const comprarTorta3 = document.querySelector("#addToCartItem_2");
+const comprarTorta4 = document.querySelector("#addToCartItem_3");
+const comprarTorta5 = document.querySelector("#addToCartItem_4");
+const comprarTorta6 = document.querySelector("#addToCartItem_5");
+//Escucha el evento click y agrega el producto al carrito
+comprarTorta1.onclick = () => addToCart(0)
+comprarTorta2.onclick = () => addToCart(1)
+comprarTorta3.onclick = () => addToCart(2)
+comprarTorta4.onclick = () => addToCart(3)
+comprarTorta5.onclick = () => addToCart(4)
+comprarTorta6.onclick = () => addToCart(5)
+
+
+let carrito = [];
+//Agrega el numero de items comprados al lado de la imagen del carrito en el navbar
+//Agrega el item comprado al carrito
+function addToCart(item) {
+    btnCarrito.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
     fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
     <path
         d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-</svg> ${carrito.length}`
+</svg> ${carrito.length}`;
+    carrito.push(products[item])
 }
 
-const verCarrito = document.querySelector("#verCarrito");
-verCarrito.onclick = () => mostrarCarrito();
-function mostrarCarrito() {
+
+const btnCarrito = document.querySelector("#verCarrito");
+btnCarrito.onclick = () => goToCart();
+
+function goToCart() {
+    
     let total = 0;
     let list = "";
     for (item of carrito) {
@@ -147,7 +157,8 @@ function mostrarCarrito() {
         list += item.title + "\n"
     }
     total = Math.trunc(total * 0.8)
-    alert("En tu carrito tenes: \n\n" + list + "\n Total a pagar $" + total)
+    let modal = document.querySelector(".modal-body");
+    modal.innerText = "En tu carrito tenes: \n\n" + list + "\n Total a pagar $" + total + "\n" + carrito;
 
 
 }
@@ -259,3 +270,4 @@ const mostrarTortaCotizada = () => {
     note.innerText = "Nota: La siguiente simulacion no debe ser tomada como presupuesto final, sino simplemente como precio orientativo. Por mas detalles contactanos por whatsapp o telefono y te asesoraremos."
 
 }
+
