@@ -1,10 +1,7 @@
 /********
  * CARRITO DE COMPRAS
  * 
- * Se distinguen 2 productos distintos
- * -1 tortas
- * -2 postres
- * 
+ *  * 
  * Propiedades de las tortas:
  * -Nombre
  * -Bizcochuelo
@@ -13,15 +10,12 @@
  * -Decoracion
  * -Precio
  * 
- * Propiedades de los postres:
- * -Nombre
- * -Sabor
- * -Precio
+ * 
  */
 
 /********
  * SIMULADOR DE COTIZACION
- * Se debe asignar un valor a cada opcion y sumar al cotizar.
+ * Formulario con campos de seleccion
  * Opciones:
  * -Bizcochuelo
  * -Relleno
@@ -37,24 +31,16 @@ let id = 0;
 const qtyInCart = document.querySelector("#itemsInCart");
 const cartBtn = document.querySelector("#verCarrito");
 const emptyCartBtn = document.querySelector("#emptyCartBtn");
-let modal = document.querySelector(".modal-body");
+const modal = document.querySelector(".modal-body");
+cartBtn.onclick = () => goToCart();
+emptyCartBtn.onclick = () => emptyCart();
 
-if(localStorage.getItem("cart")){
+if (localStorage.getItem("cart")) {
     carrito = JSON.parse(localStorage.getItem("cart"));
     qtyInCart.innerText = carrito.length;
 }
 
-//Objeto para guardar los datos de la torta a cotizar
-let tortaACotizar = {
-    bizcochuelo: "",
-    relleno: "",
-    cobertura: "",
-    decoracion: "",
-    porciones: ""
-}
 
-
-//Clase de productos con metodo para crear card
 class Product {
     constructor(title, description, price, picture) {
         this.title = title;
@@ -99,19 +85,15 @@ class Product {
                                 </div>
                             </div>
                         </div>`
-                        
+
         cardContainer.append(card);
         document.querySelector(`#addToCartItem_${id}`).onclick = () => addToCart(id);
     }
 }
 
-
-//Recorre el array de productos y crea un producto y una card por cada uno
-
 for (item of products) {
     let product = new Product(item.title, item.description, item.price, item.urlPicture);
     product.createCard(id);
-    console.log(id)
     id += 1;
 }
 
@@ -121,29 +103,25 @@ function addToCart(id) {
     carrito.push(products[id])
     localStorage.setItem("cart", JSON.stringify(carrito));
     qtyInCart.innerText = carrito.length;
-    
 }
 
-function emptyCart(){
+function emptyCart() {
     localStorage.removeItem("cart");
     carrito = [];
     msgEmptyCart();
     qtyInCart.innerText = carrito.length;
 }
 
-function msgEmptyCart(){
+function msgEmptyCart() {
     modal.innerText = "Tu carrito esta vacío! \nVamos a llenarlo?";
 }
 
-cartBtn.onclick = () => goToCart();
-emptyCartBtn.onclick = ()  => emptyCart();
-
 function goToCart() {
-    if(carrito.length == 0){
+    if (carrito.length == 0) {
         msgEmptyCart();
-    }else{
+    } else {
         let total = 0;
-        modal.innerHTML= ""
+        modal.innerHTML = ""
         for (item of carrito) {
             total += item.price;
             modal.innerHTML += `<div>
@@ -153,23 +131,14 @@ function goToCart() {
         }
         total = Math.trunc(total * 0.8)
     }
-    
+
 }
-
-
-/********************************
-
-
-*/
-
-
 
 
 
 /*************************
  * Simulador de cotizacion
- * ***********************
- */
+ *************************/
 
 //Capturar entradas del cuadro de cotizacion
 const botonCotizar = document.querySelector("#cotizarTorta");
@@ -179,7 +148,14 @@ const inputRelleno = document.querySelector("#relleno");
 const inputCobertura = document.querySelector("#cobertura");
 const inputDecoracion = document.querySelector("#decoracion");
 const inputPorciones = document.querySelector("#porciones");
-
+//Objeto para guardar los datos de la torta a cotizar
+let tortaACotizar = {
+    bizcochuelo: "",
+    relleno: "",
+    cobertura: "",
+    decoracion: "",
+    porciones: ""
+}
 
 
 
