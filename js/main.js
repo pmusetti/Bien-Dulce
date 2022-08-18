@@ -32,47 +32,26 @@
  */
 
 
-//Lista inicial de productos a publicar
-let products = [
-    {
-        title: "Torta de superheroe",
-        description: "Trota relleno chocolate",
-        price: 1990,
-        urlPicture: "../assets/img/Tortas/personalizadas/marvel.webp"
-    },
-    {
-        title: "Torta frutilla",
-        description: "Trota relleno chocolate",
-        price: 2990,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaFrutilla.webp"
-    },
-    {
-        title: "Torta de chocolate",
-        description: "Trota relleno chocolate",
-        price: 3990,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaChocolate.webp"
-    },
-    {
-        title: "Torta de merengue",
-        description: "Trota relleno chocolate",
-        price: 4990,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaMerengue.webp"
-    },
-    {
-        title: "Torta de merengue",
-        description: "Trota relleno chocolate",
-        price: 5990,
-        urlPicture: "../assets/img/Tortas/clasicas/tortaMerengueFrutilla.webp"
-    },
-    {
-        title: "Torta clasica",
-        description: "Trota relleno chocolate",
-        price: 6990,
-        urlPicture: "../assets/img/Tortas/clasicas/tortasClasicas.webp"
-    }
-]
+let carrito = [];
+let id = 0;
+const qtyInCart = document.querySelector("#itemsInCart");
+const cartBtn = document.querySelector("#verCarrito");
+const emptyCartBtn = document.querySelector("#emptyCartBtn");
+let modal = document.querySelector(".modal-body");
 
+if(localStorage.getItem("cart")){
+    carrito = JSON.parse(localStorage.getItem("cart"));
+    qtyInCart.innerText = carrito.length;
+}
 
+//Objeto para guardar los datos de la torta a cotizar
+let tortaACotizar = {
+    bizcochuelo: "",
+    relleno: "",
+    cobertura: "",
+    decoracion: "",
+    porciones: ""
+}
 
 
 //Clase de productos con metodo para crear card
@@ -84,83 +63,97 @@ class Product {
         this.picture = picture;
         this.discounPrice = Math.trunc(price * 0.8);
     }
-    createCard(num) {
+    createCard(id) {
         let url = "./img/default.jpg"
         if (this.picture !== "") {
             url = this.picture;
         }
         let cardContainer = document.querySelector(".cart");
         let card = document.createElement("div");
-        card.className = "card col-lg-4 col-md-6 col-sm-12 p-2";
-        card.innerHTML = `<img src="${url}" alt="imagen de producto">
+        card.className = "col-lg-4 col-md-6 col-sm-12 justify-content-center mb-lg-5";
+        card.innerHTML = `<div class= "card">
+                            <img src="${url}" class="cardImg" alt="imagen de producto">
                             <div class="card-body">
-                                <h2 class="card--title">${this.title}</h2>
-                                <h4 class="card--description">${this.description}</h4>
-                                <h4 class="card--regularPrice" >$ ${this.price}</h4>
-                                <h4 class="card--discount">20%OFF</h4>
-                                <h3 class="card--price" >$ ${this.discounPrice}</h3>
-                                <button id="addToCartItem_${num}" class="cartBtn">Agregar al carrito</button>
-                            </div>`
-
+                                <div class="cardTextBox">
+                                    <span class="card--title ">${this.title}</span>
+                                </div>
+                                <div class="cardTextBox">
+                                    <span class="card--description ">${this.description}</span>
+                                </div>
+                                <div class="">
+                                    <span class="card--regularPrice " >$ ${this.price}</span>
+                                </div>
+                                <div class="">
+                                    <span class="card--discount ">20%OFF</span>
+                                </div>
+                                <div class="">
+                                    <span class="card--price " >$ ${this.discounPrice}</span>
+                                </div>
+                                <div class="">
+                                    <button class="buyBtn"> Comprar </button>
+                                </div>
+                                <div class="">
+                                    <button id="addToCartItem_${id}" class="cartBtn">
+                                        <i class="fa-solid fa-cart-arrow-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`
+                        
         cardContainer.append(card);
+        document.querySelector(`#addToCartItem_${id}`).onclick = () => addToCart(id);
     }
 }
 
 
 //Recorre el array de productos y crea un producto y una card por cada uno
-let num = 0;
+
 for (item of products) {
-    let torta = new Product(item.title, item.description, item.price, item.urlPicture);
-    torta.createCard(num);
-    num += 1;
+    let product = new Product(item.title, item.description, item.price, item.urlPicture);
+    product.createCard(id);
+    console.log(id)
+    id += 1;
 }
 
 
-//Toma los botones "agregar al carrito" de las cards 
-const comprarTorta1 = document.querySelector("#addToCartItem_0");
-const comprarTorta2 = document.querySelector("#addToCartItem_1");
-const comprarTorta3 = document.querySelector("#addToCartItem_2");
-const comprarTorta4 = document.querySelector("#addToCartItem_3");
-const comprarTorta5 = document.querySelector("#addToCartItem_4");
-const comprarTorta6 = document.querySelector("#addToCartItem_5");
-//Escucha el evento click y agrega el producto al carrito
-comprarTorta1.onclick = () => addToCart(0)
-comprarTorta2.onclick = () => addToCart(1)
-comprarTorta3.onclick = () => addToCart(2)
-comprarTorta4.onclick = () => addToCart(3)
-comprarTorta5.onclick = () => addToCart(4)
-comprarTorta6.onclick = () => addToCart(5)
 
-
-let carrito = [];
-//Agrega el numero de items comprados al lado de la imagen del carrito en el navbar
-//Agrega el item comprado al carrito
-function addToCart(item) {
-    btnCarrito.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-    fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-    <path
-        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-</svg> ${carrito.length}`;
-    carrito.push(products[item])
+function addToCart(id) {
+    carrito.push(products[id])
+    localStorage.setItem("cart", JSON.stringify(carrito));
+    qtyInCart.innerText = carrito.length;
+    
 }
 
+function emptyCart(){
+    localStorage.removeItem("cart");
+    carrito = [];
+    msgEmptyCart();
+    qtyInCart.innerText = carrito.length;
+}
 
-const btnCarrito = document.querySelector("#verCarrito");
-btnCarrito.onclick = () => goToCart();
+function msgEmptyCart(){
+    modal.innerText = "Tu carrito esta vacío! \nVamos a llenarlo?";
+}
+
+cartBtn.onclick = () => goToCart();
+emptyCartBtn.onclick = ()  => emptyCart();
 
 function goToCart() {
-    
-    let total = 0;
-    let list = "";
-    for (item of carrito) {
-        total += item.price;
-        list += item.title + "\n"
+    if(carrito.length == 0){
+        msgEmptyCart();
+    }else{
+        let total = 0;
+        modal.innerHTML= ""
+        for (item of carrito) {
+            total += item.price;
+            modal.innerHTML += `<div>
+                            <h6 style=" width: 50px" >${item.title}</h6>
+                            <img src="${item.urlPicture}" style=" width: 50px">
+                            </div>`
+        }
+        total = Math.trunc(total * 0.8)
     }
-    total = Math.trunc(total * 0.8)
-    let modal = document.querySelector(".modal-body");
-    modal.innerText = "En tu carrito tenes: \n\n" + list + "\n Total a pagar $" + total + "\n" + carrito;
-
-
+    
 }
 
 
@@ -177,53 +170,6 @@ function goToCart() {
  * Simulador de cotizacion
  * ***********************
  */
-
-const precios = {
-    bizcochuelo: {
-        vainilla: 500,
-        chocolate: 600,
-        marmolado: 550,
-        manteca: 490
-    },
-    relleno: {
-        dulcedeleche: 250,
-        moussechocolate: 300,
-        mousseavellanas: 600,
-        frutas: 390
-
-    },
-    cobertura: {
-        fondan: 1500,
-        ganache: 1200,
-        merengue: 600,
-        chantilly: 750
-
-    },
-    decoracion: {
-        figurasdeazucar: 350,
-        papelcomestible: 250,
-        masa: 500,
-        figurasdechocolate: 550,
-        frutas: 420
-
-    },
-    porciones: {
-        "6": 0.5,
-        "12": 1,
-        "18": 1.5,
-        "24": 2,
-        "48": 4
-    }
-}
-
-//Objeto para guardar los datos de la torta a cotizar
-let tortaACotizar = {
-    bizcochuelo: "",
-    relleno: "",
-    cobertura: "",
-    decoracion: "",
-    porciones: ""
-}
 
 //Capturar entradas del cuadro de cotizacion
 const botonCotizar = document.querySelector("#cotizarTorta");
