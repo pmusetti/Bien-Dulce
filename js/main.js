@@ -28,8 +28,8 @@
 
 let carrito = [];
 let id = 0;
-const qtyInCart = document.querySelector("#itemsInCart");
-const cartBtn = document.querySelector("#verCarrito");
+const qtyInCart = document.querySelector(".itemsInCart");
+const cartBtn = document.querySelector(".verCarrito");
 const emptyCartBtn = document.querySelector("#emptyCartBtn");
 const modal = document.querySelector(".modal-body");
 const modalCheckoutBtn = document.querySelector("#modal--checkout");
@@ -129,6 +129,7 @@ function goToCart() {
         let total = 0;
         modal.innerHTML = ""
         for (item of carrito) {
+            item.price = Math.trunc(item.price*0.8);
             total += item.price;
             modal.innerHTML += `<div class="modal--card--container">
                                     <div class="modal--card--img">
@@ -145,7 +146,17 @@ function goToCart() {
                                     </div>
                                 </div>`
         }
-        total = Math.trunc(total * 0.8)
+        modal.innerHTML += `<hr>
+                            <div class="modal--card--resumeContainer">
+                                <div class="modal--card--resumeText">
+                                    <p>Total: </p>
+                                </div>
+                                <div>
+                                    <p>$${total}</p>
+                                </div>
+                            </div>
+                            `
+        
     }
 
 }

@@ -86,9 +86,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" id="verCarrito" data-toggle="modal" data-target="#exampleModalCenter">
+                    <a href="#" class="verCarrito" data-toggle="modal" data-target="#exampleModalCenter">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="itemsInCart">0</span>
+                        <span class="itemsInCart">0</span>
                     </a>
                 </li>
             </ul>
@@ -246,13 +246,13 @@
                     <h5 class="modal-title" id="exampleModalCenterTitle">Tu Carrito</h5>
                 </div>
                 <div class="modal-body">
-
-                    
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" id="modal--checkout" class="btn btn-primary">Comprar</button>
+                    <!-- <button type="button" id="modal--checkout" class="btn btn-primary">Comprar</button> -->
+                    <form action="./buy.html">
+                        <input id="modal--checkout" class="btn btn-primary" type="submit" value="Comprar" />
+                    </form>
                     <button id="emptyCartBtn" type="button" class="btn btn-primary">Vaciar carrito</button>
                 </div>
             </div>

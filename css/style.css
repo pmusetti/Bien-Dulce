@@ -374,6 +374,17 @@ footer {
   width: 35%;
   text-align: right; }
 
+.modal--card--resumeContainer {
+  display: flex;
+  justify-content: space-around;
+  font-size: 120%;
+  font-weight: 600;
+  color: #636363; }
+
+.modal--card--resumeText {
+  width: 70%;
+  text-align: right; }
+
 * {
   padding: 0;
   margin: 0; }
