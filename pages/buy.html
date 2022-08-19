@@ -98,19 +98,12 @@
     </header>
 
     <main>
-        <div class="banner banner__quote bannerZoom"></div>
-        <div class="container mt-lg-5">
-
-            <h1 id="quote" class="titulo_primario">Imagina tu torta, nosotros la hacemos realidad!</h1>
-            <p class="mainText">No importa cuál sea tu celebración en cocina Bien Dulce creamos espectaculares pasteles
-                para ocasiones especiales, a tu gusto y necesidades.
-
-            </p>
-        </div>
+        
+      
 
 
         <section>
-            <div class="cart row justify-content-around">
+            <div class="checkout row justify-content-around">
 
 
             </div>
@@ -120,72 +113,7 @@
 
 
         <!-- Seccion de cotizador -->
-        <section>
-
-            <!-- Formulario de cotizacion -->
-            <h2 class="titulo_secundario">Cotiza tu torta</h2>
-            <h2 class="mainText">Por pedidos especiales, comunicate directamente por whatsapp y le damos forma a tus
-                ideas!
-            </h2>
-
-            <div class="row quoter--container">
-                <div class="container col-xl-6  col-sm-10 quoteForm p-3">
-                    <label for="exampleDataList" class="form-label">Bizcochuelo</label>
-                    <select id="bizcochuelo" class="form-control">
-                        <option name="Vainilla">Vainilla</option>
-                        <option name="Chocolate">Chocolate</option>
-                        <option name="Marmolado">Marmolado</option>
-                        <option name="Manteca">Manteca</option>
-                    </select>
-
-
-                    <label for="exampleDataList" class="form-label">Relleno</label>
-                    <select id="relleno" class="form-control">
-                        <option name="Dulce de leche">Dulce de leche</option>
-                        <option name="Mousse avellanas o almendras">Mousse avellanas</option>
-                        <option name="Mousse chocolate">Mousse chocolate</option>
-                        <option name="Frutas">Frutas</option>
-                    </select>
-
-                    <label for="exampleDataList" class="form-label">Cobertura</label>
-                    <select id="cobertura" class="form-control">
-                        <option name="Fondan">Fondan</option>
-                        <option name="Ganache">Ganache</option>
-                        <option name="Merengue">Merengue</option>
-                        <option name="Chantilly">Chantilly</option>
-                    </select>
-
-                    <label for="exampleDataList" class="form-label">Decoracion</label>
-                    <select id="decoracion" class="form-control">
-                        <option name="Figuras de azucar">Figuras de azucar</option>
-                        <option name="Papel comestible">Papel comestible</option>
-                        <option name="Masa">Masa</option>
-                        <option name="Figuras de chocolate">Figuras de chocolate</option>
-                        <option name="Frutas">Frutas</option>
-                    </select>
-
-                    <label for="exampleDataList" class="form-label">Porciones</label>
-                    <select id="porciones" class="form-control">
-                        <option name="6">6</option>
-                        <option name="12">12</option>
-                        <option name="18">18</option>
-                        <option name="24">24</option>
-                        <option name="48">48</option>
-                    </select>
-
-                    <div class="mb-5 mt-5 p-3 row">
-                        <button id="cotizarTorta" type="submit"
-                            class="btn color--send btn--highlight col-2">Cotiza</button>
-                        <input id="precioCotizado" type="text" class="form-control col" id="formGroupExampleInput21"
-                            placeholder="$">
-                    </div>
-
-                    <p id="userOption"></p>
-                    <p id="nota"></p>
-
-                </div>
-            </div>
-        </section>
+       
 
         <!-- Seccion de contacto -->
         <section id="contacto" class="highlight--bg">
@@ -199,30 +127,6 @@
                 respuesta inmediata.
             </p>
 
-            <div class="container container--contacto">
-                <form>
-                    <div class="mb-3">
-                        <label for="inputName" class="form-label">Tu nombre</label>
-                        <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">No compartiremos esta informacion con nadie</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="inputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input color--send btn--highlight" id="checkBox"
-                            checked>
-                        <label class="form-check-label" for="checkBox">Quiero recibir ofertas</label>
-                    </div>
-                    <button type="submit" class="btn color--send btn--highlight">Borrar</button>
-                    <button type="submit" class="btn color--send btn--highlight">Enviar</button>
-                </form>
-            </div>
 
             <div class="socialIcon__container">
                 <a href="https://www.facebook.com/Bien-Dulce-126910585987386"><i
@@ -236,42 +140,33 @@
 
     </main>
     <footer>Created by Pablo Musetti</footer>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Tu Carrito</h5>
-                </div>
-                <div class="modal-body">
-
-                    
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" id="modal--checkout" class="btn btn-primary">Comprar</button>
-                    <button id="emptyCartBtn" type="button" class="btn btn-primary">Vaciar carrito</button>
-                </div>
-            </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Tu Carrito</h5>
         </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Comprar</button>
+          <button id="emptyCartBtn" type="button" class="btn btn-primary">Vaciar carrito</button>
+        </div>
+      </div>
     </div>
+  </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="../js/products.js"></script>
     <script src="../js/prices.js"></script>
     <script src="../js/main.js"></script>

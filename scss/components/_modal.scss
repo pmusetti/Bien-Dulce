@@ -1,0 +1,29 @@
+.modal--card--container {
+  display: flex;
+  margin-bottom: 8px;
+  background-color: rgb(224, 224, 224);
+}
+
+.modal--card--img {
+  width: 20%;
+}
+.modal--card--img img{
+    width: 100%;
+}
+.modal--card--textContainer {
+  width: 75%;
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.modal--card--title{
+    width: 60%;
+    text-align: left;
+}
+.modal--card--price{
+    width: 35%;
+    text-align: right;
+}
+

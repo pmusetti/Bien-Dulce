@@ -76,8 +76,7 @@
 
 .cartBtn {
   background-color: #c4d9f8;
-  color: #3483fa;
-  width: 100%; }
+  color: #3483fa; }
 
 .buyBtn:hover, .cartBtn:hover {
   background-color: #1c71f1; }
@@ -348,6 +347,32 @@ footer {
 
 .quoter--container {
   width: 100%; }
+
+.modal--card--container {
+  display: flex;
+  margin-bottom: 8px;
+  background-color: #e0e0e0; }
+
+.modal--card--img {
+  width: 20%; }
+
+.modal--card--img img {
+  width: 100%; }
+
+.modal--card--textContainer {
+  width: 75%;
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+
+.modal--card--title {
+  width: 60%;
+  text-align: left; }
+
+.modal--card--price {
+  width: 35%;
+  text-align: right; }
 
 * {
   padding: 0;

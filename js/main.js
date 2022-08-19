@@ -32,8 +32,11 @@ const qtyInCart = document.querySelector("#itemsInCart");
 const cartBtn = document.querySelector("#verCarrito");
 const emptyCartBtn = document.querySelector("#emptyCartBtn");
 const modal = document.querySelector(".modal-body");
+const modalCheckoutBtn = document.querySelector("#modal--checkout");
 cartBtn.onclick = () => goToCart();
 emptyCartBtn.onclick = () => emptyCart();
+
+modalCheckoutBtn.onclick = () => checkout(null);
 
 if (localStorage.getItem("cart")) {
     carrito = JSON.parse(localStorage.getItem("cart"));
@@ -76,7 +79,9 @@ class Product {
                                     <span class="card--price " >$ ${this.discounPrice}</span>
                                 </div>
                                 <div class="">
-                                    <button class="buyBtn"> Comprar </button>
+                                <form action="./buy.html">
+                                    <input class="buyBtn" id="card--checkout--${id}" type="submit" value="Comprar" />
+                                </form>
                                 </div>
                                 <div class="">
                                     <button id="addToCartItem_${id}" class="cartBtn">
@@ -88,6 +93,7 @@ class Product {
 
         cardContainer.append(card);
         document.querySelector(`#addToCartItem_${id}`).onclick = () => addToCart(id);
+        document.querySelector(`#card--checkout--${id}`).onclick = () => checkout(id);
     }
 }
 
@@ -124,14 +130,35 @@ function goToCart() {
         modal.innerHTML = ""
         for (item of carrito) {
             total += item.price;
-            modal.innerHTML += `<div>
-                            <h6 style=" width: 50px" >${item.title}</h6>
-                            <img src="${item.urlPicture}" style=" width: 50px">
-                            </div>`
+            modal.innerHTML += `<div class="modal--card--container">
+                                    <div class="modal--card--img">
+                                        <img src="${item.urlPicture}" alt="torta">
+                                    </div>
+
+                                    <div class="modal--card--textContainer">
+                                        <div class="modal--card--title">
+                                            <p>${item.title}</p>
+                                        </div>
+                                        <div class="modal--card--price">
+                                            <p>$${item.price}</p>
+                                        </div>
+                                    </div>
+                                </div>`
         }
         total = Math.trunc(total * 0.8)
     }
 
+}
+
+function checkout(id) {
+    if (id == null) {
+        //recorrer el carrito y mostrar cada producto del carrito en una tabla en la pagina de checkout
+        console.log("Mostrando productos del carrito en pagina checkout")
+    } else {
+        //agregar solo el producto del id y mostrarlo en la pagina del checkout
+        console.log("Mostrando producto elegido en pagina checkout")
+
+    }
 }
 
 
