@@ -24,9 +24,21 @@
  * -Porciones
  * 
  */
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-right',
+    iconColor: '#a5dc86',
+    customClass: {
+        popup: 'colored-toast'
+    },
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true
+})
 
-
-let carrito = [];
+//Asignacion condicional
+let carrito = JSON.parse(localStorage.getItem("cart")) || [];
+let pruebaCarrito = [];
 let id = 0;
 const qtyInCart = document.querySelector(".itemsInCart");
 const cartBtn = document.querySelector(".verCarrito");
@@ -37,14 +49,13 @@ cartBtn.onclick = () => goToCart();
 emptyCartBtn.onclick = () => emptyCart();
 
 modalCheckoutBtn.onclick = () => checkout(null);
+qtyInCart.innerText = carrito.length;
 
-if (localStorage.getItem("cart")) {
-    carrito = JSON.parse(localStorage.getItem("cart"));
-    qtyInCart.innerText = carrito.length;
-}
-
-
+//SPREAD
+const parametros = ["title", "description", "price", "picture"];
+console.log("Parametros: ", ...parametros)
 class Product {
+    
     constructor(title, description, price, picture) {
         this.title = title;
         this.description = description;
@@ -79,7 +90,7 @@ class Product {
                                     <span class="card--price " >$ ${this.discounPrice}</span>
                                 </div>
                                 <div class="">
-                                <form action="./buy.html">
+                                <form action="">
                                     <input class="buyBtn" id="card--checkout--${id}" type="submit" value="Comprar" />
                                 </form>
                                 </div>
@@ -98,8 +109,12 @@ class Product {
 }
 
 for (item of products) {
-    let product = new Product(item.title, item.description, item.price, item.urlPicture);
+    
+    //Desestructurando el objeto item (producto)
+    const { title, description, price, urlPicture } = item;
+    let product = new Product(title, description, price, urlPicture);
     product.createCard(id);
+    pruebaCarrito.push([])
     id += 1;
 }
 
@@ -107,8 +122,18 @@ for (item of products) {
 
 function addToCart(id) {
     carrito.push(products[id])
+    pruebaCarrito[id].push(id);
+    //pruebaCarrito[id].push(products[id])
+    console.log(pruebaCarrito)
     localStorage.setItem("cart", JSON.stringify(carrito));
     qtyInCart.innerText = carrito.length;
+
+
+
+    Toast.fire({
+        icon: 'success',
+        title: `Producto agregado\n${carrito.length} productos en tu carrito`
+    })
 }
 
 function emptyCart() {
@@ -116,6 +141,10 @@ function emptyCart() {
     carrito = [];
     msgEmptyCart();
     qtyInCart.innerText = carrito.length;
+    Toast.fire({
+        icon: 'success',
+        title: `Carrito vacio!`
+    })
 }
 
 function msgEmptyCart() {
@@ -129,7 +158,8 @@ function goToCart() {
         let total = 0;
         modal.innerHTML = ""
         for (item of carrito) {
-            item.price = Math.trunc(item.price*0.8);
+            item.price = Math.trunc(item.price * 0.8);
+            item.qty = 1;
             total += item.price;
             modal.innerHTML += `<div class="modal--card--container">
                                     <div class="modal--card--img">
@@ -140,9 +170,13 @@ function goToCart() {
                                         <div class="modal--card--title">
                                             <p>${item.title}</p>
                                         </div>
+                                        <div class="modal--card--qty">
+                                            <input type="number" value="${item.qty}" min="1" max="100" step="1"/>
+                                        </div>
                                         <div class="modal--card--price">
                                             <p>$${item.price}</p>
                                         </div>
+                                        
                                     </div>
                                 </div>`
         }
@@ -156,20 +190,29 @@ function goToCart() {
                                 </div>
                             </div>
                             `
-        
+
     }
 
 }
 
+
 function checkout(id) {
-    if (id == null) {
+    //Operador ternario
+    (id == null) ?
         //recorrer el carrito y mostrar cada producto del carrito en una tabla en la pagina de checkout
         console.log("Mostrando productos del carrito en pagina checkout")
-    } else {
+        // Swal.fire({
+        //     title: 'Pedido confirmado',
+        //     text: 'Do you want to continue',
+        //     icon: 'ok',
+        //     confirmButtonText: 'Cool'
+        //   });
+
+        :
         //agregar solo el producto del id y mostrarlo en la pagina del checkout
         console.log("Mostrando producto elegido en pagina checkout")
 
-    }
+
 }
 
 
