@@ -200,17 +200,21 @@ function checkout(id) {
     //Operador ternario
     (id == null) ?
         //recorrer el carrito y mostrar cada producto del carrito en una tabla en la pagina de checkout
-        console.log("Mostrando productos del carrito en pagina checkout")
-        // Swal.fire({
-        //     title: 'Pedido confirmado',
-        //     text: 'Do you want to continue',
-        //     icon: 'ok',
-        //     confirmButtonText: 'Cool'
-        //   });
+        Swal.fire({
+            title: 'Pedido confirmado',
+            text: 'Recibiras los productos de tu carrito en menos de 24 horas!',
+            icon: 'ok',
+            confirmButtonText: 'Cool'
+          })
 
         :
         //agregar solo el producto del id y mostrarlo en la pagina del checkout
-        console.log("Mostrando producto elegido en pagina checkout")
+        Swal.fire({
+            title: 'Pedido confirmado',
+            text: 'Recibiras tu producto en menos de 24 horas!',
+            icon: 'ok',
+            confirmButtonText: 'Cool'
+          })
 
 
 }
