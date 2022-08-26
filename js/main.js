@@ -24,6 +24,33 @@
  * -Porciones
  * 
  */
+
+/*******************************************************
+********               TODO                *************
+********************************************************
+- Agregar pagina de checkout
+- Solucionar la visualizacion del modal cuando el carrito 
+esta vacio y se vuelve a consultar el carrito
+- Agregar la funcionalidad de agregar items desde el 
+checkout
+
+
+*/
+
+
+let cart = [];
+let products = [];
+let id = 0;
+let prodsInCart = 0;
+const qtyInCart = document.querySelector(".itemsInCart");
+const cartBtn = document.querySelector(".verCarrito");
+const emptyCartBtn = document.querySelector("#emptyCartBtn");
+const modal = document.querySelector(".modal-body");
+const modalCheckoutBtn = document.querySelector("#modal--checkout");
+cartBtn.onclick = () => goToCart();
+emptyCartBtn.onclick = () => removeCart();
+modalCheckoutBtn.onclick = () => checkout(null);
+qtyInCart.innerText = prodsInCart;
 const Toast = Swal.mixin({
     toast: true,
     position: 'top-right',
@@ -36,26 +63,12 @@ const Toast = Swal.mixin({
     timerProgressBar: true
 })
 
-//Asignacion condicional
-let carrito = JSON.parse(localStorage.getItem("cart")) || [];
-let pruebaCarrito = [];
-let id = 0;
-const qtyInCart = document.querySelector(".itemsInCart");
-const cartBtn = document.querySelector(".verCarrito");
-const emptyCartBtn = document.querySelector("#emptyCartBtn");
-const modal = document.querySelector(".modal-body");
-const modalCheckoutBtn = document.querySelector("#modal--checkout");
-cartBtn.onclick = () => goToCart();
-emptyCartBtn.onclick = () => emptyCart();
 
-modalCheckoutBtn.onclick = () => checkout(null);
-qtyInCart.innerText = carrito.length;
+getStoredCart();
 
-//SPREAD
-const parametros = ["title", "description", "price", "picture"];
-console.log("Parametros: ", ...parametros)
+
 class Product {
-    
+
     constructor(title, description, price, picture) {
         this.title = title;
         this.description = description;
@@ -108,79 +121,118 @@ class Product {
     }
 }
 
-for (item of products) {
-    
-    //Desestructurando el objeto item (producto)
-    const { title, description, price, urlPicture } = item;
-    let product = new Product(title, description, price, urlPicture);
-    product.createCard(id);
-    pruebaCarrito.push([])
-    id += 1;
+getProducts();
+
+
+
+// FUNCTIONS DECLARATIONS
+
+function getProducts() {
+    const URL = "../js/products.json";
+    fetch(URL)
+        .then(resp => resp.json())
+        .then(data => {
+            products = data.products;
+            console.log(products)
+            renderCards();
+            initializeCart();
+        })
+}
+
+function renderCards(){
+    for (item of products) {
+        const { title, description, price, urlPicture } = item;
+        let product = new Product(title, description, price, urlPicture);
+        product.createCard(id);
+        id += 1;
+    }
+}
+
+function initializeCart(){
+    console.log("push")
+    for (let i = 0; i < products.length; i++) { cart.push([]) }
+}
+
+function getStoredCart() {
+    if (localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"))
+        prodsInCart = parseInt(localStorage.getItem("prodsInCart"));
+        qtyInCart.innerText = prodsInCart;
+    } else {
+        initializeCart();
+    }
 }
 
 
 
 function addToCart(id) {
-    carrito.push(products[id])
-    pruebaCarrito[id].push(id);
-    //pruebaCarrito[id].push(products[id])
-    console.log(pruebaCarrito)
-    localStorage.setItem("cart", JSON.stringify(carrito));
-    qtyInCart.innerText = carrito.length;
-
-
+    cart[id].push(id);
+    prodsInCart += 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("prodsInCart", prodsInCart);
+    qtyInCart.innerText = prodsInCart;
 
     Toast.fire({
         icon: 'success',
-        title: `Producto agregado\n${carrito.length} productos en tu carrito`
+        title: `Producto agregado\n${prodsInCart} productos en tu carrito`
     })
 }
 
-function emptyCart() {
+function removeCart() {
     localStorage.removeItem("cart");
-    carrito = [];
+    cart = [];
+    prodsInCart = 0;
+    getStoredCart();
     msgEmptyCart();
-    qtyInCart.innerText = carrito.length;
-    Toast.fire({
-        icon: 'success',
-        title: `Carrito vacio!`
-    })
-}
+    qtyInCart.innerText = prodsInCart;
 
-function msgEmptyCart() {
-    modal.innerText = "Tu carrito esta vacío! \nVamos a llenarlo?";
 }
 
 function goToCart() {
-    if (carrito.length == 0) {
-        msgEmptyCart();
-    } else {
-        let total = 0;
-        modal.innerHTML = ""
-        for (item of carrito) {
-            item.price = Math.trunc(item.price * 0.8);
-            item.qty = 1;
-            total += item.price;
-            modal.innerHTML += `<div class="modal--card--container">
-                                    <div class="modal--card--img">
-                                        <img src="${item.urlPicture}" alt="torta">
-                                    </div>
+    (prodsInCart == 0) ? msgEmptyCart() : populateModal();
+}
 
-                                    <div class="modal--card--textContainer">
-                                        <div class="modal--card--title">
-                                            <p>${item.title}</p>
-                                        </div>
-                                        <div class="modal--card--qty">
-                                            <input type="number" value="${item.qty}" min="1" max="100" step="1"/>
-                                        </div>
-                                        <div class="modal--card--price">
-                                            <p>$${item.price}</p>
-                                        </div>
-                                        
-                                    </div>
-                                </div>`
+
+function populateModal() {
+    let index = 0;
+    let total = 0;
+    let foto = "";
+    let titulo = "";
+    let precio = 0;
+    modal.innerHTML = ""
+    for (item of cart) {
+        let qty = item.length
+        if (qty > 0) {
+            prodsInCart += qty;
+            console.log(`Hay ${qty} ${products[index].title}`)
+            foto = products[index].urlPicture;
+            titulo = products[index].title;
+            precio = products[index].price * qty * 0.8;
+            total += precio;
+
+            modal.innerHTML += `<div class="modal--card--container">
+            <div class="modal--card--img">
+                <img src="${foto}" alt="torta">
+            </div>
+
+            <div class="modal--card--textContainer">
+                <div class="modal--card--title">
+                    <p>${titulo}</p>
+                </div>
+                <div class="modal--card--qty">
+                    <input type="number" value="${qty}" min="1" max="100" step="1"/>
+                </div>
+                <div class="modal--card--price">
+                    <p>$${precio}</p>
+                </div>
+
+            </div>
+        </div>`
         }
-        modal.innerHTML += `<hr>
+        index += 1;
+
+    }
+    modal.innerHTML += `<hr>
                             <div class="modal--card--resumeContainer">
                                 <div class="modal--card--resumeText">
                                     <p>Total: </p>
@@ -188,42 +240,57 @@ function goToCart() {
                                 <div>
                                     <p>$${total}</p>
                                 </div>
-                            </div>
-                            `
+                            </div>`
 
-    }
+
 
 }
 
-
 function checkout(id) {
-    //Operador ternario
+    removeCart();
     (id == null) ?
         //recorrer el carrito y mostrar cada producto del carrito en una tabla en la pagina de checkout
-        Swal.fire({
-            title: 'Pedido confirmado',
-            text: 'Recibiras los productos de tu carrito en menos de 24 horas!',
-            icon: 'ok',
-            confirmButtonText: 'Cool'
-          })
+
+        msgCartCheckout()
 
         :
         //agregar solo el producto del id y mostrarlo en la pagina del checkout
-        Swal.fire({
-            title: 'Pedido confirmado',
-            text: 'Recibiras tu producto en menos de 24 horas!',
-            icon: 'ok',
-            confirmButtonText: 'Cool'
-          })
-
+        msgProductCheckout();
 
 }
+
+function msgProductCheckout() {
+    Swal.fire({
+        title: 'Pedido confirmado',
+        text: 'Recibiras tu producto en menos de 24 horas!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    })
+}
+function msgCartCheckout() {
+    Swal.fire({
+        title: 'Pedido confirmado',
+        text: 'Recibiras los productos de tu carrito en menos de 24 horas!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    })
+}
+function msgEmptyCart() {
+    Swal.fire({
+        title: 'Carrito vacio!',
+        text: 'Vamos a llenarlo!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    })
+}
+
 
 
 
 /*************************
  * Simulador de cotizacion
  *************************/
+let precios = [];
 
 //Capturar entradas del cuadro de cotizacion
 const botonCotizar = document.querySelector("#cotizarTorta");
@@ -256,17 +323,19 @@ botonCotizar.onclick = () => {
 
     //Calcular precio de la torta a cotizar
     let precio = 0;
-    precio += precios.bizcochuelo[`${tortaACotizar.bizcochuelo}`.toLowerCase()];
-    precio += precios.relleno[`${inputRelleno.value}`.toLowerCase().replaceAll(" ", "")];
-    precio += precios.cobertura[`${inputCobertura.value}`.toLowerCase().replaceAll(" ", "")];
-    precio += precios.decoracion[`${inputDecoracion.value}`.toLowerCase().replaceAll(" ", "")];
-    precio = precio * precios.porciones[inputPorciones.value];
+    precio += precios[0].bizcochuelo[`${tortaACotizar.bizcochuelo}`.toLowerCase()];
+    precio += precios[1].relleno[`${inputRelleno.value}`.toLowerCase().replaceAll(" ", "")];
+    precio += precios[2].cobertura[`${inputCobertura.value}`.toLowerCase().replaceAll(" ", "")];
+    precio += precios[3].decoracion[`${inputDecoracion.value}`.toLowerCase().replaceAll(" ", "")];
+    precio = precio * precios[4].porciones[inputPorciones.value];
     campoPrecio.value = "$" + precio;
 
 
     mostrarTortaCotizada();
 
 }
+
+
 
 //Renderizar un texto con el resultado final de la torta elegida por el cliente y una nota de disclaimer
 const mostrarTortaCotizada = () => {
@@ -278,3 +347,13 @@ const mostrarTortaCotizada = () => {
 
 }
 
+function getPrices() {
+    const URL = "../js/prices.json";
+        fetch(URL)
+            .then(resp => resp.json())
+            .then(data => {
+                precios = data.prices;
+                console.log(precios)
+            })
+}
+getPrices();
