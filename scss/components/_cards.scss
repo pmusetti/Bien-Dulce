@@ -61,13 +61,18 @@
   height: 38px;
   margin-top: 8px;
 }
+.checkoutBtn{
+  @extend .buyBtn;
+  width: 25%;
+  min-width: 135px;
+  margin: 5% auto;
+}
+
 .cartBtn{
   @extend .buyBtn;
   background-color: #c4d9f8;
   color: #3483fa;
 }
-
-
 .buyBtn:hover{
   background-color: #1c71f1;
 }

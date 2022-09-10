@@ -28,7 +28,7 @@ MAPS
 Se agregó un partial de _maps con un mapa de colores
 Se importó en style.scss
 Esto creo tres clases nuevas en style.css (.color--facebook, .color--whatsapp, .color--send)
-Estos colores se utilizarón en los iconos de facebook y whatsapp en toda la pagina y en el boton de cotizar en quote.html
+Estos colores se utilizarón en los iconos de facebook y whatsapp en toda la pagina y en el boton de cotizar en store.html
 
 Se creo un map con estilos de fuentes y se aplicó en las clases .titulo, .mainText, .commentContainer, .prods_card a, .navBar__list a.
 

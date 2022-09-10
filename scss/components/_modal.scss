@@ -3,6 +3,10 @@
   margin-bottom: 8px;
   background-color: rgb(224, 224, 224);
 }
+.modal--card--container input{
+  margin: 0 auto;
+  width: 20px;
+}
 
 .modal--card--img {
   width: 20%;
@@ -22,6 +26,7 @@
     width: 60%;
     text-align: left;
 }
+
 .modal--card--price{
     width: 35%;
     text-align: right;

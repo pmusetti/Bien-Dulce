@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title"
-        content="Yanina Rodriguez, chef internacional dedicada a la pasteleria y cocina creativa en Uruguay ">
+        content="Cocina Bien dulce, cocina creativa. Cotiza tu torta o postre. Elegi entre una gran varieadad de sabores y crea tu combinacion perfecta. ">
     <meta name="description"
-        content="Yanina Rodriguez, chef Uruguaya hija de Españoles, heredo su pasion por la cocina española de sus padres y desarrollo sus habilidades en las cadenas hoteleras mas grandes de europa. Hoy se dedica exclusivamente a su cocina de tortas y postres.">
+        content="Cocina Bien Dulce hace realidad tus ideas. Cotiza tu torta en funcion de las diferentes variedades de bizcochuelos, rellenos coberturas y porciones. Si tenes una idea en mente, contactanos y lo hacemos posible.">
     <meta name="keywords"
-        content="Chef, yanina rodriguez, cocina española, uruguaya, pasion, innovacion, vanguardia, reposteria, hoteleria, restaurantes, dulce, cupcakes, golosinas, cakepops, macarons, alfajores, bombones, dulces, fiestas, eventos, cumpleaños, casamientos, festejos, reuniones, masas, decoracion, pasteleria, recetas">
+        content="Cotizacion, Tortas, rellenos, cobertura, porciones, postres, pasteles, dulce, cupcakes, golosinas, cakepops, macarons, alfajores, bombones, dulces, fiestas, eventos, cumpleaños, casamientos, festejos, reuniones, masas, decoracion, pasteleria, reposteria, recetas">
     <title>Bien Dulce</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Alice&family=Courgette&family=Itim&family=Mali&family=Merienda:wght@700&family=Montserrat&family=Open+Sans:wght@300;400&family=Rajdhani&family=Sriracha&family=Suez+One&family=Yellowtail&display=swap"
-        rel="stylesheet"> 
+        rel="stylesheet">
     <link rel="shortcut icon" href="../assets/img/logo.webp">
 </head>
 
@@ -38,6 +38,11 @@
                         <li><a href="./about.html#aboutMe">SOBRE MI</a></li>
                         <li><a href="./store.html">TIENDA</a></li>
                         <li><a href="#contacto">CONTACTO</a></li>
+                        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                                    fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg></a></li>
                     </ul>
                 </li>
             </ul>
@@ -45,8 +50,6 @@
         <a href="../index.html">
             <img class="logo_mobile" src="../assets/img/logo.webp" alt="logotipo de cocina bien dulce">
         </a>
-
-
         <nav id="navBar_desktop" class="navBar">
             <!-- Listas anidadas de menu y submenu  -->
             <ul class="navBar__list">
@@ -68,8 +71,8 @@
                         <img class="logo_desktop" src="../assets/img/logo.webp" alt="logotipo de cocina bien dulce">
                     </a>
                 </li>
-                <li><a class="zoom highlight activo" href="./about.html#aboutMe">SOBRE MI</a></li>
-                <li><a class="zoom highlight" href="./store.html">TIENDA</a></li>
+                <li><a class="zoom highlight" href="./about.html#aboutMe">SOBRE MI</a></li>
+                <li><a class="zoom highlight activo" href="./store.html">TIENDA</a></li>
                 <li class="navBar__menu">
                     <a class="zoom highlight" href="#contacto">CONTACTO</a>
                     <!-- Submenu de contactos  -->
@@ -79,7 +82,14 @@
                                 target="_blank"><i class="fa-brands fa-whatsapp color--whatsapp"></i>Escribinos</a></li>
                         <li><a class="zoom highlight" href="https://www.instagram.com/cocinabiendulce/"
                                 target="_blank"><i class="fa-brands fa-instagram instagramColor"></i>Seguinos</a></li>
+
                     </ul>
+                </li>
+                <li>
+                    <a href="./cartCheckout.html" class="verCarrito">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="itemsInCart">0</span>
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -88,54 +98,91 @@
     </header>
 
     <main>
-        <div class="banner banner__about bannerZoom"></div>
-        <!-- Seccion About -->
+        <div class="banner banner__quote bannerZoom"></div>
+        <div class="container mt-lg-5">
+
+            <h1 id="quote" class="titulo_primario">Imagina tu torta, nosotros la hacemos realidad!</h1>
+            <p class="mainText">No importa cuál sea tu celebración en cocina Bien Dulce creamos espectaculares pasteles
+                para ocasiones especiales, a tu gusto y necesidades.
+
+            </p>
+        </div>
+
+
         <section>
-            <h1 id="aboutMe" class="name titulo"> Yanina Rodriguez Suarez</h1>
-            <div  class="container">
-                <div class="clearfix">
-
-                    <img src="../assets/img/profile.webp" class="col-md-6 float-md-end mb-3 ms-md-2 profile__img"
-                        alt="Postre terrario. Imita una maceta con cactus  flores y rocas sobre tierra. Postre a base de brawnie y galletita, con dulce de leche, mousse de chocolate y decoraciones en masa de azucar.">
+            <div class="cart row justify-content-around">
 
 
-                    <p class="fw-bold fs-4">
-                        A menudo se le pregunta de dónde y cómo surgen sus ideas. Estas combinaciones de gustos,
-                        texturas y sabores. Esas sabrosas creaciones que son su seña de identidad y son reconocibles
-                        entre mil. Se presta gustosa a responder... Placer, sensaciones, encuentros, fragancias,
-                        texturas. Yanina tiene curiosidad por todo y todo la inspira.
-                    </p>
+            </div>
+        </section>
 
-                    <p>
-                        Heredera de cuatro generaciones de panaderos y pasteleros gaditanos, comenzó su carrera a los 14
-                        años con Gaston Lenôtre. Su alto nivel, su extraordinaria creatividad, su deseo de transmitir su
-                        saber hacer y el mundo de la Alta Pastelería la hacen famosa.
-                    </p>
 
-                    <p>
-                        Adquirió su saber hacer de tradicion familiar. Descubrió notablemente el macaron, ese pequeño
-                        bocado que se convertiría en su área de expresión favorita. Su deslumbrante carrera continuó en
-                        Fauchon y luego en Ladurée antes de fundar la Cocina Bien Dulce en 2005.
-                    </p>
-                    <p>
-                        Como las grandes diseñadores, Yanina diseña sus postres a partir de una hoja en blanco. Su
-                        conocimiento del gusto le permite imaginar los sabores y sensaciones que desea dar a su
-                        creación. Imagina así la Alta Pastelería, una experiencia en sí misma, que se asimila al Arte de
-                        Vivir.
-                    </p>
-                    <p>
-                        El 14 de junio de 2016, Yanina Rodriguez fue votada como la mejor chef pastelera del mundo por
-                        la Academia de los 50 mejores restaurantes del mundo. El mismo año, Vanity Fair la posicionó en
-                        el cuarto lugar de la lista de los 50 Uruguayos más influyentes del mundo. En octubre de 2021,
-                        es la cuarto emprendedora uruguaya favorita, según el ranking de la revista Forbes.
-                    </p>
-                    <p>
-                        Su trabajo, su curiosidad, su saber y su cultura de los sabores, sus creaciones revolucionan el
-                        mundo de la pastelería. Con el tiempo, elimina decoraciones innecesarias, construye sus pasteles
-                        como arquitecta del gusto, con especial atención a los detalles. En 2020, sacude los códigos y
-                        vuelve a revolucionar el mundo de la pastelería lanzando sus primeros postres de autora
-                        "Indulgencia Razonada".
-                    </p>
+
+
+        <!-- Seccion de cotizador -->
+        <section>
+
+            <!-- Formulario de cotizacion -->
+            <h2 class="titulo_secundario">Cotiza tu torta</h2>
+            <h2 class="mainText">Por pedidos especiales, comunicate directamente por whatsapp y le damos forma a tus
+                ideas!
+            </h2>
+
+            <div class="row quoter--container">
+                <div class="container col-xl-6  col-sm-10 quoteForm p-3">
+                    <label for="exampleDataList" class="form-label">Bizcochuelo</label>
+                    <select id="bizcochuelo" class="form-control">
+                        <option name="Vainilla">Vainilla</option>
+                        <option name="Chocolate">Chocolate</option>
+                        <option name="Marmolado">Marmolado</option>
+                        <option name="Manteca">Manteca</option>
+                    </select>
+
+
+                    <label for="exampleDataList" class="form-label">Relleno</label>
+                    <select id="relleno" class="form-control">
+                        <option name="Dulce de leche">Dulce de leche</option>
+                        <option name="Mousse avellanas o almendras">Mousse avellanas</option>
+                        <option name="Mousse chocolate">Mousse chocolate</option>
+                        <option name="Frutas">Frutas</option>
+                    </select>
+
+                    <label for="exampleDataList" class="form-label">Cobertura</label>
+                    <select id="cobertura" class="form-control">
+                        <option name="Fondan">Fondan</option>
+                        <option name="Ganache">Ganache</option>
+                        <option name="Merengue">Merengue</option>
+                        <option name="Chantilly">Chantilly</option>
+                    </select>
+
+                    <label for="exampleDataList" class="form-label">Decoracion</label>
+                    <select id="decoracion" class="form-control">
+                        <option name="Figuras de azucar">Figuras de azucar</option>
+                        <option name="Papel comestible">Papel comestible</option>
+                        <option name="Masa">Masa</option>
+                        <option name="Figuras de chocolate">Figuras de chocolate</option>
+                        <option name="Frutas">Frutas</option>
+                    </select>
+
+                    <label for="exampleDataList" class="form-label">Porciones</label>
+                    <select id="porciones" class="form-control">
+                        <option name="6">6</option>
+                        <option name="12">12</option>
+                        <option name="18">18</option>
+                        <option name="24">24</option>
+                        <option name="48">48</option>
+                    </select>
+
+                    <div class="mb-5 mt-5 p-3 row">
+                        <button id="cotizarTorta" type="submit"
+                            class="btn color--send btn--highlight col-2">Cotiza</button>
+                        <input id="precioCotizado" type="text" class="form-control col" id="formGroupExampleInput21"
+                            placeholder="$">
+                    </div>
+
+                    <p id="userOption"></p>
+                    <p id="nota"></p>
+
                 </div>
             </div>
         </section>
@@ -186,17 +233,28 @@
                     target="_blank"><i class="fa-brands fa-whatsapp color--whatsapp zoom"></i></a>
             </div>
         </section>
+
     </main>
     <footer>Created by Pablo Musetti</footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    <script>
-        window.addEventListener("load", function (event) {
-            document.getElementsByClassName("disclaimer")[0].remove();
-        });
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="../js/functions.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

@@ -29,28 +29,22 @@
 ********               TODO                *************
 ********************************************************
 - Agregar pagina de checkout
-- Solucionar la visualizacion del modal cuando el carrito 
-esta vacio y se vuelve a consultar el carrito
 - Agregar la funcionalidad de agregar items desde el 
 checkout
-
-
 */
 
-
+//Decalracion de variables y constantes
 let cart = [];
 let products = [];
 let id = 0;
 let prodsInCart = 0;
+
+//Capturar nodos del DOM
 const qtyInCart = document.querySelector(".itemsInCart");
 const cartBtn = document.querySelector(".verCarrito");
-const emptyCartBtn = document.querySelector("#emptyCartBtn");
-const modal = document.querySelector(".modal-body");
-const modalCheckoutBtn = document.querySelector("#modal--checkout");
-cartBtn.onclick = () => goToCart();
-emptyCartBtn.onclick = () => removeCart();
-modalCheckoutBtn.onclick = () => checkout(null);
-qtyInCart.innerText = prodsInCart;
+
+
+//TOAST
 const Toast = Swal.mixin({
     toast: true,
     position: 'top-right',
@@ -63,10 +57,10 @@ const Toast = Swal.mixin({
     timerProgressBar: true
 })
 
+//Eventos
+cartBtn.onclick = () => goToCart();
 
-getStoredCart();
-
-
+// Clases
 class Product {
 
     constructor(title, description, price, picture) {
@@ -103,7 +97,7 @@ class Product {
                                     <span class="card--price " >$ ${this.discounPrice}</span>
                                 </div>
                                 <div class="">
-                                <form action="">
+                                <form action="./productCheckout.html">
                                     <input class="buyBtn" id="card--checkout--${id}" type="submit" value="Comprar" />
                                 </form>
                                 </div>
@@ -121,170 +115,8 @@ class Product {
     }
 }
 
-getProducts();
-
-
-
-// FUNCTIONS DECLARATIONS
-
-function getProducts() {
-    const URL = "../js/products.json";
-    fetch(URL)
-        .then(resp => resp.json())
-        .then(data => {
-            products = data.products;
-            console.log(products)
-            renderCards();
-            initializeCart();
-        })
-}
-
-function renderCards(){
-    for (item of products) {
-        const { title, description, price, urlPicture } = item;
-        let product = new Product(title, description, price, urlPicture);
-        product.createCard(id);
-        id += 1;
-    }
-}
-
-function initializeCart(){
-    console.log("push")
-    for (let i = 0; i < products.length; i++) { cart.push([]) }
-}
-
-function getStoredCart() {
-    if (localStorage.getItem("cart")) {
-        cart = JSON.parse(localStorage.getItem("cart"))
-        prodsInCart = parseInt(localStorage.getItem("prodsInCart"));
-        qtyInCart.innerText = prodsInCart;
-    } else {
-        initializeCart();
-    }
-}
-
-
-
-function addToCart(id) {
-    cart[id].push(id);
-    prodsInCart += 1;
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("prodsInCart", prodsInCart);
-    qtyInCart.innerText = prodsInCart;
-
-    Toast.fire({
-        icon: 'success',
-        title: `Producto agregado\n${prodsInCart} productos en tu carrito`
-    })
-}
-
-function removeCart() {
-    localStorage.removeItem("cart");
-    cart = [];
-    prodsInCart = 0;
-    getStoredCart();
-    msgEmptyCart();
-    qtyInCart.innerText = prodsInCart;
-
-}
-
-function goToCart() {
-    (prodsInCart == 0) ? msgEmptyCart() : populateModal();
-}
-
-
-function populateModal() {
-    let index = 0;
-    let total = 0;
-    let foto = "";
-    let titulo = "";
-    let precio = 0;
-    modal.innerHTML = ""
-    for (item of cart) {
-        let qty = item.length
-        if (qty > 0) {
-            prodsInCart += qty;
-            console.log(`Hay ${qty} ${products[index].title}`)
-            foto = products[index].urlPicture;
-            titulo = products[index].title;
-            precio = products[index].price * qty * 0.8;
-            total += precio;
-
-            modal.innerHTML += `<div class="modal--card--container">
-            <div class="modal--card--img">
-                <img src="${foto}" alt="torta">
-            </div>
-
-            <div class="modal--card--textContainer">
-                <div class="modal--card--title">
-                    <p>${titulo}</p>
-                </div>
-                <div class="modal--card--qty">
-                    <input type="number" value="${qty}" min="1" max="100" step="1"/>
-                </div>
-                <div class="modal--card--price">
-                    <p>$${precio}</p>
-                </div>
-
-            </div>
-        </div>`
-        }
-        index += 1;
-
-    }
-    modal.innerHTML += `<hr>
-                            <div class="modal--card--resumeContainer">
-                                <div class="modal--card--resumeText">
-                                    <p>Total: </p>
-                                </div>
-                                <div>
-                                    <p>$${total}</p>
-                                </div>
-                            </div>`
-
-
-
-}
-
-function checkout(id) {
-    removeCart();
-    (id == null) ?
-        //recorrer el carrito y mostrar cada producto del carrito en una tabla en la pagina de checkout
-
-        msgCartCheckout()
-
-        :
-        //agregar solo el producto del id y mostrarlo en la pagina del checkout
-        msgProductCheckout();
-
-}
-
-function msgProductCheckout() {
-    Swal.fire({
-        title: 'Pedido confirmado',
-        text: 'Recibiras tu producto en menos de 24 horas!',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    })
-}
-function msgCartCheckout() {
-    Swal.fire({
-        title: 'Pedido confirmado',
-        text: 'Recibiras los productos de tu carrito en menos de 24 horas!',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    })
-}
-function msgEmptyCart() {
-    Swal.fire({
-        title: 'Carrito vacio!',
-        text: 'Vamos a llenarlo!',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    })
-}
-
-
+getProducts(null, cart);
+writeQtyInCart(prodsInCart);
 
 
 /*************************
@@ -308,8 +140,6 @@ let tortaACotizar = {
     decoracion: "",
     porciones: ""
 }
-
-
 
 
 botonCotizar.onclick = () => {
@@ -336,7 +166,6 @@ botonCotizar.onclick = () => {
 }
 
 
-
 //Renderizar un texto con el resultado final de la torta elegida por el cliente y una nota de disclaimer
 const mostrarTortaCotizada = () => {
     const userOptions = document.querySelector("#userOption");
@@ -349,11 +178,11 @@ const mostrarTortaCotizada = () => {
 
 function getPrices() {
     const URL = "../js/prices.json";
-        fetch(URL)
-            .then(resp => resp.json())
-            .then(data => {
-                precios = data.prices;
-                console.log(precios)
-            })
+    fetch(URL)
+        .then(resp => resp.json())
+        .then(data => {
+            precios = data.prices;
+            //console.log(precios)
+        })
 }
 getPrices();
