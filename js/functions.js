@@ -37,8 +37,6 @@ function getProducts(nodo, lista) {
 
 
 function populateCartCheckout(node, lista) {
-    console.log("esta es la lista que se renderiza: ", lista)
-    let index = 0;
     let total = 0;
     let picture = "";
     let title = "";
@@ -53,7 +51,6 @@ function populateCartCheckout(node, lista) {
         return res;
     }, new Map).values()]
 
-    console.log("este es el array reducido: ", reducedCart)
     save("reducedCart", reducedCart);
 
     for (item of reducedCart) {
@@ -76,7 +73,7 @@ function populateCartCheckout(node, lista) {
                     <a id="eliminarItem_${item.id}" href="#">Eliminar</a>
                 </div>
                 <div class="modal--card--qty">
-                    <input type="number" value="${qty}" min="1" max="100" step="1"/>
+                    <input id="modificarCantidad_${item.id}" type="number" value="${qty}" min="1" max="100" step="1"/>
                 </div>
                 <div class="modal--card--price">
                     <p>$${price}</p>
@@ -85,7 +82,6 @@ function populateCartCheckout(node, lista) {
             </div>
         </div>`
         }
-        index += 1;
 
     }
 
@@ -108,20 +104,28 @@ function populateCartCheckout(node, lista) {
 
     reducedCart.forEach(item => {
         document.querySelector(`#eliminarItem_${item.id}`).onclick = () => eliminarItem(item.id);
+        const inputField = document.querySelector(`#modificarCantidad_${item.id}`)
+        inputField.onchange = () => modificarCantidad(item, inputField.value);
     })
 }
 
 //function populateProductCheckout(nodo, id){}
 function eliminarItem(id) {
-    console.log("eliminar item: ", id)
     const newCarrito = cart.filter( elem => elem.id != id);
-    console.log(newCarrito)
+    if(newCarrito.length == 0) {msgEmptyCart()}
     deleteCart()
     save("cart", newCarrito)
     retriveStoredCart()
     removeNode(`#prodId_${id}`, "#cartContainer" )
     const container = document.querySelector("#cartContainer")
     populateCartCheckout(container, newCarrito)
+    
+    
+}
+
+function modificarCantidad(item, value){
+    console.log("Producto: ", item)
+    console.log("Nuevo valor", value)
     
 }
 
@@ -192,10 +196,11 @@ function msgCartCheckout() {
         closeOnClickOutside: false
     })
 }
+
 function msgEmptyCart() {
     Swal.fire({
-        title: 'Carrito vacio!',
-        text: 'Vamos a llenarlo!',
+        title: "Tu carrito quedó vacio",
+        text: 'Vamos a llenarlo?',
         icon: 'success',
         confirmButtonText: 'OK'
     }).then(function () {
