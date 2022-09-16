@@ -63,17 +63,29 @@ cartBtn.onclick = () => goToCart();
 // Clases
 class Product {
 
-    constructor(title, description, price, picture) {
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.picture = picture;
-        this.discounPrice = Math.trunc(price * 0.8);
+    constructor(id, title, description, price, picture) {
+
+        this.product = {
+            "id": id,
+            "title": title,
+            "description": description,
+            "price": price,
+            "picture": picture,
+            "discountPrice": price * 0.8
+        }
+        //this.product.discountPrice = 0.8;
+
+        // this.id = id;
+        // this.title = title;
+        // this.description = description;
+        // this.price = price;
+        // this.picture = picture;
+        // this.discounPrice = Math.trunc(price * 0.8);
     }
-    createCard(id) {
+    createCard() {
         let url = "./img/default.jpg"
-        if (this.picture !== "") {
-            url = this.picture;
+        if (this.product.picture !== "") {
+            url = this.product.picture;
         }
         let cardContainer = document.querySelector(".cart");
         let card = document.createElement("div");
@@ -82,27 +94,27 @@ class Product {
                             <img src="${url}" class="cardImg" alt="imagen de producto">
                             <div class="card-body">
                                 <div class="cardTextBox">
-                                    <span class="card--title ">${this.title}</span>
+                                    <span class="card--title ">${this.product.title}</span>
                                 </div>
                                 <div class="cardTextBox">
-                                    <span class="card--description ">${this.description}</span>
+                                    <span class="card--description ">${this.product.description}</span>
                                 </div>
                                 <div class="">
-                                    <span class="card--regularPrice " >$ ${this.price}</span>
+                                    <span class="card--regularPrice " >$ ${this.product.price}</span>
                                 </div>
                                 <div class="">
                                     <span class="card--discount ">20%OFF</span>
                                 </div>
                                 <div class="">
-                                    <span class="card--price " >$ ${this.discounPrice}</span>
+                                    <span class="card--price " >$ ${this.product.discountPrice}</span>
                                 </div>
                                 <div class="">
                                 <form action="./productCheckout.html">
-                                    <input class="buyBtn" id="card--checkout--${id}" type="submit" value="Comprar" />
+                                    <input class="buyBtn" id="card--checkout--${this.product.id}" type="submit" value="Comprar" />
                                 </form>
                                 </div>
                                 <div class="">
-                                    <button id="addToCartItem_${id}" class="cartBtn">
+                                    <button id="addToCartItem_${this.product.id}" class="cartBtn">
                                         <i class="fa-solid fa-cart-arrow-down"></i>
                                     </button>
                                 </div>
@@ -110,8 +122,8 @@ class Product {
                         </div>`
 
         cardContainer.append(card);
-        document.querySelector(`#addToCartItem_${id}`).onclick = () => addToCart(id);
-        document.querySelector(`#card--checkout--${id}`).onclick = () => checkout(id);
+        document.querySelector(`#addToCartItem_${this.product.id}`).onclick = () => addToCart(this.product);
+        document.querySelector(`#card--checkout--${this.product.id}`).onclick = () => checkout(this.product.id);
     }
 }
 

@@ -1,27 +1,22 @@
 
 
 function retriveStoredCart() {
-    if (localStorage.getItem("cart")) {
-        getQtyInCart();
-    } else {
-        initializeCart();
-    }
+    (localStorage.getItem("cart")) ? getQtyInCart() : console.log("Aqui iba initializeCart()");
 }
 function initializeCart() {
     for (let i = 0; i < products.length; i++) { cart.push([]) }
 }
 function getQtyInCart() {
     cart = JSON.parse(localStorage.getItem("cart"))
-    prodsInCart = parseInt(localStorage.getItem("prodsInCart"));
+    prodsInCart = cart.length;//parseInt(localStorage.getItem("prodsInCart"));
     writeQtyInCart(qtyInCart, prodsInCart)
 }
 
 function renderCards() {
     for (item of products) {
-        const { title, description, price, urlPicture } = item;
-        let product = new Product(title, description, price, urlPicture);
-        product.createCard(id);
-        id += 1;
+        const { id, title, description, price, urlPicture } = item;
+        let product = new Product(id, title, description, price, urlPicture);
+        product.createCard();
     }
 }
 
@@ -35,30 +30,42 @@ function getProducts(nodo, lista) {
         .then(resp => resp.json())
         .then(data => {
             products = data.products;
-            retriveStoredCart();            
-            (nodo != null ) ? populateCartCheckout(nodo, lista) : renderCards();
+            retriveStoredCart();
+            (nodo != null) ? populateCartCheckout(nodo, lista) : renderCards();
         })
 }
 
 
 function populateCartCheckout(node, lista) {
-    console.log(lista)
+    console.log("esta es la lista que se renderiza: ", lista)
     let index = 0;
     let total = 0;
     let picture = "";
     let title = "";
     let price = 0;
-    node.innerHTML = ""
-    for (item of lista) {
-        let qty = item.length
+    node.innerHTML = "";
+    //Genero un nuevo array para reducir los elementos repetidos y agrego la propiedad count a cada elemento 
+    //para contabilizarlos individualmente en el checkout
+    const reducedCart = [...lista.reduce((res, elem) => {
+        let id = elem.id;
+        if (!res.has(id)) res.set(id, { ...elem, count: 1 })
+        else res.get(id).count++
+        return res;
+    }, new Map).values()]
+
+    console.log("este es el array reducido: ", reducedCart)
+    save("reducedCart", reducedCart);
+
+    for (item of reducedCart) {
+        let qty = item.count
         if (qty > 0) {
             prodsInCart += qty;
-            picture = products[index].urlPicture;
-            title = products[index].title;
-            price = products[index].price * qty * 0.8;
+            picture = item.picture;
+            title = item.title;
+            price = item.price * qty * 0.8;
             total += price;
 
-            node.innerHTML += `<div class="modal--card--container">
+            node.innerHTML += `<div id="prodId_${item.id}" class="modal--card--container">
             <div class="modal--card--img">
                 <img src="${picture}" alt="torta">
             </div>
@@ -66,6 +73,7 @@ function populateCartCheckout(node, lista) {
             <div class="modal--card--textContainer">
                 <div class="modal--card--title">
                     <p>${title}</p>
+                    <a id="eliminarItem_${item.id}" href="#">Eliminar</a>
                 </div>
                 <div class="modal--card--qty">
                     <input type="number" value="${qty}" min="1" max="100" step="1"/>
@@ -80,6 +88,8 @@ function populateCartCheckout(node, lista) {
         index += 1;
 
     }
+
+
     node.innerHTML += `<hr>
                             <div class="modal--card--resumeContainer">
                                 <div class="modal--card--resumeText">
@@ -96,17 +106,34 @@ function populateCartCheckout(node, lista) {
                         </form>
                         </div>`
 
-
+    reducedCart.forEach(item => {
+        document.querySelector(`#eliminarItem_${item.id}`).onclick = () => eliminarItem(item.id);
+    })
 }
 
-function populateProductCheckout(nodo, id){
-
+//function populateProductCheckout(nodo, id){}
+function eliminarItem(id) {
+    console.log("eliminar item: ", id)
+    const newCarrito = cart.filter( elem => elem.id != id);
+    console.log(newCarrito)
+    deleteCart()
+    save("cart", newCarrito)
+    retriveStoredCart()
+    removeNode(`#prodId_${id}`, "#cartContainer" )
+    const container = document.querySelector("#cartContainer")
+    populateCartCheckout(container, newCarrito)
+    
 }
 
-function addToCart(id) {
-    cart[id].push(id);
-    prodsInCart += 1;
-    saveCart();
+function removeNode (node, parent){
+    const nodo = document.querySelector(node)
+    const padre = document.querySelector(parent)
+    padre.removeChild(nodo)
+}
+function addToCart(item) {
+    cart.push(item);
+    prodsInCart = cart.length;
+    save("cart", cart);
     writeQtyInCart(qtyInCart, prodsInCart);
 
     Toast.fire({
@@ -114,8 +141,8 @@ function addToCart(id) {
         title: `Producto agregado\n${prodsInCart} productos en tu carrito`
     })
 }
-function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
+function save(name, item) {
+    localStorage.setItem(name, JSON.stringify(item));
     localStorage.setItem("prodsInCart", prodsInCart);
 }
 function removeCart() {
@@ -128,7 +155,7 @@ function deleteCart() {
     localStorage.removeItem("cart");
     localStorage.removeItem("prodsInCart")
     cart = [];
-    modal.setAttribute("display", "none")
+    //modal.setAttribute("display", "none")
     prodsInCart = 0;
 }
 function goToCart() {
@@ -144,7 +171,7 @@ function checkout(id) {
         :
         //Mostrar en la pagina checkout el porducto a comprar
         console.log("Producto chekout")
-        //msgCartCheckout();
+    //msgCartCheckout();
 
 }
 function msgProductCheckout() {

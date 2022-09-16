@@ -68,7 +68,7 @@
 .buyBtn, .checkoutBtn, .cartBtn {
   width: 100%;
   background-color: #3483fa;
-  color: #a8cbff;
+  color: white;
   border: none;
   border-radius: 5px;
   height: 38px;
@@ -360,7 +360,7 @@ footer {
 
 .modal--card--container input {
   margin: 0 auto;
-  width: 20px; }
+  width: 50px; }
 
 .modal--card--img {
   width: 20%; }
