@@ -4,7 +4,7 @@ const checkoutBtn = document.querySelector("#cartContainer--checkoutBtn");
 let products = [];
 
 retriveStoredCart();
-getProducts(cartContainer, cart);
+getProducts(cartContainer);
 checkoutBtn.onclick = () => {
     
 }

@@ -34,7 +34,6 @@ checkout
 */
 
 //Decalracion de variables y constantes
-let cart = [];
 let products = [];
 let id = 0;
 let prodsInCart = 0;
@@ -58,7 +57,7 @@ const Toast = Swal.mixin({
 })
 
 //Eventos
-cartBtn.onclick = () => goToCart();
+//cartBtn.onclick = () => goToCart();
 
 // Clases
 class Product {
@@ -122,12 +121,12 @@ class Product {
                         </div>`
 
         cardContainer.append(card);
-        document.querySelector(`#addToCartItem_${this.product.id}`).onclick = () => addToCart(this.product);
+        document.querySelector(`#addToCartItem_${this.product.id}`).onclick = () => addToCart(this.product.id);
         document.querySelector(`#card--checkout--${this.product.id}`).onclick = () => checkout(this.product.id);
     }
 }
 
-getProducts(null, cart);
+getProducts(null);
 writeQtyInCart(prodsInCart);
 
 
