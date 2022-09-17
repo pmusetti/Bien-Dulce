@@ -1,7 +1,8 @@
-const cartContainer = document.querySelector("#cartContainer");
 const checkoutBtn = document.querySelector("#cartContainer--checkoutBtn");
 const qtyInCart = document.querySelector(".itemsInCart");
+const saveDataBtn = document.querySelector("#saveUserData");
+saveDataBtn.onclick = () => getUserData();
 
 const reducedCart = retrive("reducedCart");
-populateCartCheckout(cartContainer, reducedCart);
+populateCartCheckout(reducedCart, "confirmCartCheckout()");
 

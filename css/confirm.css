@@ -1,3 +1,7 @@
+.main{
+    width: 100%;
+    margin: 0 auto;
+}
 row {
     display: -ms-flexbox;
     /* IE10 */
@@ -15,9 +19,9 @@ row {
 }
 
 .col-50 {
-    -ms-flex: 60%;
+    -ms-flex: 50%;
     /* IE10 */
-    flex: 60%;
+    flex: 50%;
 }
 
 .col-60 {

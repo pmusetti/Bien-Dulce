@@ -1,33 +1,8 @@
-
-function save(name, element) {
-    localStorage.setItem(name, JSON.stringify(element));
-}
-function retrive(element) {
-    if (localStorage.getItem(`${element}`)) getQtyInCart();
-    return JSON.parse(localStorage.getItem(`${element}`));
-}
-
-function getQtyInCart() {
-    const reducedCart = JSON.parse(localStorage.getItem("reducedCart"))
-    let qty = 0;
-    for (const item of reducedCart) {
-
-        qty += item.count;
-    }
-    writeQtyInCart(qtyInCart, qty)
-}
-
-function renderCards(products) {
-    for (const item of products) {
-        const { id, title, description, price, urlPicture } = item;
-        let product = new Product(id, title, description, price, urlPicture);
-        product.createCard();
-    }
-}
-
-function writeQtyInCart(node, value) {
-    node.innerText = value;
-}
+/*
+-----------------------------------------------
+---------- OBTENER PRODUCTOS (FETCH) ----------
+-----------------------------------------------
+*/
 
 function getProducts() {
     const URL = "../js/products.json";
@@ -47,17 +22,79 @@ function getProducts() {
         })
 }
 
-/*function reduceCart(lista) {
-    const reducedCart = [...lista.reduce((res, elem) => {
-        let id = elem.id;
-        if (!res.has(id)) res.set(id, { ...elem, count: 1 })
-        else res.get(id).count++
-        return res;
-    }, new Map).values()]
-    return reducedCart;
-}*/
 
-function populateCartCheckout(node, lista) {
+/*
+---------------------------------------------------
+---------- OBTENER DATOS DE LOCALSTORAGE ----------
+---------------------------------------------------
+*/
+
+function save(name, element) {
+    localStorage.setItem(name, JSON.stringify(element));
+}
+function retrive(element) {
+    if (localStorage.getItem(`${element}`)) getQtyInCart();
+    return JSON.parse(localStorage.getItem(`${element}`));
+}
+function getUserData() {
+    const name = document.getElementById("fname").value
+    const email = document.getElementById("email").value
+    const address = document.getElementById("adr").value
+    const city = document.getElementById("city").value
+    const state = document.getElementById("state").value
+    const zip = document.getElementById("zip").value
+    const cardName = document.getElementById("cname").value
+    const cardNumber = document.getElementById("ccnum").value
+    const expMonth = document.getElementById("expmonth").value
+    const expYear = document.getElementById("expyear").value
+    const cvv = document.getElementById("cvv").value
+
+    const userData = {
+        name: name,
+        email: email,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        cardName: cardName,
+        cardNumber: cardNumber,
+        expMonth: expMonth,
+        expYear: expYear,
+        cvv: cvv
+    }
+    save("userData", userData)
+}
+function getQtyInCart() {
+    const reducedCart = JSON.parse(localStorage.getItem("reducedCart"))
+    let qty = 0;
+    for (const item of reducedCart) {
+
+        qty += item.count;
+    }
+    writeQtyInCart(qtyInCart, qty)
+}
+
+/*
+--------------------------------
+---------- RENDERIZAR ----------
+--------------------------------
+*/
+
+
+function renderCards(products) {
+    for (const item of products) {
+        const { id, title, description, price, urlPicture } = item;
+        let product = new Product(id, title, description, price, urlPicture);
+        product.createCard();
+    }
+}
+
+function writeQtyInCart(node, value) {
+    node.innerText = value;
+}
+
+function populateCartCheckout(lista, btnFunction) {
+    const node = document.querySelector("#cartContainer");
     let total = 0;
     let picture = "";
     let title = "";
@@ -111,13 +148,20 @@ function populateCartCheckout(node, lista) {
                             </div>
                         <hr>
                         <div style="text-align: right; margin-right: 5%;">
-                            <form action="./confirm.html">
-                                <input type="submit" id="${node}--checkoutBtn" class="checkoutBtn" value="Finalizar compra" />
+                            <form action="#">
+                                <input type="submit" id="${node}--checkoutBtn" onclick= ${btnFunction} class="checkoutBtn" value="Finalizar compra" />
                             </form>
                         </div>`
 
 
+
 }
+
+/*
+----------------------------
+---------- LOGICA ----------
+----------------------------
+*/
 
 function eliminarItem(id) {
     let reducedCart = retrive("reducedCart")
@@ -129,11 +173,9 @@ function eliminarItem(id) {
     if (qty == 0) { msgEmptyCart() }
     save("reducedCart", reducedCart)
     removeNode(`#prodId_${id}`, "#cartContainer")
-    const container = document.querySelector("#cartContainer")
-    populateCartCheckout(container, reducedCart)
+    populateCartCheckout(reducedCart)
     getQtyInCart();
 }
-
 function modificarCantidad(item, value) {
     let reducedCart = retrive("reducedCart");
     for (const elem of reducedCart) {
@@ -142,12 +184,10 @@ function modificarCantidad(item, value) {
         }
     }
     save("reducedCart", reducedCart)
-    const container = document.querySelector("#cartContainer")
-    populateCartCheckout(container, reducedCart)
+    populateCartCheckout(reducedCart)
     getQtyInCart();
 
 }
-
 function removeNode(node, parent) {
     const nodo = document.querySelector(node)
     const padre = document.querySelector(parent)
@@ -170,7 +210,6 @@ function addToCart(id) {
         title: `Producto agregado! \n ${qty} productos en tu carrito`
     })
 }
-
 function removeCart() {
     deleteCart();
     retrive("cart");
@@ -181,45 +220,113 @@ function deleteCart() {
     localStorage.removeItem("reducedCart");
 
 }
-function goToCart() {
-    (prodsInCart == 0) ? msgEmptyCart() : populateCartCheckout();
+function checkout(id) {
+    const products = retrive("products")
+    const product = products.filter(item => item.id == id);
+    product[0].count = 1;
+    save("product", product)
+    
+}
+function userDataIsOk(){
+    const userData = retrive("userData")
+    if(userData === null) return false;
+    const arr = Object.values(userData)
+    for (const item of arr){
+        if (item === ""){
+            return false;
+            }
+    }
+    return true;
+}
+function confirmCartCheckout() {
+    const dataIsOk = userDataIsOk()
+    const cart  = retrive("reducedCart")
+    let qty = 0;
+    if (!dataIsOk) {
+        msgUserData()
+    } else {
+        for(let item of cart){
+            qty += item.count
+        }
+        if ( qty == 0){
+            msgCartIsEmpty()
+        }else{
+            msgCartCheckout()
+            const products = retrive("products")
+            save("reducedCart", products)
+            populateCartCheckout([])
+            getQtyInCart()
+        }
+    }
+}
+function confirmProductCheckout() {
+    const dataIsOk = userDataIsOk()
+    const product  = retrive("product")
+    if (!dataIsOk) {
+        msgUserData()
+    } else {
+        if ( product.length === 0){
+            msgErrorNoProduct()
+        }else{
+            msgProductCheckout()
+            save("product", [])
+            populateCartCheckout([])
+        }
+    }
 }
 
-function checkout(id) {
 
-    (id == null) ?
-        //Pedir datos de envio y avisar de compra finalizada
-        //msgProductCheckout()
-        console.log("Carrito chekout")
-        :
-        //Mostrar en la pagina checkout el porducto a comprar
-        console.log("Producto chekout")
-    //msgCartCheckout();
-
+/*
+-----------------------------------------
+---------- MENSAJES SWEETALERT ----------
+-----------------------------------------
+*/
+function msgUserData() {
+    Swal.fire({
+        title: 'Error',
+        text: 'Debes completar los todos los datos de usuario',
+        icon: 'error',
+        confirmButtonText: 'OK',
+    })
 }
 function msgProductCheckout() {
+    const userData = retrive("userData")
     Swal.fire({
-        title: 'Pedido confirmado',
-        text: 'Recibiras tu producto en menos de 24 horas!',
+        title: `${userData.name}, \n ¡Tu pedido está en camino!`,
+        text: `Lo recibiras en menos de 24 horas en ${userData.address}`,
         icon: 'success',
-        confirmButtonText: 'OK',
-        closeOnClickOutside: false
+        confirmButtonText: 'OK'
     })
 }
 function msgCartCheckout() {
+    const userData = retrive("userData")
     Swal.fire({
-        title: 'Pedido confirmado',
-        text: 'Recibiras los productos de tu carrito en menos de 24 horas!',
+        title: `${userData.name},\n ¡Tu carrito está en camino!`,
+        text: 'Lo recibiras en menos de 24 horas!',
         icon: 'success',
         confirmButtonText: 'OK',
-        closeOnClickOutside: false
     })
 }
-
 function msgEmptyCart() {
     Swal.fire({
         title: "Tu carrito quedó vacio",
         text: 'Vamos a llenarlo?',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+}
+function msgErrorNoProduct(){
+    Swal.fire({
+        title: "Elige un producto",
+        text: '¿A cual de nuestras delicias vas a sucumbir?',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+}
+function msgCartIsEmpty(){
+    Swal.fire({
+        title: "¡Tu carrito está vacío!",
+        text: '¿Vamos a llenarlo?',
         icon: 'success',
         confirmButtonText: 'OK'
     });
