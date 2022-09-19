@@ -38,7 +38,7 @@ function save(name, structure) {
 }
 //Devuelve los datos almacenados en localStorage. Recibe por parametro el nombre de la estructura a devolver
 function retrive(name) {
-    if (localStorage.getItem(`${name}`)) getQtyInCart(qtyInCart);
+    if (localStorage.getItem(`${name}`)) getQtyInCart();
     return JSON.parse(localStorage.getItem(`${name}`));
 }
 //Obtiene del DOM los datos personales y de facturacion ingresados por el usuario y los guarda en localStorage
@@ -73,7 +73,7 @@ function getUserData() {
     save("userData", userData)
 }
 //Obtiene la cantidad de productos en el carrito y modifica el DOM para mostrarlo. Recibe por parametro el nodo
-function getQtyInCart(node) {
+function getQtyInCart() {
     const cart = JSON.parse(localStorage.getItem("cart"))
     let qty = 0;
     for (const item of cart) {
@@ -81,10 +81,8 @@ function getQtyInCart(node) {
         qty += item.count;
     }
     //Escribe en el DOM la cantidad de productos en carrito
-    node.forEach(element => { element.innerHTML = qty
-        
-    });
-    //writeQtyInCart(node, qty)
+    const nodo = document.querySelectorAll(".itemsInCart")
+    nodo.forEach(element => { element.innerText = qty});
 }
 
 /*
@@ -121,11 +119,14 @@ function populateCartCheckout(lista, target) {
     let inputFunction = "";
     let checkoutBtnFunction =  "";
     let eliminateItemFunction = "";
+    let eliminateCartText = ""
 
+    //Define las diferentes funciones que deben tener los botones en caso de renderizar el carrito o el producto unitario
     if(target==="cart"){
         inputFunction = "changeQuantityCart";
         checkoutBtnFunction = "confirmCartCheckout()";
         eliminateItemFunction = "eliminateCartItem";
+        eliminateCartText = "Eliminar Carrito"
 
 
     }else if(target === "product"){
@@ -185,7 +186,7 @@ function populateCartCheckout(lista, target) {
 
                         <div class="modal--card--resumeContainer">
                             <div style="text-align: left; width: 70%; font-weight: 300">
-                                <a id="eliminateCart" href="#" onclick=removeCart() >Eliminar carrito</a>
+                                <a id="eliminateCart" href="#" onclick=removeCart() >${eliminateCartText}</a>
                             </div>
 
                             <form action="#">
@@ -193,6 +194,7 @@ function populateCartCheckout(lista, target) {
                             </form>  
                             
                         </div>`
+
 }
 
 /*
@@ -220,7 +222,7 @@ function eliminateCartItem(id) {
     //Vuelve a dibujar los productos en el carrito, pues fueron actualizados
     populateCartCheckout(cart, "cart")
     //Obtiene los productos en carrito y modifica el DOM para mostrarlo
-    getQtyInCart(qtyInCart);
+    getQtyInCart();
 }
 function eliminateProductItem(id){
     save("product", []);
@@ -243,7 +245,7 @@ function changeQuantityCart(id, newValue) {
     }
     save("cart", cart)
     populateCartCheckout(cart,"cart")
-    getQtyInCart(qtyInCart);
+    getQtyInCart();
 
 }
 //Modifica la cantidad del producto elegido. No modifica el carrito, solo el producto que se esta por comprar
@@ -272,7 +274,7 @@ function addToCart(id) {
         qty += item.count
     }
     save("cart", cart);
-    getQtyInCart(qtyInCart);
+    getQtyInCart();
     //Notifica al usuario que se agrego un producto y muestra la cantidad de productos en carrito
     Toast.fire({
         icon: 'success',
@@ -346,7 +348,7 @@ function confirmCartCheckout() {
             //Dibuja el carrito, esta vez con 0 produtos
             populateCartCheckout([],"cart")
             //Actualiza la cantidad de productos en carrito (en este caso 0)
-            getQtyInCart(qtyInCart)
+            getQtyInCart()
         }
     }
 }

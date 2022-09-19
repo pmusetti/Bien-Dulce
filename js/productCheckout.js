@@ -1,4 +1,3 @@
-const qtyInCart = document.querySelector(".itemsInCart");
 const saveDataBtn = document.querySelector("#saveUserData");
 saveDataBtn.onclick = () => getUserData();
 

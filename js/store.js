@@ -15,7 +15,6 @@ let products = [];
 let id = 0;
 
 //Capturar nodos del DOM
-const qtyInCart = document.querySelectorAll(".itemsInCart");
 const cartBtn = document.querySelector(".verCarrito");
 
 //Notificacion producto agregado
@@ -92,4 +91,4 @@ class Product {
 
 // Llamada a funciones
 getProducts(null);
-getQtyInCart(qtyInCart);
+getQtyInCart();
