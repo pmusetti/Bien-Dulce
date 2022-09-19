@@ -126,7 +126,7 @@ function populateCartCheckout(lista, target) {
         inputFunction = "changeQuantityCart";
         checkoutBtnFunction = "confirmCartCheckout()";
         eliminateItemFunction = "eliminateCartItem";
-        eliminateCartText = "Eliminar Carrito"
+        eliminateCartText = "Vaciar Carrito"
 
 
     }else if(target === "product"){
@@ -384,7 +384,7 @@ function confirmProductCheckout() {
 function msgErrorUserData() {
     Swal.fire({
         title: 'Error',
-        text: 'Debes completar los todos los datos de usuario',
+        text: `Debes completar los todos los datos de usuario. Falta ${msg}`,
         icon: 'error',
         confirmButtonText: 'OK',
     })
