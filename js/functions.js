@@ -38,7 +38,7 @@ function save(name, structure) {
 }
 //Devuelve los datos almacenados en localStorage. Recibe por parametro el nombre de la estructura a devolver
 function retrive(name) {
-    if (localStorage.getItem(`${name}`)) getQtyInCart();
+    if (localStorage.getItem(`${name}`)) getQtyInCart(qtyInCart);
     return JSON.parse(localStorage.getItem(`${name}`));
 }
 //Obtiene del DOM los datos personales y de facturacion ingresados por el usuario y los guarda en localStorage
@@ -72,8 +72,8 @@ function getUserData() {
     //Guarda los datos en el localStorage
     save("userData", userData)
 }
-//Obtiene la cantidad de productos en el carrito y modifica el DOM para mostrarlo
-function getQtyInCart() {
+//Obtiene la cantidad de productos en el carrito y modifica el DOM para mostrarlo. Recibe por parametro el nodo
+function getQtyInCart(node) {
     const cart = JSON.parse(localStorage.getItem("cart"))
     let qty = 0;
     for (const item of cart) {
@@ -81,7 +81,10 @@ function getQtyInCart() {
         qty += item.count;
     }
     //Escribe en el DOM la cantidad de productos en carrito
-    writeQtyInCart(qtyInCart, qty)
+    node.forEach(element => { element.innerHTML = qty
+        
+    });
+    //writeQtyInCart(node, qty)
 }
 
 /*
@@ -217,7 +220,7 @@ function eliminateCartItem(id) {
     //Vuelve a dibujar los productos en el carrito, pues fueron actualizados
     populateCartCheckout(cart, "cart")
     //Obtiene los productos en carrito y modifica el DOM para mostrarlo
-    getQtyInCart();
+    getQtyInCart(qtyInCart);
 }
 function eliminateProductItem(id){
     save("product", []);
@@ -240,7 +243,7 @@ function changeQuantityCart(id, newValue) {
     }
     save("cart", cart)
     populateCartCheckout(cart,"cart")
-    getQtyInCart();
+    getQtyInCart(qtyInCart);
 
 }
 //Modifica la cantidad del producto elegido. No modifica el carrito, solo el producto que se esta por comprar
@@ -269,7 +272,7 @@ function addToCart(id) {
         qty += item.count
     }
     save("cart", cart);
-    getQtyInCart();
+    getQtyInCart(qtyInCart);
     //Notifica al usuario que se agrego un producto y muestra la cantidad de productos en carrito
     Toast.fire({
         icon: 'success',
@@ -343,7 +346,7 @@ function confirmCartCheckout() {
             //Dibuja el carrito, esta vez con 0 produtos
             populateCartCheckout([],"cart")
             //Actualiza la cantidad de productos en carrito (en este caso 0)
-            getQtyInCart()
+            getQtyInCart(qtyInCart)
         }
     }
 }

@@ -13,10 +13,9 @@
 //Decalracion de variables y constantes
 let products = [];
 let id = 0;
-let prodsInCart = 0;
 
 //Capturar nodos del DOM
-const qtyInCart = document.querySelector(".itemsInCart");
+const qtyInCart = document.querySelectorAll(".itemsInCart");
 const cartBtn = document.querySelector(".verCarrito");
 
 //Notificacion producto agregado
@@ -93,4 +92,4 @@ class Product {
 
 // Llamada a funciones
 getProducts(null);
-writeQtyInCart(prodsInCart);
+getQtyInCart(qtyInCart);

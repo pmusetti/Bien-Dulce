@@ -29,43 +29,45 @@
         <nav id="navBar_mobile" class="navBar">
             <ul class="navBar__list">
                 <li class="navBar__menu">
-                    <img id="navBar_mobile--menuIcon" src="./assets/img/lista.png"
+                    <img id="navBar_mobile--menuIcon" src="../assets/img/lista.png"
                         alt="menu hamburguesa para vista mobile">
                     <ul class="submenu" id="submenuMobile">
-                        <li><a href="#">INICIO</a></li>
-                        <li><a href="#productos">PRODUCTOS</a></li>
+                        <li><a href="../index.html">INICIO</a></li>
+                        <li><a href="../index.html#productos">PRODUCTOS</a></li>
                         <li><a href="./pages/gallery.html#gallery">GALERIA</a></li>
                         <li><a href="./pages/about.html#aboutMe">SOBRE MI</a></li>
                         <li><a href="./pages/store.html">TIENDA</a></li>
                         <li><a href="#contacto">CONTACTO</a></li>
+                        <li><a href="./pages/cartCheckout.html" class="verCarrito">CARRITO
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="itemsInCart">0</span>
+                        </a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
-        <a href="./index.html">
-            <img class="logo_mobile" src="./assets/img/logo.webp" alt="logo">
+        <a href="../index.html">
+            <img class="logo_mobile" src="../assets/img/logo.webp" alt="logotipo de cocina bien dulce">
         </a>
-
         <nav id="navBar_desktop" class="navBar">
             <!-- Listas anidadas de menu y submenu  -->
             <ul class="navBar__list">
-                <li><a class="highlight activo" href="./index.html">INICIO</a></li>
+                <li><a class="zoom highlight activo" href="../index.html">INICIO</a></li>
                 <li class="navBar__menu">
-                    <a class="highlight" href="#productos">PRODUCTOS</a>
+                    <a class="highlight" href="../index.html#productos">PRODUCTOS</a>
                     <!-- Submenu de productos  -->
                     <ul class="submenu">
                         <li><a class="zoom highlight" href="./pages/gallery.html#personalizadas">Personalizadas</a></li>
                         <li><a class="zoom highlight" href="./pages/gallery.html#tematicas">Tematicas</a></li>
                         <li><a class="zoom highlight" href="./pages/gallery.html#clasicas">Tortas clasicas</a></li>
                         <li><a class="zoom highlight" href="./pages/gallery.html#postres">Postres clasicos</a></li>
-                        <li><a class="zoom highlight" href="./pages/gallery.html#especiales">Ocaciones especiales</a>
-                        </li>
-                        <li><a class="zoom highlight" href="#golosinas">Golosinas</a></li>
+                        <li><a class="zoom highlight" href="./pages/gallery.html#especiales">Ocaciones especiales</a></li>
+                        <li><a class="zoom highlight" href="../index.html#golosinas">Golosinas</a></li>
                     </ul>
                 </li>
                 <li><a class="zoom highlight" href="./pages/gallery.html#gallery">GALERIA</a></li>
-                <li><a href="./index.html">
-                        <img class="logo_desktop" src="./assets/img/logo.webp" alt="logotipo de cocina bien dulce">
+                <li><a href="../index.html">
+                        <img class="logo_desktop" src="../assets/img/logo.webp" alt="logotipo de cocina bien dulce">
                     </a>
                 </li>
                 <li><a class="zoom highlight" href="./pages/about.html#aboutMe">SOBRE MI</a></li>
@@ -79,12 +81,17 @@
                                 target="_blank"><i class="fa-brands fa-whatsapp color--whatsapp"></i>Escribinos</a></li>
                         <li><a class="zoom highlight" href="https://www.instagram.com/cocinabiendulce/"
                                 target="_blank"><i class="fa-brands fa-instagram instagramColor"></i>Seguinos</a></li>
+
                     </ul>
+                </li>
+                <li>
+                    <a href="./pages/cartCheckout.html" class="verCarrito zoom">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="itemsInCart">0</span>
+                    </a>
                 </li>
             </ul>
         </nav>
-
-
     </header>
     <main>
 
@@ -320,6 +327,8 @@
             document.getElementsByClassName("disclaimer")[0].remove();
         });
     </script> -->
+    <script src="./js/functions.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

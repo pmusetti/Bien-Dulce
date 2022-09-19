@@ -160,6 +160,9 @@ footer {
 #navBar_desktop {
   display: block; }
 
+#verCarrito {
+  margin: 0 auto; }
+
 #verCarrito:hover {
   color: white; }
 
