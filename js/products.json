@@ -41,6 +41,27 @@
       "description": "Bizcochuelo de vainilla relleno de crema de frutos rojos",
       "price": 6990,
       "urlPicture": "../assets/img/Tortas/clasicas/tortasClasicas.webp"
+    },
+    {
+      "id": 7,
+      "title": "Torta CONVERSE ALL STAR",
+      "description": "Bizcochuelo de vainilla relleno de dulce de leche",
+      "price": 1190,
+      "urlPicture": "../assets/img/Tortas/personalizadas/tortaConverse.webp"
+    },
+    {
+      "id": 8,
+      "title": "Tiramisu con frutos rojos",
+      "description": "Receta italiana con queso mascarpone",
+      "price": 2090,
+      "urlPicture": "../assets/img/Tortas/postres/tiramisu.webp"
+    },
+    {
+      "id": 9,
+      "title": "Cheesecake de Frambuesa",
+      "description": "Ricotta, queso quark y frambuesas",
+      "price": 1750,
+      "urlPicture": "../assets/img/Tortas/postres/cheeseCackeFrambuesa.webp"
     }
   ]
 }
